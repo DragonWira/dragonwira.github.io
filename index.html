@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>DragonWira Studio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
     :root {
       --primary: #1e1e2f;
@@ -14,25 +14,95 @@
       --accent: #00bcd4;
     }
     * {margin:0;padding:0;box-sizing:border-box;}
-    body {font-family: 'Poppins', sans-serif; background: var(--primary); color: var(--light); line-height: 1.6;}
-    header {background: linear-gradient(to right, #2c2c3d, #1e1e2f); padding: 80px 20px; text-align: center;}
-    header h1 {font-size: 3rem; color: var(--accent); margin-bottom: 10px;}
-    header p {font-size: 1.2rem; color: #ccc;}
-    nav {display: flex; justify-content: center; gap: 30px; background: #151525; padding: 15px 0; position: sticky; top: 0; z-index: 1000;}
-    nav a {color: var(--light); text-decoration: none; font-weight: 500;}
-    nav a:hover {color: var(--accent);}
-    section {padding: 60px 20px; max-width: 1100px; margin: auto;}
-    h2 {font-size: 2rem; color: var(--accent); margin-bottom: 20px; border-left: 4px solid var(--accent); padding-left: 15px;}
-    .intro, .gallery, .videos, .contact {margin-bottom: 60px;}
-    .gallery-grid, .videos-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;}
-    .card {background: #2c2c3d; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);}
-    .card h3 {color: var(--light); margin-bottom: 10px;}
-    .card p {color: #bbb;}
-    .card img, .card video {width: 100%; border-radius: 8px; margin-bottom: 10px;}
-    .contact-form input, .contact-form textarea {width: 100%; padding: 12px; margin-bottom: 15px; border: none; border-radius: 5px;}
-    .contact-form button {background: var(--accent); border: none; padding: 10px 25px; color: white; font-weight: bold; border-radius: 5px; cursor: pointer;}
-    footer {text-align: center; padding: 30px 20px; background: #111; color: #999;}
-    .hero-image {width: 100%; border-radius: 12px; margin-top: 30px;}
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--primary);
+      color: var(--light);
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(to right, #2c2c3d, #1e1e2f);
+      padding: 80px 20px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 3rem;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 1.2rem;
+      color: #ccc;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      background: #151525;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      color: var(--light);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    nav a:hover {
+      color: var(--accent);
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    h2 {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 20px;
+      border-left: 4px solid var(--accent);
+      padding-left: 15px;
+    }
+    .intro, .gallery, .videos, .contact {
+      margin-bottom: 60px;
+    }
+    .gallery-grid, .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #2c2c3d;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    .card h3 {
+      color: var(--light);
+      margin-bottom: 10px;
+    }
+    .card p {
+      color: #bbb;
+    }
+    .card img, .card video {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: #111;
+      color: #999;
+    }
+    .hero-image {
+      width: 100%;
+      max-width: 500px;
+      margin: 30px auto 0;
+      display: block;
+      border-radius: 12px;
+    }
   </style>
 </head>
 <body>
