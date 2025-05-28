@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DragonWira Studio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #1e1e2f;
+      --secondary: #764ba2;
+      --light: #ffffff;
+      --accent: #00bcd4;
+    }
+    * {margin:0;padding:0;box-sizing:border-box;}
+    body {font-family: 'Poppins', sans-serif; background: var(--primary); color: var(--light); line-height: 1.6;}
+    header {background: linear-gradient(to right, #2c2c3d, #1e1e2f); padding: 80px 20px; text-align: center;}
+    header h1 {font-size: 3rem; color: var(--accent); margin-bottom: 10px;}
+    header p {font-size: 1.2rem; color: #ccc;}
+    nav {display: flex; justify-content: center; gap: 30px; background: #151525; padding: 15px 0; position: sticky; top: 0; z-index: 1000;}
+    nav a {color: var(--light); text-decoration: none; font-weight: 500;}
+    nav a:hover {color: var(--accent);}
+    section {padding: 60px 20px; max-width: 1100px; margin: auto;}
+    h2 {font-size: 2rem; color: var(--accent); margin-bottom: 20px; border-left: 4px solid var(--accent); padding-left: 15px;}
+    .intro, .gallery, .videos, .contact {margin-bottom: 60px;}
+    .gallery-grid, .videos-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;}
+    .card {background: #2c2c3d; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);}
+    .card h3 {color: var(--light); margin-bottom: 10px;}
+    .card p {color: #bbb;}
+    .card img, .card video {width: 100%; border-radius: 8px; margin-bottom: 10px;}
+    .contact-form input, .contact-form textarea {width: 100%; padding: 12px; margin-bottom: 15px; border: none; border-radius: 5px;}
+    .contact-form button {background: var(--accent); border: none; padding: 10px 25px; color: white; font-weight: bold; border-radius: 5px; cursor: pointer;}
+    footer {text-align: center; padding: 30px 20px; background: #111; color: #999;}
+    .hero-image {width: 100%; border-radius: 12px; margin-top: 30px;}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Hendra Cipta</h1>
+  <p>Eding Komik</p>
+</header>
+
+<nav>
+  <a href="#tentang">Tentang</a>
+  <a href="#portofolio">Portofolio</a>
+  <a href="#video">Video</a>
+  <a href="#kontak">Kontak</a>
+</nav>
+
+<section id="tentang" class="intro">
+  <h2>Tentang Saya</h2>
+  <p>Saya Hendra Cipta. Saya lulus dari SMA Negeri 92. Saya memiliki hobi mengedit gambar. Saya terampil dalam kerja tim, menjadi pemimpin, berbicara dengan banyak orang dan berkomunikasi dengan pelanggan, saya dapat mempertahankan hasil yang sangat baik, dan menunjukkan profesionalisme. Selain itu, saya suka belajar hal-hal baru dan olahraga ringan.</p>
+  <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/WhatsApp_Image_2025-05-28_at_2.58.17_PM_gkkois" alt="Hendra Cipta" class="hero-image">
+</section>
+
+<section id="portofolio" class="gallery">
+  <h2>Portofolio Karya</h2>
+  <div class="gallery-grid">
+    <div class="card">
+      <img src="https://via.placeholder.com/400x250?text=Komik" alt="Komik">
+      <h3>Komik</h3>
+      <p>Salah satu karya ilustrasi aksi dengan pewarnaan dramatis dan layout sinematik.</p>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/400x250?text=Komik" alt="Komik">
+      <h3>Komik</h3>
+      <p>Visual storytelling untuk anak-anak dengan gaya cerah, lucu, dan mudah dimengerti.</p>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/400x250?text=Komik" alt="Komik">
+      <h3>Komik</h3>
+      <p>Desain tokoh dengan ekspresi kuat dan style khas untuk berbagai genre komik.</p>
+    </div>
+  </div>
+</section>
+
+<section id="video" class="videos">
+  <h2>Video Portofolio</h2>
+  <div class="videos-grid">
+    <div class="card">
+      <video controls src="https://www.w3schools.com/html/mov_bbb.mp4"></video>
+      <h3>Timelapse Komik</h3>
+      <p>Proses pengeditan komik dari atur font, hingga balon teks.</p>
+    </div>
+    <div class="card">
+      <video controls src="https://www.w3schools.com/html/mov_bbb.mp4"></video>
+      <h3>Reel Ilustrasi</h3>
+      <p>Kompilasi ilustrasi terbaik dengan animasi ringan untuk media sosial.</p>
+    </div>
+  </div>
+</section>
+
+<section id="kontak" class="contact">
+  <h2>Kontak</h2>
+  <div class="card">
+    <p><i class="fab fa-instagram"></i> LinkedIn: <a href="https://www.linkedin.com/in/hendra-cipta/" target="_blank">@hendracipta</a></p>
+    <p><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/6289501261058" target="_blank">+62 895-0126-1058</a></p>
+    <p><i class="fas fa-envelope"></i> Email: <a href="mailto:hendra.cipta@lp4y.org">hendra.cipta@lp4y.org</a></p>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 DragonWira Studio. Semua Hak Dilindungi.</p>
+</footer>
+
+</body>
+</html>
