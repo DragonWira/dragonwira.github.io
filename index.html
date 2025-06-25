@@ -130,8 +130,7 @@
       border-radius: 12px;
     }
     .stats { 
-      display: 
-        flex; 
+      display: flex; 
       gap: 20px; 
       flex-wrap: wrap; 
     }
@@ -182,6 +181,41 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    /* ==== Tambahan untuk Sertifikat ==== */
+    .certificate-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .certificate-grid .card {
+      background: #2c2c3d;
+      padding: 16px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      animation: fadeInUp 0.8s ease-in-out;
+    }
+    /* Umum untuk semua gambar di dalam card */
+    .certificate-grid .card img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      display: block;
+    }
+    /* Spesifik untuk gambar di kartu pertama: maksimal 720px */
+    .certificate-grid .card:first-child img {
+      max-width: 720px;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @media (max-width: 768px) {
+      .certificate-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    /* ==== End tambahan Sertifikat ==== */
     @media (max-width: 600px) {
       header h1 { font-size: 2rem; }
       nav a { font-size: 0.9rem; padding: 6px 10px; }
@@ -191,347 +225,370 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
 </head>
 <body>
-<div class="language-switch">
-  <button onclick="setLang('id')">🇮🇩</button>
-  <button onclick="setLang('en')">🇬🇧</button>
-  <button onclick="setLang('jp')">🇯🇵</button>
-</div>
-<div id="preloader"><div class="spinner"></div></div>
-<script>
-  window.addEventListener('load', () => {
-    document.getElementById('preloader').style.display = 'none';
-    document.querySelectorAll('section').forEach(el => el.classList.add('fade-in'));
-  });
-</script>
-
-<header>
-  <h1 data-id="title">Hendra Cipta</h1>
-  <p data-id="subtitle">Editor Komik, Typesetter</p>
-</header>
-
-<nav>
-  <a href="#tentang" data-id="nav_intro">Tentang</a>
-  <a href="#skill" data-id="nav_skill">Skill</a>
-  <a href="#portofolio" data-id="nav_gallery">Portofolio</a>
-  <a href="#video" data-id="nav_video">Video</a>
-  <a href="#riwayat" data-id="nav_timeline">Riwayat</a>
-  <a href="#statistik" data-id="nav_stats">Statistik</a>
-  <a href="#kontak" data-id="nav_contact">Kontak</a>
-</nav>
-
-<section id="tentang" class="intro">
-  <h2 data-id="intro_title">Tentang Saya</h2>
-  <p data-id="intro_desc">Saya Hendra Cipta. Saya lulus dari SMA Negeri 92. Saya memiliki hobi mengedit gambar. Saya terampil dalam kerja tim, menjadi pemimpin, berbicara dengan banyak orang dan berkomunikasi dengan pelanggan, saya dapat mempertahankan hasil yang sangat baik, dan menunjukkan profesionalisme. Selain itu, saya suka belajar hal-hal baru dan olahraga ringan.</p>
-  <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/WhatsApp_Image_2025-05-28_at_2.58.17_PM_gkkois" alt="Hendra Cipta" class="hero-image">
-</section>
-
-<section id="skill" class="skills">
-  <h2 data-id="title_skill">Skill yang Dikuasai</h2>
-  <div class="gallery-grid">
-    <div class="card">
-      <h3 data-id="title_skill1"><i class="fas fa-pencil-ruler"></i> Adobe Photoshop</h3>
-      <p data-id="skill_desc1">Menguasai penggunaan Adobe Photoshop untuk pengeditan teks, pengeditan gambar, dan pembuatan elemen grafis.</p>
-    </div>
-    <div class="card">
-      <h3 data-id="title_skill2"><i class="fas fa-video"></i> Adobe Premiere Pro</h3>
-      <p data-id="skill_desc2">Mahir menggunakan Adobe Premiere Pro untuk pengeditan video, color grading, dan produksi konten visual berkualitas tinggi.</p>
-    </div>
-    <div class="card">
-      <h3 data-id="title_skill3"><i class="fas fa-font"></i> Tata Letak Teks</h3>
-      <p data-id="skill_desc3">Pengaturan teks dialog dan efek suara dengan font yang tepat dan layout yang seimbang.</p>
-    </div>
-    <div class="card">
-      <h3 data-id="title_skill4"><i class="fas fa-people-group"></i> Komunikasi Tim</h3>
-      <p data-id="skill_desc4">Kemampuan bekerja sama dalam tim produksi dan koordinasi antar divisi.</p>
-    </div>
-    <div class="card">
-      <h3 data-id="title_skill5"><i class="fas fa-lightbulb"></i> Kepemimpinan</h3>
-      <p data-id="skill_desc5">Berpengalaman dalam memimpin tim dan mengambil keputusan strategis untuk mencapai tujuan proyek dengan efektif.</p>
-    </div>
+  <div class="language-switch">
+    <button onclick="setLang('id')">🇮🇩</button>
+    <button onclick="setLang('en')">🇬🇧</button>
+    <button onclick="setLang('jp')">🇯🇵</button>
   </div>
-</section>
-
-<section id="sertifikat" class="certificate">
-  <h2 data-id=certificate_title">Sertifikat</h2>
-  <div class="certificate-grid">
-    <div class="card">
-      <h3 data-id="title_certificate1">Sertifikat</h3>
-      <p data-id="certificate_desc1">Sertifikat dari JAL atas kehadirannya dalam kegiatan kunjungan perusahaan yang berkolaborasi dengan LP4Y dan memberikan pengetahuan tentang kerja dibandara.</p>
-      <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/Serifijat_JAL_ozt8xm" alt="certificate" />
-      <p data-id="certificate_desc2">Sertifikat dari Concentrix dalam mengikuti Training Course tentang "Emotional Intelligence At The Work Place".</p>
-      <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/Sertifikat_Concentrix_ijtdzc" alt="certificate 2" />
-      <p data-id="certificate_desc3">.</p>
-      <img src="link" alt="certificate 3" />
-    </div>
-    <div class="card">
-      <h3 data-id="title_comic2">Sertifikat Pelatihan di LP4Y</h3>
-      <p data-id="comic_desc4".</p>
-      <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/012_llj2oi" alt="Komik Santai" />
-      <p data-id="comic_desc5">.</p>
-      <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/024_zrsroh" alt="Komik Santai 2" />
-      <p data-id="comic_desc6">.</p>
-      <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/12_eyfmes" alt="Komik Santai 3" />
-    </div>
-  </div>
-</section>
-
-<section id="portofolio" class="gallery">
-  <h2 data-id=gallery_title">Portofolio Karya</h2>
-  <div class="gallery-grid">
-    <div class="card">
-      <h3 data-id="title_comic1">Komik Aksi</h3>
-      <p data-id="comic_desc1">Disini saya melakukan mengatur ukuran teks di luar balon dialog atau disebut balon dalam pikiran.</p>
-      <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/016_bai12u" alt="Komik Aksi" />
-      <p data-id="comic_desc2">Disini saya melakukan mengatur ukuran teks di luar balon dialog atau disebut balon dalam pikiran.</p>
-      <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/007_mn2ot2" alt="Komik Aksi 2" />
-      <p data-id="comic_desc3">Disini saya melakukan mengatur ukuran teks di luar balon dialog atau disebut balon dalam pikiran.</p>
-      <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/005_yb2wgi" alt="Komik Aksi 3" />
-    </div>
-    <div class="card">
-      <h3 data-id="title_comic2">Komik Santai</h3>
-      <p data-id="comic_desc4">Disini saya melakukan mengatur ukuran teks di luar balon dialog, mengatur ukuran teks pada balon dialog, mengatur SFX pada gambar.</p>
-      <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/012_llj2oi" alt="Komik Santai" />
-      <p data-id="comic_desc5">Disini saya melakukan mengatur ukuran teks di luar balon dialog, mengatur ukuran teks pada balon dialog.</p>
-      <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/024_zrsroh" alt="Komik Santai 2" />
-      <p data-id="comic_desc6">Disini saya melakukan mengatur ukuran teks di luar balon dialog, mengatur ukuran teks pada balon dialog, mengatur teks dibelakang balon, mengatur font agar nyaman dibaca.</p>
-      <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/12_eyfmes" alt="Komik Santai 3" />
-    </div>
-    <div class="card">
-      <h3 data-id="title_comic3">Komik Berwarna atau Webtoon</h3>
-      <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/Totus_%EC%8B%9D%EC%9E%90-%ED%8F%AC%ED%86%A0%EC%83%B5_EN__%ED%85%8C%EC%8A%A4%ED%8A%B8_002_lxyifd" alt="Webtoon" />
-      <p data-id="comic_desc7">Saya melakukan redrawing, mengatur ukuran teks, mengatur font yang sesuai standar, membuat sfx, membuat balon teks dan mengatur balon teks.</p>
-      <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/Totus_%EC%8B%9D%EC%9E%90-%ED%8F%AC%ED%86%A0%EC%83%B5_EN__%ED%85%8C%EC%8A%A4%ED%8A%B8_003_ijijes" alt="Webtoon 2" />
-      <p data-id="comic_desc8">Saya mengatur ukuran teks, mengatur font yang sesuai standar, membuat sfx, membuat balon teks, mengatur balon teks, dan tipografi.</p>
-      <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/Totus_%EC%8B%9D%EC%9E%90-%ED%8F%AC%ED%86%A0%EC%83%B5_EN__%ED%85%8C%EC%8A%A4%ED%8A%B8_004_ksaiip.jpg" alt="Webtoon 3" />
-      <p data-id="comic_desc9">Saya mengatur ukuran teks, mengatur font yang sesuai standar, membuat sfx, membuat balon teks, mengatur balon teks, dan tipografi.</p>
-    </div>
-  </div>
-</section>
-
-<section id="video" class="videos">
-  <h2 data-id="title_video">Video Portofolio</h2>
-  <div class="videos-grid">
-    <div class="card">
-      <iframe width="100%" height="315" src="https://www.youtube.com/embed/NkKLAHnLGaY" frameborder="0" allowfullscreen></iframe>
-      <h3 data-id="video_title1">Timelapse Komik Hitam Putih</h3>
-      <p data-id="video_desc1">Proses pengeditan komik hitam putih dari atur font, hingga sfx.</p>
-    </div>
-    <div class="card">
-      <video controls src="https://www.w3schools.com/html/mov_bbb.mp4"></video>
-      <h3 data-id="video_title2">Timelapse Komik Berwarna</h3>
-      <p data-id="video_desc2">Proses pengeditan komik berwarna dari atur font, hingga sfx.</p>
-    </div>
-  </div>
-</section>
-
-<section id="riwayat">
-  <h2 data-id="timeline_title">Pengalaman</h2>
-  <div class="timeline">
-    <div class="timeline-entry" data-id="timeline4">Februari 2025 - Sekarang: Pendidikan dan Latihan di Life Project 4 Youth (LP4Y)</div>
-    <div class="timeline-entry" data-id="timeline3">22 April - 6 Mei 2025: Waiter di Restoran dan Bar After Five.</div>
-    <div class="timeline-entry" data-id="timeline2">Desember 2023- 2025: Freelance sebagai Typesetter di Komunitas.</div>
-    <div class="timeline-entry" data-id="timeline1">April 2021- Maret 2022: Freelance sebagai Typesetter di Komunitas.</div>
-  </div>
-</section>
-
-<section id="statistik">
-  <h2 data-id="stats_title">Statistik</h2>
-  <div class="stats">
-    <div class="stat"><h3>1000+</h3><p data-id="stat1">Episode Komik</p></div>
-    <div class="stat"><h3>-</h3><p data-id="stat2">Proyek Aktif</p></div>
-    <div class="stat"><h3 data-id="stat4">3+ Tahun</h3><p data-id="stat3">Aktif Selama</p></div>
-  </div>
-</section>
-
-<section id="kontak" class="contact">
-  <h2 data-id="title_contact">Kontak</h2>
-  <div class="card">
-    <p><i class="fab fa-instagram"></i> LinkedIn: <a href="https://www.linkedin.com/in/hendra-cipta/" target="_blank">hendracipta</a></p>
-    <p><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/6289501261058" target="_blank">+62 895-0126-1058</a></p>
-    <p><i class="fas fa-envelope"></i> Email: <a href="mailto:hendra.cipta@lp4y.org">hendra.cipta@lp4y.org</a></p>
-  </div>
-</section>
-
-<footer>
-  <p>&copy; © 2025 DragonWira Studio.</p>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-<script>
-  const lightbox = GLightbox();
-</script>
-
-<script>
-  const translations = {
-  id: {
-    title: "Hendra Cipta",
-    subtitle: "Editor Komik, Typesetter",
-    nav_intro: "Tentang",
-    intro_title: "Tentang Saya",
-    intro_desc: "Saya Hendra Cipta. Saya lulus dari SMA Negeri 92. Saya memiliki hobi mengedit gambar. Saya terampil dalam kerja tim, menjadi pemimpin, berbicara dengan banyak orang dan berkomunikasi dengan pelanggan, saya dapat mempertahankan hasil yang sangat baik, dan menunjukkan profesionalisme. Selain itu, saya suka belajar hal-hal baru dan olahraga ringan.",
-    nav_skill: "Skill",
-    title_skill: "Skill yang Dikuasai",
-    title_skill1: "Adobe Photoshop",
-    skill_desc1: "Menguasai penggunaan Adobe Photoshop untuk pengeditan teks, pengeditan gambar, dan pembuatan elemen grafis.",
-    title_skill2: "Adobe Premiere Pro",
-    skill_desc2: "Mahir menggunakan Adobe Premiere Pro untuk pengeditan video, color grading, dan produksi konten visual berkualitas tinggi.",
-    title_skill3: "Tata Letak Teks",
-    skill_desc3: "Pengaturan teks dialog dan efek suara dengan font yang tepat dan layout yang seimbang.",
-    title_skill4: "Komunikasi Tim",
-    skill_desc4: "Kemampuan bekerja sama dalam tim produksi dan koordinasi antar divisi.",
-    title_skill5: "Kepemimpinan",
-    skill_desc5: "Berpengalaman dalam memimpin tim dan mengambil keputusan strategis untuk mencapai tujuan proyek dengan efektif.",
-    nav_gallery: "Portofolio",
-    gallery_title: "Portofolio Karya",
-    title_comic1: "Komik Aksi",
-    comic_desc1: "Disini saya melakukan mengatur ukuran teks di luar balon dialog atau disebut balon dalam pikiran.",
-    comic_desc2: "Disini saya melakukan mengatur ukuran teks di luar balon dialog atau disebut balon dalam pikiran.",
-    comic_desc3: "Disini saya melakukan mengatur ukuran teks di luar balon dialog atau disebut balon dalam pikiran.",
-    title_comic2: "Komik Santai",
-    comic_desc4: "Disini saya melakukan mengatur ukuran teks di luar balon dialog, mengatur ukuran teks pada balon dialog, mengatur SFX pada gambar.",
-    comic_desc5: "Disini saya melakukan mengatur ukuran teks di luar balon dialog, mengatur ukuran teks pada balon dialog.",
-    comic_desc6: "Disini saya melakukan mengatur ukuran teks di luar balon dialog, mengatur ukuran teks pada balon dialog, mengatur teks dibelakang balon, mengatur font agar nyaman dibaca.",
-    title_comic3: "Komik Berwarna atau Webtoon",
-    comic_desc7: "Saya melakukan redrawing, mengatur ukuran teks, mengatur font yang sesuai standar, membuat sfx, membuat balon teks dan mengatur balon teks.",
-    comic_desc8: "Saya mengatur ukuran teks, mengatur font yang sesuai standar, membuat sfx, membuat balon teks, mengatur balon teks, dan tipografi.",
-    comic_desc9: "Saya mengatur ukuran teks, mengatur font yang sesuai standar, membuat sfx, membuat balon teks, mengatur balon teks, dan tipografi.",
-    nav_video: "Video",
-    title_video: "Video Portofolio",
-    video_title1: "Timelapse Komik Hitam Putih",
-    video_desc1: "Proses pengeditan komik hitam putih dari atur font, hingga sfx.",
-    video_title2: "Timelapse Komik Berwarna",
-    video_desc2: "Proses pengeditan komik berwarna dari atur font, hingga sfx.",
-    nav_timeline: "Riwayat",
-    timeline_title: "Pengalaman",
-    timeline1: "April 2021 - Maret 2022: Freelance sebagai Typesetter di Komunitas.",
-    timeline2: "Desember 2023 - 2025: Freelance sebagai Typesetter di Komunitas.",
-    timeline3: "22 April - 6 Mei 2025: Waiter di Restoran dan Bar After Five.",
-    timeline4: "Februari 2025 - Sekarang: Education Training di Life Project 4 Youth (LP4Y)",
-    nav_stats: "Statistik",
-    stats_title: "Statistik",
-    stat1: "Episode Komik",
-    stat2: "Proyek Aktif",
-    stat3: "Aktif Selama",
-    stat4: "3+ Tahun",
-    nav_contact: "Kontak",
-    title_contact: "Kontak"
-  },
-
-  en: {
-    title: "Hendra Cipta",
-    subtitle: "Comic Editor, Typesetter",
-    nav_intro: "About",
-    intro_title: "About Me",
-    intro_desc: "I am Hendra Cipta. I graduated from SMA Negeri 92. I enjoy editing images. I am skilled at teamwork, leadership, public speaking, and customer communication. I strive for excellent results and act professionally. I also love learning new things and doing light exercise.",
-    nav_skill: "Skills",
-    title_skill: "Mastered Skills",
-    title_skill1: "Adobe Photoshop",
-    skill_desc1: "Skilled in using Adobe Photoshop for text editing, image retouching, and graphic element creation.",
-    title_skill2: "Adobe Premiere Pro",
-    skill_desc2: "Experienced in Adobe Premiere Pro for video editing, color grading, and high-quality content production.",
-    title_skill3: "Text Layout",
-    skill_desc3: "Arranging dialogue text and sound effects with appropriate font and balanced layout.",
-    title_skill4: "Team Communication",
-    skill_desc4: "Able to work collaboratively in production teams and coordinate between departments.",
-    title_skill5: "Leadership",
-    skill_desc5: "Experienced in leading teams and making strategic decisions to meet project goals.",
-    nav_gallery: "Portfolio",
-    gallery_title: "Portfolio Works",
-    title_comic1: "Action Comic",
-    comic_desc1: "Adjusted text size outside the dialogue balloon, also known as thought balloon.",
-    comic_desc2: "Adjusted text size outside the dialogue balloon, also known as thought balloon.",
-    comic_desc3: "Adjusted text size outside the dialogue balloon, also known as thought balloon.",
-    title_comic2: "Relaxed Comic",
-    comic_desc4: "Adjusted text outside dialogue balloon, within the balloon, and added SFX.",
-    comic_desc5: "Adjusted text size inside and outside the dialogue balloon.",
-    comic_desc6: "Adjusted overlapping texts, arranged fonts for better readability.",
-    title_comic3: "Colored Comic or Webtoon",
-    comic_desc7: "Redrawing, adjusting font sizes, adding standard-compliant text and speech bubbles, and designing SFX.",
-    comic_desc8: "Text and font adjustments, SFX creation, bubble layout and typography setup.",
-    comic_desc9: "Text and font adjustments, SFX creation, bubble layout and typography setup.",
-    nav_video: "Video",
-    title_video: "Portfolio Videos",
-    video_title1: "Black & White Comic Timelapse",
-    video_desc1: "Editing process of black-and-white comic from font setup to SFX.",
-    video_title2: "Colored Comic Timelapse",
-    video_desc2: "Editing process of colored comic from font setup to SFX.",
-    nav_timeline: "Timeline",
-    timeline_title: "Experience",
-    timeline1: "April 2021 - March 2022: Freelance Typesetter in Community.",
-    timeline2: "December 2023 - 2025: Freelance Typesetter in Community.",
-    timeline3: "April 22 - May 6, 2025: Waiter at After Five Restaurant and Bar.",
-    timeline4: "February 2025 - Present: Education Training at Life Project 4 Youth (LP4Y)",
-    nav_stats: "Statistics",
-    stats_title: "Statistics",
-    stat1: "Comic Episodes",
-    stat2: "Active Projects",
-    stat3: "Years Active",
-    stat4: "3+ Years",
-    nav_contact: "Contact",
-    title_contact: "Contact"
-  },
-
-  jp: {
-    title: "Hendra Cipta",
-    subtitle: "コミック編集者・タイプセッター",
-    nav_intro: "紹介",
-    intro_title: "自己紹介",
-    intro_desc: "私はヘンドラ・チプタです。SMA Negeri 92を卒業しました。画像編集が趣味で、チームワーク、リーダーシップ、話すこと、顧客とのやり取りが得意です。常に高い成果を維持し、プロとしての姿勢を保っています。新しいことを学ぶことと軽い運動が好きです。",
-    nav_skill: "スキル",
-    title_skill: "習得したスキル",
-    title_skill1: "Adobe Photoshop",
-    skill_desc1: "Adobe Photoshopでのテキスト編集、画像加工、グラフィック作成に熟練。",
-    title_skill2: "Adobe Premiere Pro",
-    skill_desc2: "Adobe Premiere Proを使用した映像編集、カラーグレーディング、映像制作に熟練。",
-    title_skill3: "テキストレイアウト",
-    skill_desc3: "適切なフォントとバランスで吹き出しのテキストや効果音を配置。",
-    title_skill4: "チームコミュニケーション",
-    skill_desc4: "制作チームでの協力と部門間調整に長けている。",
-    title_skill5: "リーダーシップ",
-    skill_desc5: "チームを率いて戦略的な判断を行う経験がある。",
-    nav_gallery: "ポートフォリオ",
-    gallery_title: "作品ポートフォリオ",
-    title_comic1: "アクション漫画",
-    comic_desc1: "吹き出し外のテキスト（思考バルーン）のサイズを調整しました。",
-    comic_desc2: "吹き出し外のテキスト（思考バルーン）のサイズを調整しました。",
-    comic_desc3: "吹き出し外のテキスト（思考バルーン）のサイズを調整しました。",
-    title_comic2: "リラックス漫画",
-    comic_desc4: "吹き出しの内外のテキストを調整し、SFXを挿入しました。",
-    comic_desc5: "吹き出しの内外のテキストサイズを調整しました。",
-    comic_desc6: "吹き出しの後ろのテキストを調整し、読みやすいフォントに整えました。",
-    title_comic3: "カラー漫画・ウェブトゥーン",
-    comic_desc7: "リドロー、テキストサイズ調整、標準フォントの適用、SFX作成、吹き出しデザインを行いました。",
-    comic_desc8: "テキスト・フォント調整、SFX作成、吹き出しレイアウトとタイポグラフィの構成。",
-    comic_desc9: "テキスト・フォント調整、SFX作成、吹き出しレイアウトとタイポグラフィの構成。",
-    nav_video: "動画",
-    title_video: "ポートフォリオ動画",
-    video_title1: "モノクロ漫画のタイムラプス",
-    video_desc1: "フォント設定から効果音までの編集プロセス。",
-    video_title2: "カラーマンガのタイムラプス",
-    video_desc2: "フォント設定から効果音までの編集プロセス。",
-    nav_timeline: "経歴",
-    timeline_title: "経験",
-    timeline1: "2021年4月〜2022年3月：コミュニティでフリーランスのタイプセッター。",
-    timeline2: "2023年12月〜2025年：コミュニティでフリーランスのタイプセッター。",
-    timeline3: "2025年4月22日〜5月6日：After Five レストラン・バーのウェイター。",
-    timeline4: "2025年2月〜現在：Life Project 4 Youth (LP4Y)での教育訓練。",
-    nav_stats: "統計",
-    stats_title: "統計",
-    stat1: "コミックエピソード",
-    stat2: "進行中のプロジェクト",
-    stat3: "活動年数",
-    stat4: "3+年",
-    nav_contact: "連絡先",
-    title_contact: "連絡先"
-  }
-};
-  function setLang(lang) {
-    const keys = Object.keys(translations[lang]);
-    keys.forEach(id => {
-      const el = document.querySelector(`[data-id="${id}"]`);
-      if (el) el.textContent = translations[lang][id];
+  <div id="preloader"><div class="spinner"></div></div>
+  <script>
+    window.addEventListener('load', () => {
+      document.getElementById('preloader').style.display = 'none';
+      document.querySelectorAll('section').forEach(el => el.classList.add('fade-in'));
     });
-  }
-</script>
+  </script>
+
+  <header>
+    <h1 data-id="title">Hendra Cipta</h1>
+    <p data-id="subtitle">Editor Komik, Typesetter</p>
+  </header>
+
+  <nav>
+    <a href="#tentang" data-id="nav_intro">Tentang</a>
+    <a href="#skill" data-id="nav_skill">Skill</a>
+    <a href="#sertifikat" data-id="nav_sertifikat">sertifikat</a>
+    <a href="#portofolio" data-id="nav_gallery">Portofolio</a>
+    <a href="#video" data-id="nav_video">Video</a>
+    <a href="#riwayat" data-id="nav_timeline">Riwayat</a>
+    <a href="#statistik" data-id="nav_stats">Statistik</a>
+    <a href="#kontak" data-id="nav_contact">Kontak</a>
+  </nav>
+
+  <section id="tentang" class="intro">
+    <h2 data-id="intro_title">Tentang Saya</h2>
+    <p data-id="intro_desc">Saya Hendra Cipta. Saya lulus dari SMA Negeri 92. Saya memiliki hobi mengedit gambar. Saya terampil dalam kerja tim, menjadi pemimpin, berbicara dengan banyak orang dan berkomunikasi dengan pelanggan, saya dapat mempertahankan hasil yang sangat baik, dan menunjukkan profesionalisme. Selain itu, saya suka belajar hal-hal baru dan olahraga ringan.</p>
+    <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/WhatsApp_Image_2025-05-28_at_2.58.17_PM_gkkois" alt="Hendra Cipta" class="hero-image">
+  </section>
+
+  <section id="skill" class="skills">
+    <h2 data-id="title_skill">Skill yang Dikuasai</h2>
+    <div class="gallery-grid">
+      <div class="card">
+        <h3 data-id="title_skill1"><i class="fas fa-pencil-ruler"></i> Adobe Photoshop</h3>
+        <p data-id="skill_desc1">Menguasai penggunaan Adobe Photoshop untuk pengeditan teks, pengeditan gambar, dan pembuatan elemen grafis.</p>
+      </div>
+      <div class="card">
+        <h3 data-id="title_skill2"><i class="fas fa-video"></i> Adobe Premiere Pro</h3>
+        <p data-id="skill_desc2">Mahir menggunakan Adobe Premiere Pro untuk pengeditan video, color grading, dan produksi konten visual berkualitas tinggi.</p>
+      </div>
+      <div class="card">
+        <h3 data-id="title_skill3"><i class="fas fa-font"></i> Tata Letak Teks</h3>
+        <p data-id="skill_desc3">Pengaturan teks dialog dan efek suara dengan font yang tepat dan layout yang seimbang.</p>
+      </div>
+      <div class="card">
+        <h3 data-id="title_skill4"><i class="fas fa-people-group"></i> Komunikasi Tim</h3>
+        <p data-id="skill_desc4">Kemampuan bekerja sama dalam tim produksi dan koordinasi antar divisi.</p>
+      </div>
+      <div class="card">
+        <h3 data-id="title_skill5"><i class="fas fa-lightbulb"></i> Kepemimpinan</h3>
+        <p data-id="skill_desc5">Berpengalaman dalam memimpin tim dan mengambil keputusan strategis untuk mencapai tujuan proyek dengan efektif.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="sertifikat" class="certificate">
+    <h2 data-id="certificate_title">Sertifikat</h2>
+    <div class="certificate-grid">
+      <div class="card">
+        <h3 data-id="title_certificate1">Sertifikat</h3>
+        <p data-id="certificate_desc1">Sertifikat dari JAL atas kehadirannya dalam kegiatan kunjungan perusahaan yang berkolaborasi dengan LP4Y dan memberikan pengetahuan tentang kerja dibandara.</p>
+        <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/Serifijat_JAL_ozt8xm" alt="certificate" />
+        <p data-id="certificate_desc2">Sertifikat dari Concentrix dalam mengikuti Training Course tentang 'Emotional Intelligence At The Work Place'.</p>
+        <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/Sertifikat_Concentrix_ijtdzc" alt="certificate 2" />
+        <p data-id="certificate_desc3">Berpartisipasi dalam mengikutin pelatihan tentang Procurement dari Artelia Indonesia.</p>
+        <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/Sertifikat_Artelia_ywcluw" alt="certificate 3" />
+      </div>
+      <div class="card">
+        <h3 data-id="title_certificate2">Sertifikat Pelatihan di LP4Y</h3>
+        <p data-id=" certificate_desc4">.</p>
+        <img src="." alt="Sertifikat LP4Y" />
+        <p data-id=" certificate_desc5">.</p>
+        <img src="." alt="Sertifikat LP4Y 2" />
+        <p data-id=" certificate_desc6">.</p>
+        <img src="." alt="Sertifikat LP4Y 3" />
+      </div>
+    </div>
+  </section>
+
+  <section id="portofolio" class="gallery">
+    <h2 data-id="gallery_title">Portofolio Karya</h2>
+    <div class="gallery-grid">
+      <div class="card">
+        <h3 data-id="title_comic1">Komik Aksi</h3>
+        <p data-id="comic_desc1">Disini saya melakukan mengatur ukuran teks di luar balon dialog atau disebut balon dalam pikiran.</p>
+        <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/016_bai12u" alt="Komik Aksi" />
+        <p data-id="comic_desc2">Disini saya melakukan mengatur ukuran teks di luar balon dialog atau disebut balon dalam pikiran.</p>
+        <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/007_mn2ot2" alt="Komik Aksi 2" />
+        <p data-id="comic_desc3">Disini saya melakukan mengatur ukuran teks di luar balon dialog atau disebut balon dalam pikiran.</p>
+        <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/005_yb2wgi" alt="Komik Aksi 3" />
+      </div>
+      <div class="card">
+        <h3 data-id="title_comic2">Komik Santai</h3>
+        <p data-id="comic_desc4">Disini saya melakukan mengatur ukuran teks di luar balon dialog, mengatur ukuran teks pada balon dialog, mengatur SFX pada gambar.</p>
+        <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/012_llj2oi" alt="Komik Santai" />
+        <p data-id="comic_desc5">Disini saya melakukan mengatur ukuran teks di luar balon dialog, mengatur ukuran teks pada balon dialog.</p>
+        <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/024_zrsroh" alt="Komik Santai 2" />
+        <p data-id="comic_desc6">Disini saya melakukan mengatur ukuran teks di luar balon dialog, mengatur ukuran teks pada balon dialog, mengatur teks dibelakang balon, mengatur font agar nyaman dibaca.</p>
+        <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/12_eyfmes" alt="Komik Santai 3" />
+      </div>
+      <div class="card">
+        <h3 data-id="title_comic3">Komik Berwarna atau Webtoon</h3>
+        <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/Totus_%EC%8B%9D%EC%9E%90-%ED%8F%AC%ED%86%A0%EC%83%B5_EN__%ED%85%8C%EC%8A%A4%ED%8A%B8_002_lxyifd" alt="Webtoon" />
+        <p data-id="comic_desc7">Saya melakukan redrawing, mengatur ukuran teks, mengatur font yang sesuai standar, membuat sfx, membuat balon teks dan mengatur balon teks.</p>
+        <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/Totus_%EC%8B%9D%EC%9E%90-%ED%8F%AC%ED%86%A0%EC%83%B5_EN__%ED%85%8C%EC%8A%A4%ED%8A%A4_003_ijijes" alt="Webtoon 2" />
+        <p data-id="comic_desc8">Saya mengatur ukuran teks, mengatur font yang sesuai standar, membuat sfx, membuat balon teks, mengatur balon teks, dan tipografi.</p>
+        <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/Totus_%EC%8B%9D%EC%9E%90-%ED%8F%AC%ED%86%A0%EC%83%B5_EN__%ED%85%8C%EC%8A%A4%ED%8A%B8_004_ksaiip.jpg" alt="Webtoon 3" />
+        <p data-id="comic_desc9">Saya mengatur ukuran teks, mengatur font yang sesuai standar, membuat sfx, membuat balon teks, mengatur balon teks, dan tipografi.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="video" class="videos">
+    <h2 data-id="title_video">Video Portofolio</h2>
+    <div class="videos-grid">
+      <div class="card">
+        <iframe width="100%" height="315" src="https://www.youtube.com/embed/NkKLAHnLGaY" frameborder="0" allowfullscreen></iframe>
+        <h3 data-id="video_title1">Timelapse Komik Hitam Putih</h3>
+        <p data-id="video_desc1">Proses pengeditan komik hitam putih dari atur font, hingga sfx.</p>
+      </div>
+      <div class="card">
+        <video controls src="https://www.w3schools.com/html/mov_bbb.mp4"></video>
+        <h3 data-id="video_title2">Timelapse Komik Berwarna</h3>
+        <p data-id="video_desc2">Proses pengeditan komik berwarna dari atur font, hingga sfx.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="riwayat">
+    <h2 data-id="timeline_title">Pengalaman</h2>
+    <div class="timeline">
+      <div class="timeline-entry" data-id="timeline4">Februari 2025 - Sekarang: Pendidikan dan Latihan di Life Project 4 Youth (LP4Y)</div>
+      <div class="timeline-entry" data-id="timeline3">22 April - 6 Mei 2025: Waiter di Restoran dan Bar After Five.</div>
+      <div class="timeline-entry" data-id="timeline2">Desember 2023 - 2025: Freelance sebagai Typesetter di Komunitas.</div>
+      <div class="timeline-entry" data-id="timeline1">April 2021 - Maret 2022: Freelance sebagai Typesetter di Komunitas.</div>
+    </div>
+  </section>
+
+  <section id="statistik">
+    <h2 data-id="stats_title">Statistik</h2>
+    <div class="stats">
+      <div class="stat"><h3>1000+</h3><p data-id="stat1">Episode Komik</p></div>
+      <div class="stat"><h3>-</h3><p data-id="stat2">Proyek Aktif</p></div>
+      <div class="stat"><h3 data-id="stat4">3+ Tahun</h3><p data-id="stat3">Aktif Selama</p></div>
+    </div>
+  </section>
+
+  <section id="kontak" class="contact">
+    <h2 data-id="title_contact">Kontak</h2>
+    <div class="card">
+      <p><i class="fab fa-instagram"></i> LinkedIn: <a href="https://www.linkedin.com/in/hendra-cipta/" target="_blank">hendracipta</a></p>
+      <p><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/6289501261058" target="_blank">+62 895-0126-1058</a></p>
+      <p><i class="fas fa-envelope"></i> Email: <a href="mailto:hendra.cipta@lp4y.org">hendra.cipta@lp4y.org</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; © 2025 DragonWira Studio.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+  <script>
+    const lightbox = GLightbox();
+  </script>
+
+  <script>
+    const translations = {
+      id: {
+        title: "Hendra Cipta",
+        subtitle: "Editor Komik, Typesetter",
+        nav_intro: "Tentang",
+        intro_title: "Tentang Saya",
+        intro_desc: "Saya Hendra Cipta. Saya lulus dari SMA Negeri 92. Saya memiliki hobi mengedit gambar. Saya terampil dalam kerja tim, menjadi pemimpin, berbicara dengan banyak orang dan berkomunikasi dengan pelanggan, saya dapat mempertahankan hasil yang sangat baik, dan menunjukkan profesionalisme. Selain itu, saya suka belajar hal-hal baru dan olahraga ringan.",
+        nav_skill: "Skill",
+        title_skill: "Skill yang Dikuasai",
+        title_skill1: "Adobe Photoshop",
+        skill_desc1: "Menguasai penggunaan Adobe Photoshop untuk pengeditan teks, pengeditan gambar, dan pembuatan elemen grafis.",
+        title_skill2: "Adobe Premiere Pro",
+        skill_desc2: "Mahir menggunakan Adobe Premiere Pro untuk pengeditan video, color grading, dan produksi konten visual berkualitas tinggi.",
+        title_skill3: "Tata Letak Teks",
+        skill_desc3: "Pengaturan teks dialog dan efek suara dengan font yang tepat dan layout yang seimbang.",
+        title_skill4: "Komunikasi Tim",
+        skill_desc4: "Kemampuan bekerja sama dalam tim produksi dan koordinasi antar divisi.",
+        title_skill5: "Kepemimpinan",
+        skill_desc5: "Berpengalaman dalam memimpin tim dan mengambil keputusan strategis untuk mencapai tujuan proyek dengan efektif.",
+        certificate_title: "Sertifikat",
+        title_certificate1: "Sertifikat",
+        certificate_desc1: "Sertifikat dari JAL atas kehadirannya dalam kegiatan kunjungan perusahaan yang berkolaborasi dengan LP4Y dan memberikan pengetahuan tentang kerja dibandara.",
+        certificate_desc2: "Sertifikat dari Concentrix dalam mengikuti Training Course tentang 'Emotional Intelligence At The Work Place'.",
+        certificate_desc3: "Berpartisipasi dalam mengikutin pelatihan tentang Procurement dari Artelia Indonesia.",
+        title_certificate2: "Sertifikat Pelatihan di LP4Y",
+        certificate_desc4: ".",
+        certificate_desc5: ".",
+        certificate_desc6: ".",
+        nav_gallery: "Portofolio",
+        gallery_title: "Portofolio Karya",
+        title_comic1: "Komik Aksi",
+        comic_desc1: "Disini saya melakukan mengatur ukuran teks di luar balon dialog atau disebut balon dalam pikiran.",
+        comic_desc2: "Disini saya melakukan mengatur ukuran teks di luar balon dialog atau disebut balon dalam pikiran.",
+        comic_desc3: "Disini saya melakukan mengatur ukuran teks di luar balon dialog atau disebut balon dalam pikiran.",
+        title_comic2: "Komik Santai",
+        comic_desc4: "Disini saya melakukan mengatur ukuran teks di luar balon dialog, mengatur ukuran teks pada balon dialog, mengatur SFX pada gambar.",
+        comic_desc5: "Disini saya melakukan mengatur ukuran teks di luar balon dialog, mengatur ukuran teks pada balon dialog.",
+        comic_desc6: "Disini saya melakukan mengatur ukuran teks di luar balon dialog, mengatur ukuran teks pada balon dialog, mengatur teks dibelakang balon, mengatur font agar nyaman dibaca.",
+        title_comic3: "Komik Berwarna atau Webtoon",
+        comic_desc7: "Saya melakukan redrawing, mengatur ukuran teks, mengatur font yang sesuai standar, membuat sfx, membuat balon teks dan mengatur balon teks.",
+        comic_desc8: "Saya mengatur ukuran teks, mengatur font yang sesuai standar, membuat sfx, membuat balon teks, mengatur balon teks, dan tipografi.",
+        comic_desc9: "Saya mengatur ukuran teks, mengatur font yang sesuai standar, membuat sfx, membuat balon teks, mengatur balon teks, dan tipografi.",
+        nav_video: "Video",
+        title_video: "Video Portofolio",
+        video_title1: "Timelapse Komik Hitam Putih",
+        video_desc1: "Proses pengeditan komik hitam putih dari atur font, hingga sfx.",
+        video_title2: "Timelapse Komik Berwarna",
+        video_desc2: "Proses pengeditan komik berwarna dari atur font, hingga sfx.",
+        nav_timeline: "Riwayat",
+        timeline1: "April 2021 - Maret 2022: Freelance sebagai Typesetter di Komunitas.",
+        timeline2: "Desember 2023 - 2025: Freelance sebagai Typesetter di Komunitas.",
+        timeline3: "22 April - 6 Mei 2025: Waiter di Restoran dan Bar After Five.",
+        timeline4: "Februari 2025 - Sekarang: Education Training di Life Project 4 Youth (LP4Y)",
+        nav_stats: "Statistik",
+        stats_title: "Statistik",
+        stat1: "Episode Komik",
+        stat2: "Proyek Aktif",
+        stat3: "Aktif Selama",
+        stat4: "3+ Tahun",
+        nav_contact: "Kontak",
+        title_contact: "Kontak"
+      },
+      en: {
+        title: "Hendra Cipta",
+        subtitle: "Comic Editor, Typesetter",
+        nav_intro: "About",
+        intro_title: "About Me",
+        intro_desc: "I am Hendra Cipta. I graduated from SMA Negeri 92. I enjoy editing images. I am skilled at teamwork, leadership, public speaking, and customer communication. I strive for excellent results and act professionally. I also love learning new things and doing light exercise.",
+        nav_skill: "Skills",
+        title_skill: "Mastered Skills",
+        title_skill1: "Adobe Photoshop",
+        skill_desc1: "Skilled in using Adobe Photoshop for text editing, image retouching, and graphic element creation.",
+        title_skill2: "Adobe Premiere Pro",
+        skill_desc2: "Experienced in Adobe Premiere Pro for video editing, color grading, and high-quality content production.",
+        title_skill3: "Text Layout",
+        skill_desc3: "Arranging dialogue text and sound effects with appropriate font and balanced layout.",
+        title_skill4: "Team Communication",
+        skill_desc4: "Able to work collaboratively in production teams and coordinate between departments.",
+        title_skill5: "Leadership",
+        skill_desc5: "Experienced in leading teams and making strategic decisions to meet project goals.",
+        certificate_title: "Certificate",
+        title_certificate1: "Certificate",
+        certificate_desc1: "Certificate from JAL for participating in a company visit in collaboration with LP4Y, providing insights into airport operations.",
+        certificate_desc2: "Certificate from Concentrix for completing a training course on \"Emotional Intelligence at the Workplace\".",
+        certificate_desc3: "Participated in procurement training from Artelia Indonesia.",
+        title_certificate2: "Training Certificate at LP4Y",
+        certificate_desc4: ".",
+        certificate_desc5: ".",
+        certificate_desc6: ".",
+        nav_gallery: "Portfolio",
+        gallery_title: "Portfolio Works",
+        title_comic1: "Action Comic",
+        comic_desc1: "Adjusted text size outside the dialogue balloon, also known as thought balloon.",
+        comic_desc2: "Adjusted text size outside the dialogue balloon, also known as thought balloon.",
+        comic_desc3: "Adjusted text size outside the dialogue balloon, also known as thought balloon.",
+        title_comic2: "Relaxed Comic",
+        comic_desc4: "Adjusted text outside dialogue balloon, within the balloon, and added SFX.",
+        comic_desc5: "Adjusted text size inside and outside the dialogue balloon.",
+        comic_desc6: "Adjusted overlapping texts, arranged fonts for better readability.",
+        title_comic3: "Colored Comic or Webtoon",
+        comic_desc7: "Redrawing, adjusting font sizes, adding standard-compliant text and speech bubbles, and designing SFX.",
+        comic_desc8: "Text and font adjustments, SFX creation, bubble layout and typography setup.",
+        comic_desc9: "Text and font adjustments, SFX creation, bubble layout and typography setup.",
+        nav_video: "Video",
+        title_video: "Portfolio Videos",
+        video_title1: "Black & White Comic Timelapse",
+        video_desc1: "Editing process of black-and-white comic from font setup to SFX.",
+        video_title2: "Colored Comic Timelapse",
+        video_desc2: "Editing process of colored comic from font setup to SFX.",
+        nav_timeline: "Timeline",
+        timeline1: "April 2021 - March 2022: Freelance Typesetter in Community.",
+        timeline2: "December 2023 - 2025: Freelance Typesetter in Community.",
+        timeline3: "April 22 - May 6, 2025: Waiter at After Five Restaurant and Bar.",
+        timeline4: "February 2025 - Present: Education Training at Life Project 4 Youth (LP4Y)",
+        nav_stats: "Statistics",
+        stats_title: "Statistics",
+        stat1: "Comic Episodes",
+        stat2: "Active Projects",
+        stat3: "Years Active",
+        stat4: "3+ Years",
+        nav_contact: "Contact",
+        title_contact: "Contact"
+      },
+      jp: {
+        title: "Hendra Cipta",
+        subtitle: "コミック編集者・タイプセッター",
+        nav_intro: "紹介",
+        intro_title: "自己紹介",
+        intro_desc: "私はヘンドラ・チプタです。SMA Negeri 92を卒業しました。画像編集が趣味で、チームワーク、リーダーシップ、話すこと、顧客とのやり取りが得意です。常に高い成果を維持し、プロとしての姿勢を保っています。新しいことを学ぶことと軽い運動が好きです。",
+        nav_skill: "スキル",
+        title_skill: "習得したスキル",
+        title_skill1: "Adobe Photoshop",
+        skill_desc1: "Adobe Photoshopでのテキスト編集、画像加工、グラフィック作成に熟練。",
+        title_skill2: "Adobe Premiere Pro",
+        skill_desc2: "Adobe Premiere Proを使用した映像編集、カラーグレーディング、映像制作に熟練。",
+        title_skill3: "テキストレイアウト",
+        skill_desc3: "適切なフォントとバランスで吹き出しのテキストや効果音を配置。",
+        title_skill4: "チームコミュニケーション",
+        skill_desc4: "制作チームでの協力と部門間調整に長けている。",
+        title_skill5: "リーダーシップ",
+        skill_desc5: "チームを率いて戦略的な判断を行う経験がある。",
+        certificate_title: "証明書",
+        title_certificate1: "証明書",
+        certificate_desc1: "LP4Yと協力した企業訪問に参加し、空港業務に関する知見を得たことに対するJALからの証明書。",
+        certificate_desc2: "職場における感情知能（Emotional Intelligence at the Workplace）に関する研修コースを修了したことに対するConcentrixからの証明書。",
+        certificate_desc3: "Artelia Indonesiaによる調達トレーニングに参加。",
+        title_certificate2: "LP4Yでの研修証明書",
+        certificate_desc4: ".",
+        certificate_desc5: ".",
+        certificate_desc6: ".",
+        nav_gallery: "ポートフォリオ",
+        gallery_title: "作品ポートフォリオ",
+        title_comic1: "アクション漫画",
+        comic_desc1: "吹き出し外のテキスト（思考バルーン）のサイズを調整しました。",
+        comic_desc2: "吹き出し外のテキスト（思考バルーン）のサイズを調整しました。",
+        comic_desc3: "吹き出し外のテキスト（思考バルーン）のサイズを調整しました。",
+        title_comic2: "リラックス漫画",
+        comic_desc4: "吹き出しの内外のテキストを調整し、SFXを挿入しました。",
+        comic_desc5: "吹き出しの内外のテキストサイズを調整しました。",
+        comic_desc6: "吹き出しの後ろのテキストを調整し、読みやすいフォントに整えました。",
+        title_comic3: "カラー漫画・ウェブトゥーン",
+        comic_desc7: "リドロー、テキストサイズ調整、標準フォントの適用、SFX作成、吹き出しデザインを行いました。",
+        comic_desc8: "テキスト・フォント調整、SFX作成、吹き出しレイアウトとタイポグラフィの構成。",
+        comic_desc9: "テキスト・フォント調整、SFX作成、吹き出しレイアウトとタイポグラフィの構成。",
+        nav_video: "動画",
+        title_video: "ポートフォリオ動画",
+        video_title1: "モノクロ漫画のタイムラプス",
+        video_desc1: "フォント設定から効果音までの編集プロセス。",
+        video_title2: "カラーマンガのタイムラプス",
+        video_desc2: "フォント設定から効果音までの編集プロセス。",
+        nav_timeline: "経歴",
+        timeline1: "2021年4月〜2022年3月：コミュニティでフリーランスのタイプセッター。",
+        timeline2: "2023年12月〜2025年：コミュニティでフリーランスのタイプセッター。",
+        timeline3: "2025年4月22日〜5月6日：After Five レストラン・バーのウェイター。",
+        timeline4: "2025年2月〜現在：Life Project 4 Youth (LP4Y)での教育訓練。",
+        nav_stats: "統計",
+        stats_title: "統計",
+        stat1: "コミックエピソード",
+        stat2: "進行中のプロジェクト",
+        stat3: "活動年数",
+        stat4: "3+年",
+        nav_contact: "連絡先",
+        title_contact: "連絡先"
+      }
+    };
+    function setLang(lang) {
+      const keys = Object.keys(translations[lang]);
+      keys.forEach(id => {
+        const el = document.querySelector(`[data-id="${id}"]`);
+        if (el) el.textContent = translations[lang][id];
+      });
+    }
+  </script>
 </body>
 </html>
