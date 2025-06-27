@@ -1,20 +1,51 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DragonWira Studio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hendra Cipta - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    .banner-container {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    
-    .banner {
+
+    :root {
+      --primary: #1e1e2f;
+      --secondary: #764ba2;
+      --accent: #00bcd4;
+      --light: #ffffff;
+      --dark: #151525;
+      --gray: #2c2c3d;
+      --text-light: #ddd;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--primary);
+      color: var(--light);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* =============== BANNER SECTION =============== */
+    .banner-section {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .banner-image {
       position: absolute;
       top: 0;
       left: 0;
@@ -23,248 +54,691 @@
       background-image: url('https://dl.dropboxusercontent.com/scl/fi/1j8mhwsrx2x8c01c0hkga/Salinan-dari-Banner-WA.png?rlkey=l834uhdm64w0mvaz1vutieds2');
       background-size: cover;
       background-position: center;
-      z-index: 0;
+      z-index: -1;
+      transition: transform 1.2s ease-out;
     }
-    
+
     .banner-overlay {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      z-index: 1;
-    }
-    
-    .banner-content {
-      position: relative;
-      z-index: 2;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: white;
-      padding: 20px;
+      background: rgba(30, 30, 47, 0.8);
+      z-index: -1;
     }
 
-    .language-switch {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      background: #2c2c3d;
-      padding: 5px 10px;
-      border-radius: 8px;
-      z-index: 1001;
+    .banner-content {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 1s ease;
+      z-index: 2;
     }
-    .language-switch button {
-      background: none;
-      color: white;
-      border: none;
-      margin: 0 5px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    :root {
-      --primary: #1e1e2f;
-      --secondary: #764ba2;
-      --light: #ffffff;
-      --accent: #00bcd4;
-    }
-    * {margin:0;padding:0;box-sizing:border-box;}
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--primary);
-      color: var(--light);
-      line-height: 1.6;
-    }
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      background: #151525;
-      padding: 10px 0;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    nav a {
-      color: var(--light);
-      text-decoration: none;
-      font-weight: 500;
-      padding: 8px 12px;
-    }
-    nav a:hover {
+
+    .banner-content h1 {
+      font-size: 4.5rem;
+      font-weight: 700;
       color: var(--accent);
-      background: rgba(255,255,255,0.1);
-      border-radius: 5px;
+      margin-bottom: 15px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     }
-    section {
-      padding: 40px 16px;
-      max-width: 1100px;
-      margin: auto;
-    }
-    h2 {
+
+    .banner-content p {
       font-size: 1.8rem;
-      color: var(--accent);
-      margin-bottom: 20px;
-      border-left: 4px solid var(--accent);
-      padding-left: 15px;
+      color: var(--text-light);
+      margin-bottom: 40px;
     }
-    .intro, .gallery, .videos, .contact, .skills, .stats {
-      margin-bottom: 50px;
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      opacity: 1;
+      transition: opacity 0.5s ease;
     }
-    .gallery-grid, .videos-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 16px;
-    }
-    .card {
-      background: #2c2c3d;
-      padding: 16px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      animation: fadeInUp 0.8s ease-in-out;
-    }
-    .card h3 {
-      color: var(--light);
-      font-size: 1.1rem;
-      margin-bottom: 8px;
-    }
-    .card p {
-      color: #bbb;
-      font-size: 0.95rem;
-    }
-    .card img, .card video, .card iframe {
-      width: 100%;
-      border-radius: 8px;
+
+    .scroll-text {
+      font-size: 1rem;
+      color: var(--text-light);
       margin-bottom: 10px;
     }
-    footer {
-      text-align: center;
-      padding: 20px 16px;
-      background: #111;
-      color: #999;
-      font-size: 0.9rem;
+
+    .scroll-arrow {
+      width: 25px;
+      height: 40px;
+      border: 2px solid var(--accent);
+      border-radius: 20px;
+      position: relative;
     }
-    .hero-image {
-      width: 100%;
-      max-width: 360px;
-      margin: 30px auto 0;
-      display: block;
-      border-radius: 12px;
+
+    .scroll-arrow::after {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: scrollBounce 1.5s infinite;
     }
-    .stats { 
-      display: flex; 
-      gap: 20px; 
-      flex-wrap: wrap; 
+
+    @keyframes scrollBounce {
+      0% { top: 8px; opacity: 1; }
+      50% { top: 15px; opacity: 0.7; }
+      100% { top: 8px; opacity: 1; }
     }
-    .stat { 
-      background: #2c2c3d; 
-      padding: 20px; 
-      border-radius: 10px; 
-      flex: 1; 
-      min-width: 150px; 
-      text-align: center; 
-    }
-    #preloader {
+
+    /* =============== NAVIGATION =============== */
+    nav {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
-      background: #1e1e2f;
       display: flex;
       justify-content: center;
-      align-items: center;
-      z-index: 9999;
+      background: rgba(21, 21, 37, 0.95);
+      padding: 15px 0;
+      z-index: 1000;
+      transform: translateY(-100%);
+      transition: transform 0.5s ease, background 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     }
-    .spinner {
-      width: 50px;
-      height: 50px;
-      border: 5px solid #ccc;
-      border-top-color: var(--accent);
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
+
+    nav.visible {
+      transform: translateY(0);
     }
-    @keyframes spin {
-      to { transform: rotate(360deg); }
+
+    nav.scrolled {
+      background: rgba(30, 30, 47, 0.98);
     }
-    .fade-in {
+
+    nav a {
+      color: var(--light);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 8px 20px;
+      margin: 0 5px;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    nav a.active {
+      background: rgba(0, 188, 212, 0.2);
+      color: var(--accent);
+    }
+
+    /* =============== MAIN CONTENT =============== */
+    .main-content {
+      background: var(--primary);
+      padding-top: 100px;
       opacity: 0;
-      animation: fadeIn 1s ease forwards;
+      transform: translateY(50px);
+      transition: all 1.2s ease;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+
+    .main-content.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
+
+    section {
+      padding: 100px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      min-height: 100vh;
+      scroll-margin-top: 80px;
     }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+
+    h2 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 30px;
+      border-left: 4px solid var(--accent);
+      padding-left: 20px;
+      position: relative;
     }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 20px;
+      width: 80px;
+      height: 3px;
+      background: var(--accent);
+    }
+
+    /* =============== TENTANG SAYA SECTION =============== */
+    .intro-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .intro-text {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      line-height: 1.8;
+      max-width: 800px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .hero-image {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 15px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .hero-image:hover {
+      transform: scale(1.02);
+    }
+
+    /* =============== SKILL SECTION =============== */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+
+    .skill-card {
+      background: var(--gray);
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .skill-card h3 {
+      color: var(--accent);
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .skill-card h3 i {
+      font-size: 1.6rem;
+    }
+
+    .skill-card p {
+      color: var(--text-light);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    /* =============== SERTIFIKAT SECTION =============== */
     .certificate-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      gap: 30px;
     }
-    .certificate-grid .card {
-      background: #2c2c3d;
-      padding: 16px;
+
+    .certificate-card {
+      background: var(--gray);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .certificate-card h3 {
+      color: var(--accent);
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+    }
+
+    .certificate-card p {
+      color: var(--text-light);
+      margin-bottom: 15px;
+      font-size: 1rem;
+    }
+
+    .certificate-card img {
+      width: 100%;
       border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      animation: fadeInUp 0.8s ease-in-out;
+      margin-bottom: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
     }
-    .certificate-grid .card img {
+    
+    .certificate-card img:hover {
+      transform: scale(1.03);
+    }
+
+    /* =============== PORTOFOLIO SECTION =============== */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .portfolio-card {
+      background: var(--gray);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+    
+    .portfolio-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .portfolio-card h3 {
+      color: var(--accent);
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+    }
+
+    .portfolio-card p {
+      color: var(--text-light);
+      margin-bottom: 15px;
+      font-size: 1rem;
+    }
+
+    .portfolio-card img {
       width: 100%;
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+    
+    .portfolio-card img:hover {
+      transform: scale(1.03);
+    }
+
+    /* =============== VIDEO SECTION =============== */
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 30px;
+    }
+
+    .video-card {
+      background: var(--gray);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+    
+    .video-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .video-container iframe,
+    .video-container video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .video-card h3 {
+      color: var(--accent);
+      font-size: 1.4rem;
       margin-bottom: 10px;
-      display: block;
     }
-    .certificate-grid .card:first-child img {
-      max-width: 720px;
-      width: 100%;
-      margin-left: auto;
-      margin-right: auto;
+
+    .video-card p {
+      color: var(--text-light);
+      font-size: 1rem;
     }
+
+    /* =============== TIMELINE SECTION =============== */
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: var(--accent);
+      left: 50%;
+      margin-left: -2px;
+    }
+    
+    .timeline-entry {
+      position: relative;
+      margin-bottom: 40px;
+      background: var(--gray);
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      width: calc(50% - 40px);
+      transition: all 0.3s ease;
+    }
+    
+    .timeline-entry:hover {
+      transform: translateX(5px);
+    }
+    
+    .timeline-entry:nth-child(odd) {
+      left: 0;
+    }
+    
+    .timeline-entry:nth-child(even) {
+      left: 50%;
+    }
+    
+    .timeline-entry::after {
+      content: '';
+      position: absolute;
+      top: 25px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 5px rgba(0, 188, 212, 0.2);
+    }
+    
+    .timeline-entry:nth-child(odd)::after {
+      right: -50px;
+    }
+    
+    .timeline-entry:nth-child(even)::after {
+      left: -50px;
+    }
+    
+    /* =============== STATISTIK SECTION =============== */
+    .stats {
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .stat {
+      background: linear-gradient(135deg, var(--gray), var(--dark));
+      padding: 30px;
+      border-radius: 15px;
+      flex: 1;
+      min-width: 200px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+    
+    .stat:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+    }
+    
+    .stat h3 {
+      font-size: 2.8rem;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    
+    .stat p {
+      color: var(--text-light);
+      font-size: 1.2rem;
+    }
+
+    /* =============== KONTAK SECTION =============== */
+    .contact-card {
+      background: var(--gray);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-info {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .contact-info:hover {
+      background: rgba(0, 188, 212, 0.1);
+      transform: translateX(5px);
+    }
+
+    .contact-info i {
+      font-size: 1.8rem;
+      color: var(--accent);
+      width: 50px;
+      text-align: center;
+    }
+
+    .contact-info a {
+      color: var(--light);
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+    }
+
+    .contact-info a:hover {
+      color: var(--accent);
+    }
+
+    /* =============== FOOTER =============== */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      background: var(--dark);
+      color: var(--text-light);
+      margin-top: 80px;
+    }
+
+    .footer-logo {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .footer-text {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 20px;
+    }
+
+    .copyright {
+      margin-top: 20px;
+      color: #888;
+    }
+
+    /* =============== LANGUAGE SWITCHER =============== */
+    .language-switch {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: rgba(44, 44, 61, 0.9);
+      padding: 8px 15px;
+      border-radius: 30px;
+      z-index: 1001;
+      display: flex;
+      gap: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .language-switch button {
+      background: none;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.1rem;
+      padding: 5px;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .language-switch button:hover {
+      background: rgba(0, 188, 212, 0.2);
+      transform: scale(1.1);
+    }
+    
+    .language-switch button.active {
+      background: rgba(0, 188, 212, 0.3);
+    }
+
+    /* =============== RESPONSIVE DESIGN =============== */
+    @media (max-width: 992px) {
+      .banner-content h1 {
+        font-size: 3.5rem;
+      }
+      
+      .banner-content p {
+        font-size: 1.5rem;
+      }
+      
+      h2 {
+        font-size: 2.2rem;
+      }
+    }
+
     @media (max-width: 768px) {
+      .banner-content h1 {
+        font-size: 2.8rem;
+      }
+      
+      .banner-content p {
+        font-size: 1.3rem;
+      }
+      
+      nav a {
+        padding: 6px 15px;
+        font-size: 0.9rem;
+      }
+      
+      h2 {
+        font-size: 2rem;
+      }
+      
+      .intro-text {
+        font-size: 1rem;
+      }
+
       .certificate-grid {
         grid-template-columns: 1fr;
       }
-      .banner-container {
-        height: 70vh;
+
+      .videos-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline::before {
+        left: 30px;
+      }
+      
+      .timeline-entry {
+        width: calc(100% - 60px);
+        margin-left: 30px;
+        left: 0 !important;
+      }
+      
+      .timeline-entry::after {
+        left: -40px !important;
+        right: auto !important;
       }
     }
-    @media (max-width: 600px) {
-      nav a { font-size: 0.9rem; padding: 6px 10px; }
-      h2 { font-size: 1.5rem; }
+
+    @media (max-width: 576px) {
       .banner-content h1 {
+        font-size: 2.2rem;
+      }
+      
+      .banner-content p {
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+      }
+      
+      nav {
+        flex-wrap: wrap;
+      }
+      
+      nav a {
+        padding: 5px 12px;
+        margin: 3px;
+        font-size: 0.85rem;
+      }
+      
+      h2 {
         font-size: 1.8rem;
+        padding-left: 15px;
+      }
+      
+      .language-switch {
+        top: 15px;
+        right: 15px;
+        padding: 6px 12px;
+      }
+      
+      .language-switch button {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+      }
+
+      .stats {
+        flex-direction: column;
+      }
+      
+      section {
+        padding: 80px 20px;
       }
     }
   </style>
 </head>
 <body>
   <div class="language-switch">
-    <button onclick="setLang('id')">🇮🇩</button>
+    <button onclick="setLang('id')" class="active">🇮🇩</button>
     <button onclick="setLang('en')">🇬🇧</button>
     <button onclick="setLang('jp')">🇯🇵</button>
   </div>
-  <div id="preloader"><div class="spinner"></div></div>
-  <script>
-    window.addEventListener('load', () => {
-      document.getElementById('preloader').style.display = 'none';
-      document.querySelectorAll('section').forEach(el => el.classList.add('fade-in'));
-    });
-  </script>
 
+  <!-- Banner Section -->
   <section class="banner-section" id="banner">
     <div class="banner-image" id="bannerImage"></div>
     <div class="banner-overlay"></div>
@@ -277,11 +751,12 @@
       <div class="scroll-arrow"></div>
     </div>
   </section>
-  
-  <nav>
-    <a href="#tentang" data-id="nav_intro">Tentang</a>
+
+  <!-- Navigation -->
+  <nav id="mainNav">
+    <a href="#tentang" data-id="nav_intro" class="active">Tentang</a>
     <a href="#skill" data-id="nav_skill">Skill</a>
-    <a href="#sertifikat" data-id="nav_certificate">sertifikat</a>
+    <a href="#sertifikat" data-id="nav_certificate">Sertifikat</a>
     <a href="#portofolio" data-id="nav_gallery">Portofolio</a>
     <a href="#video" data-id="nav_video">Video</a>
     <a href="#riwayat" data-id="nav_timeline">Riwayat</a>
@@ -289,146 +764,192 @@
     <a href="#kontak" data-id="nav_contact">Kontak</a>
   </nav>
 
-  <section id="tentang" class="intro">
-    <h2 data-id="intro_title">Tentang Saya</h2>
-    <p data-id="intro_desc">Saya Hendra Cipta. Saya lulus dari SMA Negeri 92. Saya memiliki hobi mengedit gambar. Saya terampil dalam kerja tim, menjadi pemimpin, berbicara dengan banyak orang dan berkomunikasi dengan pelanggan, saya dapat mempertahankan hasil yang sangat baik, dan menunjukkan profesionalisme. Selain itu, saya suka belajar hal-hal baru dan olahraga ringan.</p>
-    <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/WhatsApp_Image_2025-05-28_at_2.58.17_PM_gkkois" alt="Hendra Cipta" class="hero-image">
-  </section>
+  <!-- Main Content -->
+  <div class="main-content" id="mainContent">
+    <!-- Tentang Saya Section -->
+    <section id="tentang">
+      <h2 data-id="intro_title">Tentang Saya</h2>
+      <div class="intro-content">
+        <p class="intro-text" data-id="intro_desc">
+          Saya Hendra Cipta. Saya lulus dari SMA Negeri 92. Saya memiliki hobi mengedit gambar. 
+          Saya terampil dalam kerja tim, menjadi pemimpin, berbicara dengan banyak orang dan 
+          berkomunikasi dengan pelanggan, saya dapat mempertahankan hasil yang sangat baik, 
+          dan menunjukkan profesionalisme. Selain itu, saya suka belajar hal-hal baru dan olahraga ringan.
+        </p>
+        <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/WhatsApp_Image_2025-05-28_at_2.58.17_PM_gkkois" 
+             alt="Hendra Cipta" class="hero-image">
+      </div>
+    </section>
 
-  <section id="skill" class="skills">
-    <h2 data-id="title_skill">Skill yang Dikuasai</h2>
-    <div class="gallery-grid">
-      <div class="card">
-        <h3 data-id="title_skill1"><i class="fas fa-pencil-ruler"></i> Adobe Photoshop</h3>
-        <p data-id="skill_desc1">Menguasai penggunaan Adobe Photoshop untuk pengeditan teks, pengeditan gambar, dan pembuatan elemen grafis.</p>
+    <!-- Skill Section -->
+    <section id="skill" class="skills">
+      <h2 data-id="title_skill">Skill yang Dikuasai</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3><i class="fas fa-pencil-ruler"></i> <span data-id="title_skill1">Adobe Photoshop</span></h3>
+          <p data-id="skill_desc1">Menguasai penggunaan Adobe Photoshop untuk pengeditan teks, pengeditan gambar, dan pembuatan elemen grafis.</p>
+        </div>
+        <div class="skill-card">
+          <h3><i class="fas fa-video"></i> <span data-id="title_skill2">Adobe Premiere Pro</span></h3>
+          <p data-id="skill_desc2">Mahir menggunakan Adobe Premiere Pro untuk pengeditan video, color grading, dan produksi konten visual berkualitas tinggi.</p>
+        </div>
+        <div class="skill-card">
+          <h3><i class="fas fa-font"></i> <span data-id="title_skill3">Tata Letak Teks</span></h3>
+          <p data-id="skill_desc3">Pengaturan teks dialog dan efek suara dengan font yang tepat dan layout yang seimbang.</p>
+        </div>
+        <div class="skill-card">
+          <h3><i class="fas fa-people-group"></i> <span data-id="title_skill4">Komunikasi Tim</span></h3>
+          <p data-id="skill_desc4">Kemampuan bekerja sama dalam tim produksi dan koordinasi antar divisi.</p>
+        </div>
+        <div class="skill-card">
+          <h3><i class="fas fa-lightbulb"></i> <span data-id="title_skill5">Kepemimpinan</span></h3>
+          <p data-id="skill_desc5">Berpengalaman dalam memimpin tim dan mengambil keputusan strategis untuk mencapai tujuan proyek dengan efektif.</p>
+        </div>
+        <div class="skill-card">
+          <h3><i class="fas fa-cash-register"></i> <span data-id="title_skill6">Point Of Sale (POS) System</span></h3>
+          <p data-id="skill_desc6">Memahami tentang sistem ini sedikit, seperti pencatatan pesanan, perhitungan total harga, hingga pembayaran dan pencetakan struk.</p>
+        </div>
       </div>
-      <div class="card">
-        <h3 data-id="title_skill2"><i class="fas fa-video"></i> Adobe Premiere Pro</h3>
-        <p data-id="skill_desc2">Mahir menggunakan Adobe Premiere Pro untuk pengeditan video, color grading, dan produksi konten visual berkualitas tinggi.</p>
-      </div>
-      <div class="card">
-        <h3 data-id="title_skill3"><i class="fas fa-font"></i> Tata Letak Teks</h3>
-        <p data-id="skill_desc3">Pengaturan teks dialog dan efek suara dengan font yang tepat dan layout yang seimbang.</p>
-      </div>
-      <div class="card">
-        <h3 data-id="title_skill4"><i class="fas fa-people-group"></i> Komunikasi Tim</h3>
-        <p data-id="skill_desc4">Kemampuan bekerja sama dalam tim produksi dan koordinasi antar divisi.</p>
-      </div>
-      <div class="card">
-        <h3 data-id="title_skill5"><i class="fas fa-lightbulb"></i> Kepemimpinan</h3>
-        <p data-id="skill_desc5">Berpengalaman dalam memimpin tim dan mengambil keputusan strategis untuk mencapai tujuan proyek dengan efektif.</p>
-      </div>
-      <div class="card">
-        <h3 data-id="title-skill6"><i class="fas fa-cash-register"></i> Point Of Sale (POS) System</h3>
-        <p data-id="skill_desc6">Memahami tentang sistem ini sedikit, seperti pencatatan pesanan, perhitungan total harga, hingga pembayaran dan pencetakan struk.</p>
-      </div>
-      <div class="card">
-        <h3 data-id="title-skill7"><i class="fas fa-headset"></i> Customer Service</h3>
-        <p data-id="skill_desc7">Mehamai Menyambut dan Menyapa Pelanggan, Menerima dan Mencatat Pesanan, dan Memberikan Informasi Produk.</p>
-    </div>
-  </section>
+    </section>
 
-  <section id="sertifikat" class="certificate">
-    <h2 data-id="certificate_title">Sertifikat</h2>
-    <div class="certificate-grid">
-      <div class="card">
-        <h3 data-id="title_certificate1">Sertifikat</h3>
-        <p data-id="certificate_desc1">Sertifikat dari JAL atas kehadirannya dalam kegiatan kunjungan perusahaan yang berkolaborasi dengan LP4Y dan memberikan pengetahuan tentang kerja dibandara.</p>
-        <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/Serifijat_JAL_ozt8xm" alt="certificate" />
-        <p data-id="certificate_desc2">Sertifikat dari Concentrix dalam mengikuti Training Course tentang 'Emotional Intelligence At The Work Place'.</p>
-        <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/Sertifikat_Concentrix_ijtdzc" alt="certificate 2" />
-        <p data-id="certificate_desc3">Berpartisipasi dalam mengikutin pelatihan tentang Procurement dari Artelia Indonesia.</p>
-        <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/Sertifikat_Artelia_ywcluw" alt="certificate 3" />
+    <!-- Sertifikat Section -->
+    <section id="sertifikat" class="certificate">
+      <h2 data-id="certificate_title">Sertifikat</h2>
+      <div class="certificate-grid">
+        <div class="certificate-card">
+          <h3 data-id="title_certificate1">Sertifikat</h3>
+          <p data-id="certificate_desc1">Sertifikat dari JAL atas kehadirannya dalam kegiatan kunjungan perusahaan yang berkolaborasi dengan LP4Y dan memberikan pengetahuan tentang kerja dibandara.</p>
+          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/Serifijat_JAL_ozt8xm" alt="Sertifikat JAL">
+          <p data-id="certificate_desc2">Sertifikat dari Concentrix dalam mengikuti Training Course tentang 'Emotional Intelligence At The Work Place'.</p>
+          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/Sertifikat_Concentrix_ijtdzc" alt="Sertifikat Concentrix">
+          <p data-id="certificate_desc3">Berpartisipasi dalam mengikutin pelatihan tentang Procurement dari Artelia Indonesia.</p>
+          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/Sertifikat_Artelia_ywcluw" alt="Sertifikat Artelia">
+        </div>
+        <div class="certificate-card">
+          <h3 data-id="title_certificate2">Sertifikat Pelatihan di LP4Y</h3>
+          <p data-id="certificate_desc4">Sertifikat pelatihan profesional dari LP4Y untuk pengembangan karir.</p>
+          <img src="https://via.placeholder.com/600x400/2c2c3d/ffffff?text=Sertifikat+LP4Y" alt="Sertifikat LP4Y">
+          <p data-id="certificate_desc5">Sertifikat tambahan dari program pelatihan LP4Y.</p>
+          <img src="https://via.placeholder.com/600x400/2c2c3d/ffffff?text=Sertifikat+LP4Y+2" alt="Sertifikat LP4Y 2">
+          <p data-id="certificate_desc6">Sertifikat penyelesaian program LP4Y.</p>
+          <img src="https://via.placeholder.com/600x400/2c2c3d/ffffff?text=Sertifikat+LP4Y+3" alt="Sertifikat LP4Y 3">
+        </div>
       </div>
-      <div class="card">
-        <h3 data-id="title_certificate2">Sertifikat Pelatihan di LP4Y</h3>
-        <p data-id=" certificate_desc4">.</p>
-        <img src="." alt="Sertifikat LP4Y" />
-        <p data-id=" certificate_desc5">.</p>
-        <img src="." alt="Sertifikat LP4Y 2" />
-        <p data-id=" certificate_desc6">.</p>
-        <img src="." alt="Sertifikat LP4Y 3" />
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="portofolio" class="gallery">
-    <h2 data-id="gallery_title">Portofolio Karya</h2>
-    <div class="gallery-grid">
-      <div class="card">
-        <h3 data-id="title_comic1">Komik Aksi</h3>
-        <p data-id="comic_desc1">Disini saya melakukan mengatur ukuran teks di luar balon dialog atau disebut balon dalam pikiran.</p>
-        <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/016_bai12u" alt="Komik Aksi" />
-        <p data-id="comic_desc2">Disini saya melakukan mengatur ukuran teks di luar balon dialog atau disebut balon dalam pikiran.</p>
-        <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/007_mn2ot2" alt="Komik Aksi 2" />
-        <p data-id="comic_desc3">Disini saya melakukan mengatur ukuran teks di luar balon dialog atau disebut balon dalam pikiran.</p>
-        <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/005_yb2wgi" alt="Komik Aksi 3" />
+    <!-- Portofolio Section -->
+    <section id="portofolio" class="gallery">
+      <h2 data-id="gallery_title">Portofolio Karya</h2>
+      <div class="portfolio-grid">
+        <div class="portfolio-card">
+          <h3 data-id="title_comic1">Komik Aksi</h3>
+          <p data-id="comic_desc1">Disini saya melakukan mengatur ukuran teks di luar balon dialog atau disebut balon dalam pikiran.</p>
+          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/016_bai12u" alt="Komik Aksi">
+          <p data-id="comic_desc2">Disini saya melakukan mengatur ukuran teks di luar balon dialog atau disebut balon dalam pikiran.</p>
+          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/007_mn2ot2" alt="Komik Aksi 2">
+          <p data-id="comic_desc3">Disini saya melakukan mengatur ukuran teks di luar balon dialog atau disebut balon dalam pikiran.</p>
+          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/005_yb2wgi" alt="Komik Aksi 3">
+        </div>
+        <div class="portfolio-card">
+          <h3 data-id="title_comic2">Komik Santai</h3>
+          <p data-id="comic_desc4">Disini saya melakukan mengatur ukuran teks di luar balon dialog, mengatur ukuran teks pada balon dialog, mengatur SFX pada gambar.</p>
+          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/012_llj2oi" alt="Komik Santai">
+          <p data-id="comic_desc5">Disini saya melakukan mengatur ukuran teks di luar balon dialog, mengatur ukuran teks pada balon dialog.</p>
+          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/024_zrsroh" alt="Komik Santai 2">
+          <p data-id="comic_desc6">Disini saya melakukan mengatur ukuran teks di luar balon dialog, mengatur ukuran teks pada balon dialog, mengatur teks dibelakang balon, mengatur font agar nyaman dibaca.</p>
+          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/12_eyfmes" alt="Komik Santai 3">
+        </div>
+        <div class="portfolio-card">
+          <h3 data-id="title_comic3">Komik Berwarna atau Webtoon</h3>
+          <p data-id="comic_desc7">Saya melakukan redrawing, mengatur ukuran teks, mengatur font yang sesuai standar, membuat sfx, membuat balon teks dan mengatur balon teks.</p>
+          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/Totus_%EC%8B%9D%EC%9E%90-%ED%8F%AC%ED%86%A0%EC%83%B5_EN__%ED%85%8C%EC%8A%A4%ED%8A%B8_002_lxyifd" alt="Webtoon">
+          <p data-id="comic_desc8">Saya mengatur ukuran teks, mengatur font yang sesuai standar, membuat sfx, membuat balon teks, mengatur balon teks, dan tipografi.</p>
+          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/Totus_%EC%8B%9D%EC%9E%90-%ED%8F%AC%ED%86%A0%EC%83%B5_EN__%ED%85%8C%EC%8A%A4%ED%8A%B8_003_ijijes" alt="Webtoon 2">
+          <p data-id="comic_desc9">Saya mengatur ukuran teks, mengatur font yang sesuai standar, membuat sfx, membuat balon teks, mengatur balon teks, dan tipografi.</p>
+          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/Totus_%EC%8B%9D%EC%9E%90-%ED%8F%AC%ED%86%A0%EC%83%B5_EN__%ED%85%8C%EC%8A%A4%ED%8A%B8_004_ksaiip.jpg" alt="Webtoon 3">
+        </div>
       </div>
-      <div class="card">
-        <h3 data-id="title_comic2">Komik Santai</h3>
-        <p data-id="comic_desc4">Disini saya melakukan mengatur ukuran teks di luar balon dialog, mengatur ukuran teks pada balon dialog, mengatur SFX pada gambar.</p>
-        <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/012_llj2oi" alt="Komik Santai" />
-        <p data-id="comic_desc5">Disini saya melakukan mengatur ukuran teks di luar balon dialog, mengatur ukuran teks pada balon dialog.</p>
-        <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/024_zrsroh" alt="Komik Santai 2" />
-        <p data-id="comic_desc6">Disini saya melakukan mengatur ukuran teks di luar balon dialog, mengatur ukuran teks pada balon dialog, mengatur teks dibelakang balon, mengatur font agar nyaman dibaca.</p>
-        <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/12_eyfmes" alt="Komik Santai 3" />
+    </section>
+
+    <!-- Video Section -->
+    <section id="video" class="videos">
+      <h2 data-id="title_video">Video Portofolio</h2>
+      <div class="videos-grid">
+        <div class="video-card">
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/NkKLAHnLGaY" allowfullscreen></iframe>
+          </div>
+          <h3 data-id="video_title1">Timelapse Komik Hitam Putih</h3>
+          <p data-id="video_desc1">Proses pengeditan komik hitam putih dari atur font, hingga sfx.</p>
+        </div>
+        <div class="video-card">
+          <div class="video-container">
+            <video controls>
+              <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <h3 data-id="video_title2">Timelapse Komik Berwarna</h3>
+          <p data-id="video_desc2">Proses pengeditan komik berwarna dari atur font, hingga sfx.</p>
+        </div>
       </div>
-      <div class="card">
-        <h3 data-id="title_comic3">Komik Berwarna atau Webtoon</h3>
-        <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/Totus_%EC%8B%9D%EC%9E%90-%ED%8F%AC%ED%86%A0%EC%83%B5_EN__%ED%85%8C%EC%8A%A4%ED%8A%B8_002_lxyifd" alt="Webtoon" />
-        <p data-id="comic_desc7">Saya melakukan redrawing, mengatur ukuran teks, mengatur font yang sesuai standar, membuat sfx, membuat balon teks dan mengatur balon teks.</p>
-        <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/Totus_%EC%8B%9D%EC%9E%90-%ED%8F%AC%ED%86%A0%EC%83%B5_EN__%ED%85%8C%EC%8A%A4%ED%8A%B8_003_ijijes" alt="Webtoon 2" />
-        <p data-id="comic_desc8">Saya mengatur ukuran teks, mengatur font yang sesuai standar, membuat sfx, membuat balon teks, mengatur balon teks, dan tipografi.</p>
-        <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/Totus_%EC%8B%9D%EC%9E%90-%ED%8F%AC%ED%86%A0%EC%83%B5_EN__%ED%85%8C%EC%8A%A4%ED%8A%B8_004_ksaiip.jpg" alt="Webtoon 3" />
-        <p data-id="comic_desc9">Saya mengatur ukuran teks, mengatur font yang sesuai standar, membuat sfx, membuat balon teks, mengatur balon teks, dan tipografi.</p>
+    </section>
+
+    <!-- Riwayat Section -->
+    <section id="riwayat">
+      <h2 data-id="timeline_title">Pengalaman</h2>
+      <div class="timeline">
+        <div class="timeline-entry" data-id="timeline4">Februari 2025 - Sekarang: Pendidikan dan Latihan di Life Project 4 Youth (LP4Y)</div>
+        <div class="timeline-entry" data-id="timeline3">22 April - 6 Mei 2025: Waiter di Restoran dan Bar After Five.</div>
+        <div class="timeline-entry" data-id="timeline2">Desember 2023 - 2025: Freelance sebagai Typesetter di Komunitas.</div>
+        <div class="timeline-entry" data-id="timeline1">April 2021 - Maret 2022: Freelance sebagai Typesetter di Komunitas.</div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="video" class="videos">
-    <h2 data-id="title_video">Video Portofolio</h2>
-    <div class="videos-grid">
-      <div class="card">
-        <iframe width="100%" height="315" src="https://www.youtube.com/embed/NkKLAHnLGaY" frameborder="0" allowfullscreen></iframe>
-        <h3 data-id="video_title1">Timelapse Komik Hitam Putih</h3>
-        <p data-id="video_desc1">Proses pengeditan komik hitam putih dari atur font, hingga sfx.</p>
+    <!-- Statistik Section -->
+    <section id="statistik">
+      <h2 data-id="stats_title">Statistik</h2>
+      <div class="stats">
+        <div class="stat">
+          <h3>1000+</h3>
+          <p data-id="stat1">Episode Komik</p>
+        </div>
+        <div class="stat">
+          <h3>-</h3>
+          <p data-id="stat2">Proyek Aktif</p>
+        </div>
+        <div class="stat">
+          <h3 data-id="stat4">3+ Tahun</h3>
+          <p data-id="stat3">Aktif Selama</p>
+        </div>
       </div>
-      <div class="card">
-        <video controls src="https://www.w3schools.com/html/mov_bbb.mp4"></video>
-        <h3 data-id="video_title2">Timelapse Komik Berwarna</h3>
-        <p data-id="video_desc2">Proses pengeditan komik berwarna dari atur font, hingga sfx.</p>
+    </section>
+
+    <!-- Kontak Section -->
+    <section id="kontak" class="contact">
+      <h2 data-id="title_contact">Kontak</h2>
+      <div class="contact-card">
+        <div class="contact-info">
+          <i class="fab fa-linkedin"></i>
+          <a href="https://www.linkedin.com/in/hendra-cipta/" target="_blank">LinkedIn: hendracipta</a>
+        </div>
+        <div class="contact-info">
+          <i class="fab fa-whatsapp"></i>
+          <a href="https://wa.me/6289501261058" target="_blank">WhatsApp: +62 895-0126-1058</a>
+        </div>
+        <div class="contact-info">
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:hendra.cipta@lp4y.org">Email: hendra.cipta@lp4y.org</a>
+        </div>
+        <div class="contact-info">
+          <i class="fab fa-github"></i>
+          <a href="https://github.com/dragonwira" target="_blank">GitHub: dragonwira</a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 
-  <section id="riwayat">
-    <h2 data-id="timeline_title">Pengalaman</h2>
-    <div class="timeline">
-      <div class="timeline-entry" data-id="timeline4">Februari 2025 - Sekarang: Pendidikan dan Latihan di Life Project 4 Youth (LP4Y)</div>
-      <div class="timeline-entry" data-id="timeline3">22 April - 6 Mei 2025: Waiter di Restoran dan Bar After Five.</div>
-      <div class="timeline-entry" data-id="timeline2">Desember 2023 - 2025: Freelance sebagai Typesetter di Komunitas.</div>
-      <div class="timeline-entry" data-id="timeline1">April 2021 - Maret 2022: Freelance sebagai Typesetter di Komunitas.</div>
-    </div>
-  </section>
-
-  <section id="statistik">
-    <h2 data-id="stats_title">Statistik</h2>
-    <div class="stats">
-      <div class="stat"><h3>1000+</h3><p data-id="stat1">Episode Komik</p></div>
-      <div class="stat"><h3>-</h3><p data-id="stat2">Proyek Aktif</p></div>
-      <div class="stat"><h3 data-id="stat4">3+ Tahun</h3><p data-id="stat3">Aktif Selama</p></div>
-    </div>
-  </section>
-
-  <section id="kontak" class="contact">
-    <h2 data-id="title_contact">Kontak</h2>
-    <div class="card">
-      <p><i class="fab fa-instagram"></i> LinkedIn: <a href="https://www.linkedin.com/in/hendra-cipta/" target="_blank">hendracipta</a></p>
-      <p><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/6289501261058" target="_blank">+62 895-0126-1058</a></p>
-      <p><i class="fas fa-envelope"></i> Email: <a href="mailto:hendra.cipta@lp4y.org">hendra.cipta@lp4y.org</a></p>
-    </div>
-  </section>
-
+  <!-- Footer -->
   <footer>
     <div class="footer-logo">
       <i class="fas fa-dragon"></i>
@@ -438,6 +959,7 @@
   </footer>
 
   <script>
+    // Inisialisasi scroll dan transisi
     document.addEventListener('DOMContentLoaded', function() {
       const bannerSection = document.getElementById('banner');
       const bannerImage = document.getElementById('bannerImage');
@@ -445,6 +967,9 @@
       const scrollIndicator = document.querySelector('.scroll-indicator');
       const mainNav = document.getElementById('mainNav');
       const mainContent = document.getElementById('mainContent');
+      const navLinks = document.querySelectorAll('nav a');
+      
+      let lastScrollTop = 0;
       
       // Handle scroll event
       window.addEventListener('scroll', function() {
@@ -461,17 +986,44 @@
           scrollIndicator.style.opacity = opacity < 0 ? '0' : opacity;
         }
         
-        // Perbaikan: Tampilkan navigasi hanya ketika scroll di bawah banner
-        if (scrollPosition > bannerHeight - 100) {
+        // Tampilkan navigasi ketika scroll ke bawah
+        if (scrollPosition > lastScrollTop && scrollPosition > 100) {
           mainNav.classList.add('visible');
-        } else {
-          mainNav.classList.remove('visible');
-        }
+          if (scrollPosition > 200) {
+            mainNav.classList.add('scrolled');
+          }
+        } 
+        lastScrollTop = scrollPosition;
         
         // Tampilkan konten utama
         if (scrollPosition > bannerHeight * 0.4) {
           mainContent.classList.add('visible');
         }
+        
+        // Sembunyikan navigasi ketika scroll ke atas dan di atas banner
+        if (scrollPosition < 100) {
+          mainNav.classList.remove('visible');
+          mainNav.classList.remove('scrolled');
+        }
+        
+        // Active nav link berdasarkan posisi scroll
+        const sections = document.querySelectorAll('section');
+        let currentSection = '';
+        
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          if (scrollPosition >= (sectionTop - 100)) {
+            currentSection = section.getAttribute('id');
+          }
+        });
+        
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${currentSection}`) {
+            link.classList.add('active');
+          }
+        });
       });
       
       // Animasi awal
@@ -480,29 +1032,40 @@
       }, 500);
       
       // Smooth scrolling for navigation links
-      document.querySelectorAll('nav a').forEach(anchor => {
+      navLinks.forEach(anchor => {
         anchor.addEventListener('click', function(e) {
           e.preventDefault();
           const targetId = this.getAttribute('href');
           const targetElement = document.querySelector(targetId);
-          const offset = 80; // Tinggi navbar
+          
+          // Update active nav link
+          navLinks.forEach(link => link.classList.remove('active'));
+          this.classList.add('active');
           
           window.scrollTo({
-            top: targetElement.offsetTop - offset,
+            top: targetElement.offsetTop - 80,
             behavior: 'smooth'
           });
         });
       });
     });
 
+    // Multi-language support
     const translations = {
       id: {
         title: "Hendra Cipta",
         subtitle: "Editor Komik, Typesetter",
+        scroll_text: "Scroll untuk melanjutkan",
         nav_intro: "Tentang",
+        nav_skill: "Skill",
+        nav_certificate: "Sertifikat",
+        nav_gallery: "Portofolio",
+        nav_video: "Video",
+        nav_timeline: "Riwayat",
+        nav_stats: "Statistik",
+        nav_contact: "Kontak",
         intro_title: "Tentang Saya",
         intro_desc: "Saya Hendra Cipta. Saya lulus dari SMA Negeri 92. Saya memiliki hobi mengedit gambar. Saya terampil dalam kerja tim, menjadi pemimpin, berbicara dengan banyak orang dan berkomunikasi dengan pelanggan, saya dapat mempertahankan hasil yang sangat baik, dan menunjukkan profesionalisme. Selain itu, saya suka belajar hal-hal baru dan olahraga ringan.",
-        nav_skill: "Skill",
         title_skill: "Skill yang Dikuasai",
         title_skill1: "Adobe Photoshop",
         skill_desc1: "Menguasai penggunaan Adobe Photoshop untuk pengeditan teks, pengeditan gambar, dan pembuatan elemen grafis.",
@@ -516,19 +1079,15 @@
         skill_desc5: "Berpengalaman dalam memimpin tim dan mengambil keputusan strategis untuk mencapai tujuan proyek dengan efektif.",
         title_skill6: "Point Of Sale (POS) System",
         skill_desc6: "Memahami tentang sistem ini sedikit, seperti pencatatan pesanan, perhitungan total harga, hingga pembayaran dan pencetakan struk.",
-        title_skill7: "Customer Service",
-        skill_desc7: "Mehamai Menyambut dan Menyapa Pelanggan, Menerima dan Mencatat Pesanan, dan Memberikan Informasi Produk.",
-        nav_certificate: "sertifikat",
         certificate_title: "Sertifikat",
         title_certificate1: "Sertifikat",
         certificate_desc1: "Sertifikat dari JAL atas kehadirannya dalam kegiatan kunjungan perusahaan yang berkolaborasi dengan LP4Y dan memberikan pengetahuan tentang kerja dibandara.",
         certificate_desc2: "Sertifikat dari Concentrix dalam mengikuti Training Course tentang 'Emotional Intelligence At The Work Place'.",
         certificate_desc3: "Berpartisipasi dalam mengikutin pelatihan tentang Procurement dari Artelia Indonesia.",
         title_certificate2: "Sertifikat Pelatihan di LP4Y",
-        certificate_desc4: ".",
-        certificate_desc5: ".",
-        certificate_desc6: ".",
-        nav_gallery: "Portofolio",
+        certificate_desc4: "Sertifikat pelatihan profesional dari LP4Y untuk pengembangan karir.",
+        certificate_desc5: "Sertifikat tambahan dari program pelatihan LP4Y.",
+        certificate_desc6: "Sertifikat penyelesaian program LP4Y.",
         gallery_title: "Portofolio Karya",
         title_comic1: "Komik Aksi",
         comic_desc1: "Disini saya melakukan mengatur ukuran teks di luar balon dialog atau disebut balon dalam pikiran.",
@@ -542,33 +1101,38 @@
         comic_desc7: "Saya melakukan redrawing, mengatur ukuran teks, mengatur font yang sesuai standar, membuat sfx, membuat balon teks dan mengatur balon teks.",
         comic_desc8: "Saya mengatur ukuran teks, mengatur font yang sesuai standar, membuat sfx, membuat balon teks, mengatur balon teks, dan tipografi.",
         comic_desc9: "Saya mengatur ukuran teks, mengatur font yang sesuai standar, membuat sfx, membuat balon teks, mengatur balon teks, dan tipografi.",
-        nav_video: "Video",
         title_video: "Video Portofolio",
         video_title1: "Timelapse Komik Hitam Putih",
         video_desc1: "Proses pengeditan komik hitam putih dari atur font, hingga sfx.",
         video_title2: "Timelapse Komik Berwarna",
         video_desc2: "Proses pengeditan komik berwarna dari atur font, hingga sfx.",
-        nav_timeline: "Riwayat",
+        timeline_title: "Pengalaman",
         timeline1: "April 2021 - Maret 2022: Freelance sebagai Typesetter di Komunitas.",
         timeline2: "Desember 2023 - 2025: Freelance sebagai Typesetter di Komunitas.",
         timeline3: "22 April - 6 Mei 2025: Waiter di Restoran dan Bar After Five.",
-        timeline4: "Februari 2025 - Sekarang: Education Training di Life Project 4 Youth (LP4Y)",
-        nav_stats: "Statistik",
+        timeline4: "Februari 2025 - Sekarang: Pendidikan dan Latihan di Life Project 4 Youth (LP4Y)",
         stats_title: "Statistik",
         stat1: "Episode Komik",
         stat2: "Proyek Aktif",
         stat3: "Aktif Selama",
         stat4: "3+ Tahun",
-        nav_contact: "Kontak",
-        title_contact: "Kontak"
+        title_contact: "Kontak",
+        footer_text: "Menciptakan karya visual yang memukau dengan sentuhan profesional dan kreativitas tanpa batas"
       },
       en: {
         title: "Hendra Cipta",
         subtitle: "Comic Editor, Typesetter",
+        scroll_text: "Scroll to continue",
         nav_intro: "About",
+        nav_skill: "Skills",
+        nav_certificate: "Certificates",
+        nav_gallery: "Portfolio",
+        nav_video: "Videos",
+        nav_timeline: "Timeline",
+        nav_stats: "Statistics",
+        nav_contact: "Contact",
         intro_title: "About Me",
         intro_desc: "I am Hendra Cipta. I graduated from SMA Negeri 92. I enjoy editing images. I am skilled at teamwork, leadership, public speaking, and customer communication. I strive for excellent results and act professionally. I also love learning new things and doing light exercise.",
-        nav_skill: "Skills",
         title_skill: "Mastered Skills",
         title_skill1: "Adobe Photoshop",
         skill_desc1: "Skilled in using Adobe Photoshop for text editing, image retouching, and graphic element creation.",
@@ -582,19 +1146,15 @@
         skill_desc5: "Experienced in leading teams and making strategic decisions to meet project goals.",
         title_skill6: "Point Of Sale (POS) System",
         skill_desc6: "Understand a little about the system, such as recording orders, calculating the total price, to payment and printing receipts.",
-        title_skill7: "Customer Service",
-        skill_desc7: "Greeting and welcoming customers, taking and recording orders, and providing product information.",
-        nav_certificate: "Certificates",
         certificate_title: "Certificate",
         title_certificate1: "Certificate",
         certificate_desc1: "Certificate from JAL for participating in a company visit in collaboration with LP4Y, providing insights into airport operations.",
         certificate_desc2: "Certificate from Concentrix for completing a training course on \"Emotional Intelligence at the Workplace\".",
         certificate_desc3: "Participated in procurement training from Artelia Indonesia.",
         title_certificate2: "Training Certificate at LP4Y",
-        certificate_desc4: ".",
-        certificate_desc5: ".",
-        certificate_desc6: ".",
-        nav_gallery: "Portfolio",
+        certificate_desc4: "Professional training certificate from LP4Y for career development.",
+        certificate_desc5: "Additional certificate from LP4Y training program.",
+        certificate_desc6: "LP4Y program completion certificate.",
         gallery_title: "Portfolio Works",
         title_comic1: "Action Comic",
         comic_desc1: "Adjusted text size outside the dialogue balloon, also known as thought balloon.",
@@ -608,33 +1168,38 @@
         comic_desc7: "Redrawing, adjusting font sizes, adding standard-compliant text and speech bubbles, and designing SFX.",
         comic_desc8: "Text and font adjustments, SFX creation, bubble layout and typography setup.",
         comic_desc9: "Text and font adjustments, SFX creation, bubble layout and typography setup.",
-        nav_video: "Video",
         title_video: "Portfolio Videos",
         video_title1: "Black & White Comic Timelapse",
         video_desc1: "Editing process of black-and-white comic from font setup to SFX.",
         video_title2: "Colored Comic Timelapse",
         video_desc2: "Editing process of colored comic from font setup to SFX.",
-        nav_timeline: "Timeline",
+        timeline_title: "Experience",
         timeline1: "April 2021 - March 2022: Freelance Typesetter in Community.",
         timeline2: "December 2023 - 2025: Freelance Typesetter in Community.",
         timeline3: "April 22 - May 6, 2025: Waiter at After Five Restaurant and Bar.",
         timeline4: "February 2025 - Present: Education Training at Life Project 4 Youth (LP4Y)",
-        nav_stats: "Statistics",
         stats_title: "Statistics",
         stat1: "Comic Episodes",
         stat2: "Active Projects",
         stat3: "Years Active",
         stat4: "3+ Years",
-        nav_contact: "Contact",
-        title_contact: "Contact"
+        title_contact: "Contact",
+        footer_text: "Creating stunning visual works with professional touch and boundless creativity"
       },
       jp: {
         title: "Hendra Cipta",
         subtitle: "コミック編集者・タイプセッター",
+        scroll_text: "スクロールして続行",
         nav_intro: "紹介",
+        nav_skill: "スキル",
+        nav_certificate: "証明書",
+        nav_gallery: "ポートフォリオ",
+        nav_video: "動画",
+        nav_timeline: "経歴",
+        nav_stats: "統計",
+        nav_contact: "連絡先",
         intro_title: "自己紹介",
         intro_desc: "私はヘンドラ・チプタです。SMA Negeri 92を卒業しました。画像編集が趣味で、チームワーク、リーダーシップ、話すこと、顧客とのやり取りが得意です。常に高い成果を維持し、プロとしての姿勢を保っています。新しいことを学ぶことと軽い運動が好きです。",
-        nav_skill: "スキル",
         title_skill: "習得したスキル",
         title_skill1: "Adobe Photoshop",
         skill_desc1: "Adobe Photoshopでのテキスト編集、画像加工、グラフィック作成に熟練。",
@@ -648,19 +1213,15 @@
         skill_desc5: "チームを率いて戦略的な判断を行う経験がある。",
         title_skill6: "販売時点情報管理システム",
         skill_desc6: "注文の記録、合計金額の計算、支払い、領収書の印刷など、システムについて少し理解する。",
-        title_skill7: "カスタマーサービス",
-        skill_desc7: "顧客の出迎え、注文の受付と記録、商品情報の提供。",
-        nav_certificate: "証明書",
         certificate_title: "証明書",
         title_certificate1: "証明書",
         certificate_desc1: "LP4Yと協力した企業訪問に参加し、空港業務に関する知見を得たことに対するJALからの証明書。",
         certificate_desc2: "職場における感情知能（Emotional Intelligence at the Workplace）に関する研修コースを修了したことに対するConcentrixからの証明書。",
         certificate_desc3: "Artelia Indonesiaによる調達トレーニングに参加。",
         title_certificate2: "LP4Yでの研修証明書",
-        certificate_desc4: ".",
-        certificate_desc5: ".",
-        certificate_desc6: ".",
-        nav_gallery: "ポートフォリオ",
+        certificate_desc4: "キャリア開発のためのLP4Yからのプロフェッショナルトレーニング証明書。",
+        certificate_desc5: "LP4Yトレーニングプログラムからの追加証明書。",
+        certificate_desc6: "LP4Yプログラム修了証明書。",
         gallery_title: "作品ポートフォリオ",
         title_comic1: "アクション漫画",
         comic_desc1: "吹き出し外のテキスト（思考バルーン）のサイズを調整しました。",
@@ -674,34 +1235,46 @@
         comic_desc7: "リドロー、テキストサイズ調整、標準フォントの適用、SFX作成、吹き出しデザインを行いました。",
         comic_desc8: "テキスト・フォント調整、SFX作成、吹き出しレイアウトとタイポグラフィの構成。",
         comic_desc9: "テキスト・フォント調整、SFX作成、吹き出しレイアウトとタイポグラフィの構成。",
-        nav_video: "動画",
         title_video: "ポートフォリオ動画",
         video_title1: "モノクロ漫画のタイムラプス",
         video_desc1: "フォント設定から効果音までの編集プロセス。",
         video_title2: "カラーマンガのタイムラプス",
         video_desc2: "フォント設定から効果音までの編集プロセス。",
-        nav_timeline: "経歴",
+        timeline_title: "経歴",
         timeline1: "2021年4月〜2022年3月：コミュニティでフリーランスのタイプセッター。",
         timeline2: "2023年12月〜2025年：コミュニティでフリーランスのタイプセッター。",
         timeline3: "2025年4月22日〜5月6日：After Five レストラン・バーのウェイター。",
         timeline4: "2025年2月〜現在：Life Project 4 Youth (LP4Y)での教育訓練。",
-        nav_stats: "統計",
         stats_title: "統計",
         stat1: "コミックエピソード",
         stat2: "進行中のプロジェクト",
         stat3: "活動年数",
         stat4: "3+年",
-        nav_contact: "連絡先",
-        title_contact: "連絡先"
+        title_contact: "連絡先",
+        footer_text: "プロフェッショナルなタッチと無限の創造力で魅力的なビジュアル作品を創り出す"
       }
     };
+
     function setLang(lang) {
       const keys = Object.keys(translations[lang]);
       keys.forEach(id => {
-        const el = document.querySelector(`[data-id="${id}"]`);
-        if (el) el.textContent = translations[lang][id];
+        const elements = document.querySelectorAll(`[data-id="${id}"]`);
+        if (elements.length) {
+          elements.forEach(el => {
+            el.textContent = translations[lang][id];
+          });
+        }
       });
+      
+      // Update active language button
+      document.querySelectorAll('.language-switch button').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      event.target.classList.add('active');
     }
+
+    // Inisialisasi bahasa default
+    setLang('id');
   </script>
 </body>
 </html>
