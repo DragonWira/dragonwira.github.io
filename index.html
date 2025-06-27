@@ -7,6 +7,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
+    .banner {
+      position: absolute; /* Mengatur posisi absolut */
+      top: 0; /* Menempatkan di bagian atas */
+      left: 0; /* Menempatkan di sisi kiri */
+      width: 100%; /* Lebar penuh */
+      height: 100%; /* Tinggi penuh */
+      background-image: url('https://drive.google.com/file/d/1-RlTs0_oDD00Vx1Dbs1m9-6UOu4sITDv/view?usp=sharing'); /* Ganti dengan URL gambar banner Anda */
+      background-size: cover; /* Menyesuaikan ukuran gambar */
+      background-position: center; /* Memusatkan gambar */
+      z-index: -1; /* Menempatkan di belakang teks */
+    }
     .language-switch {
       position: fixed;
       top: 10px;
@@ -238,11 +249,12 @@
     });
   </script>
 
-  <header>
+<header>
+    <div class="banner"></div>
     <h1 data-id="title">Hendra Cipta</h1>
     <p data-id="subtitle">Editor Komik, Typesetter</p>
-  </header>
-
+</header>
+  
   <nav>
     <a href="#tentang" data-id="nav_intro">Tentang</a>
     <a href="#skill" data-id="nav_skill">Skill</a>
@@ -283,6 +295,13 @@
         <h3 data-id="title_skill5"><i class="fas fa-lightbulb"></i> Kepemimpinan</h3>
         <p data-id="skill_desc5">Berpengalaman dalam memimpin tim dan mengambil keputusan strategis untuk mencapai tujuan proyek dengan efektif.</p>
       </div>
+      <div class="card">
+        <h3 data-id="title-skill6"><i class="fas fa-cash-register"></i> Point Of Sale (POS) System</h3>
+        <p data-id="skill_desc6">Memahami tentang sistem ini sedikit, seperti pencatatan pesanan, perhitungan total harga, hingga pembayaran dan pencetakan struk.</p>
+      </div>
+      <div class="card">
+        <h3 data-id="title-skill7"><i class="fas fa-headset"></i> Customer Service</h3>
+        <p data-id="skill_desc7">Mehamai Menyambut dan Menyapa Pelanggan, Menerima dan Mencatat Pesanan, dan Memberikan Informasi Produk.</p>
     </div>
   </section>
 
@@ -416,6 +435,10 @@
         skill_desc4: "Kemampuan bekerja sama dalam tim produksi dan koordinasi antar divisi.",
         title_skill5: "Kepemimpinan",
         skill_desc5: "Berpengalaman dalam memimpin tim dan mengambil keputusan strategis untuk mencapai tujuan proyek dengan efektif.",
+        title_skill6: "Point Of Sale (POS) System",
+        skill_desc6: "Memahami tentang sistem ini sedikit, seperti pencatatan pesanan, perhitungan total harga, hingga pembayaran dan pencetakan struk.",
+        title_skill7: "Customer Service",
+        skill_desc7: "Mehamai Menyambut dan Menyapa Pelanggan, Menerima dan Mencatat Pesanan, dan Memberikan Informasi Produk.",
         nav_certificate: "sertifikat",
         certificate_title: "Sertifikat",
         title_certificate1: "Sertifikat",
@@ -478,6 +501,10 @@
         skill_desc4: "Able to work collaboratively in production teams and coordinate between departments.",
         title_skill5: "Leadership",
         skill_desc5: "Experienced in leading teams and making strategic decisions to meet project goals.",
+        title_skill6: "Point Of Sale (POS) System",
+        skill_desc6: "Understand a little about the system, such as recording orders, calculating the total price, to payment and printing receipts.",
+        title_skill7: "Customer Service",
+        skill_desc7: "Greeting and welcoming customers, taking and recording orders, and providing product information.",
         nav_certificate: "Certificates",
         certificate_title: "Certificate",
         title_certificate1: "Certificate",
@@ -540,6 +567,10 @@
         skill_desc4: "制作チームでの協力と部門間調整に長けている。",
         title_skill5: "リーダーシップ",
         skill_desc5: "チームを率いて戦略的な判断を行う経験がある。",
+        title_skill6: "販売時点情報管理システム",
+        skill_desc6: "注文の記録、合計金額の計算、支払い、領収書の印刷など、システムについて少し理解する。",
+        title_skill7: "カスタマーサービス",
+        skill_desc7: "顧客の出迎え、注文の受付と記録、商品情報の提供。",
         nav_certificate: "証明書",
         certificate_title: "証明書",
         title_certificate1: "証明書",
