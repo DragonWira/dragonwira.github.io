@@ -7,17 +7,48 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
-    .banner {
-      position: absolute; /* Mengatur posisi absolut */
-      top: 0; /* Menempatkan di bagian atas */
-      left: 0; /* Menempatkan di sisi kiri */
-      width: 100%; /* Lebar penuh */
-      height: 100%; /* Tinggi penuh */
-      background-image: url('https://drive.google.com/uc?id=1-RlTs0_oDD00Vx1Dbs1m9-6UOu4sITDv'); /* Ganti dengan URL gambar banner Anda */
-      background-size: cover; /* Menyesuaikan ukuran gambar */
-      background-position: center; /* Memusatkan gambar */
-      z-index: -1; /* Menempatkan di belakang teks */
+    .banner-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
     }
+    
+    .banner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dl.dropboxusercontent.com/scl/fi/1j8mhwsrx2x8c01c0hkga/Salinan-dari-Banner-WA.png?rlkey=l834uhdm64w0mvaz1vutieds2');
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+    
+    .banner-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+    
+    .banner-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 20px;
+    }
+
     .language-switch {
       position: fixed;
       top: 10px;
@@ -47,21 +78,6 @@
       background: var(--primary);
       color: var(--light);
       line-height: 1.6;
-    }
-    header {
-      background: linear-gradient(to right, #2c2c3d, #1e1e2f);
-      padding: 60px 20px;
-      text-align: center;
-      animation: fadeInDown 1s ease-in-out;
-    }
-    header h1 {
-      font-size: 2.5rem;
-      color: var(--accent);
-      margin-bottom: 10px;
-    }
-    header p {
-      font-size: 1rem;
-      color: #ccc;
     }
     nav {
       display: flex;
@@ -192,7 +208,6 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    /* ==== Tambahan untuk Sertifikat ==== */
     .certificate-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -205,7 +220,6 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       animation: fadeInUp 0.8s ease-in-out;
     }
-    /* Umum untuk semua gambar di dalam card */
     .certificate-grid .card img {
       width: 100%;
       max-width: 100%;
@@ -214,7 +228,6 @@
       margin-bottom: 10px;
       display: block;
     }
-    /* Spesifik untuk gambar di kartu pertama: maksimal 720px */
     .certificate-grid .card:first-child img {
       max-width: 720px;
       width: 100%;
@@ -225,15 +238,18 @@
       .certificate-grid {
         grid-template-columns: 1fr;
       }
+      .banner-container {
+        height: 70vh;
+      }
     }
-    /* ==== End tambahan Sertifikat ==== */
     @media (max-width: 600px) {
-      header h1 { font-size: 2rem; }
       nav a { font-size: 0.9rem; padding: 6px 10px; }
       h2 { font-size: 1.5rem; }
+      .banner-content h1 {
+        font-size: 1.8rem;
+      }
     }
   </style>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
 </head>
 <body>
   <div class="language-switch">
@@ -249,11 +265,15 @@
     });
   </script>
 
-<header>
-    <div class="banner"></div>
+<!-- Banner Section yang Diperbaiki -->
+<div class="banner-container">
+  <div class="banner"></div>
+  <div class="banner-overlay"></div>
+  <div class="banner-content">
     <h1 data-id="title">Hendra Cipta</h1>
     <p data-id="subtitle">Editor Komik, Typesetter</p>
-</header>
+  </div>
+</div>
   
   <nav>
     <a href="#tentang" data-id="nav_intro">Tentang</a>
@@ -409,11 +429,6 @@
   <footer>
     <p>&copy; © 2025 DragonWira Studio.</p>
   </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-  <script>
-    const lightbox = GLightbox();
-  </script>
 
   <script>
     const translations = {
