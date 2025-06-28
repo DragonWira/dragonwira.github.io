@@ -190,7 +190,7 @@
       }
       
       .banner-image {
-        transform: scale(1.3)
+        transform: scale(1.3);
         transform-origin: top center;
         background-image: url('images/banner_mobile.jpg') !important;
         background-size: cover;     /* ✅ Zoom biar nutup layar */
