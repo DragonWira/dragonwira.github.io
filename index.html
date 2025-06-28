@@ -787,9 +787,9 @@
 </head>
 <body>
   <div class="language-switch">
-    <button onclick="setLang('id')">Bahasa Indonesia</button>
-    <button onclick="setLang('en')">English</button>
-    <button onclick="setLang('jp')">日本語</button>
+    <button onclick="setLang('id')">🇮🇩</button>
+    <button onclick="setLang('en')">🇬🇧</button>
+    <button onclick="setLang('jp')">🇯🇵</button>
   </div>
 
   <!-- Banner Section -->
@@ -1015,7 +1015,7 @@
   // Auto Translate
   <script>
     async function translateLibre(text, targetLang) {
-      const res = await fetch('https://libretranslate.de/translate', {
+      const res = await fetch('https://de.libretranslate.com/translate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
