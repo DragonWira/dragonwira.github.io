@@ -8,35 +8,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     @media (max-width: 480px) {
-      .banner-image {
-        background-image: url('images/banner_mobile.jpg');
-        background-size: cover;              /* ✅ Zoom biar nutup layar */
-        background-position: center 0%;     /* ✅ Fokus ke bagian isi (skip putih atas) */
-        background-repeat: no-repeat;
-        height: 100vh;
-      }
-
-      .banner-content {
-        background: none; /* ❌ hapus efek transparan hitam */
-        padding: 20px;
-        border-radius: 0;
-      }
-
-      .banner-content h1 {
-        font-size: 1.8rem;
-        color: white;
-        -webkit-text-stroke: 0.8px white;
-      }
-
-      .banner-content p {
-        font-size: 1rem;
-        color: white;
-        -webkit-text-stroke: 0.5px black;
-      }
-
-      .scroll-indicator {
-        bottom: 25px;
-        
       .banner-content h1 {
         font-size: 1.8rem;
       }
@@ -217,6 +188,38 @@
       100% { top: 8px; opacity: 1; }
     }
 
+    /*================Banner Mobile===============*/
+    @media (max-width: 480px) {
+      .banner-image {
+        background-image: url('images/banner_mobile.jpg');
+        background-size: cover;              /* ✅ Zoom biar nutup layar */
+        background-position: center 0%;     /* ✅ Fokus ke bagian isi (skip putih atas) */
+        background-repeat: no-repeat;
+        height: 100vh;
+      }
+
+      .banner-content {
+        background: none; /* ❌ hapus efek transparan hitam */
+        padding: 20px;
+        border-radius: 0;
+      }
+
+      .banner-content h1 {
+        font-size: 1.8rem;
+        color: white;
+        -webkit-text-stroke: 0.8px white;
+      }
+
+      .banner-content p {
+        font-size: 1rem;
+        color: white;
+        -webkit-text-stroke: 0.5px black;
+      }
+
+      .scroll-indicator {
+        bottom: 25px;
+      }
+    }
     /* =============== NAVIGATION =============== */
     nav {
       position: fixed;
