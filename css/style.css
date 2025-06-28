@@ -100,7 +100,7 @@
       background-image: url('https://dl.dropboxusercontent.com/scl/fi/1j8mhwsrx2x8c01c0hkga/Salinan-dari-Banner-WA.png?rlkey=l834uhdm64w0mvaz1vutieds2');
       background-size: cover;
       background-position: center;
-      z-index: -1;
+      z-index: -2;
       transition: transform 1.2s ease-out;
     }
 
@@ -118,7 +118,7 @@
       opacity: 1;
       transform: translateY(0);
       transition: all 1s ease;
-      z-index: 2;
+      z-index: 10;
     }
 
     .banner-content h1 {
@@ -139,14 +139,14 @@
 
     .scroll-indicator {
       position: absolute;
-      bottom: 40px;
+      bottom: 5vh;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
       flex-direction: column;
       align-items: center;
       opacity: 1;
-      transition: opacity 0.5s ease;
+      transition: opacity 0.3s ease;
     }
 
     .scroll-text {
@@ -202,6 +202,7 @@
         top: 0;
         left: 0;
         z-index: -1;
+      }
 
       .banner-content {
         background: none; /* ❌ hapus efek transparan hitam */
@@ -222,7 +223,7 @@
       }
 
       .scroll-indicator {
-        bottom: 25px;
+        bottom: 3vh;
       }
     }
     /* =============== NAVIGATION =============== */
@@ -535,8 +536,9 @@
       padding: 25px;
       border-radius: 15px;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-      width: calc(50% - 40px);
+      width: calc(45% - 40px);
       transition: all 0.3s ease;
+      margin-left: 5%;
     }
     
     .timeline-entry:hover {
@@ -549,6 +551,7 @@
     
     .timeline-entry:nth-child(even) {
       left: 50%;
+      margin-left: 0;
     }
     
     .timeline-entry::after {
