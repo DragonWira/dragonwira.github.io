@@ -756,10 +756,6 @@ footer {
     background-position: center top; /* Fokus ke bagian atas gambar */
     background-repeat: no-repeat;
     z-index: -1;
-    
-    /* Crop Otomatis Bagian Putih */
-    object-fit: cover;
-    object-position: center top;
   }
 
   /* Overlay untuk Meningkatkan Keterbacaan Teks */
