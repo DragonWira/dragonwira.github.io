@@ -1032,6 +1032,32 @@
   </footer>
 
   <script>
+    async function translateLibre(text, targetLang) {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 5000); // 5 detik
+      
+      try {
+        const res = await fetch('https://libretranslate.com/translate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            q: text,
+            source: 'id',
+            target: targetLang,
+            format: 'text'
+          }),
+          signal: controller.signal
+        });
+        clearTimeout(timeout);
+        const data = await res.json();
+        return data.translatedText;
+      } catch (e) {
+        clearTimeout(timeout);
+        console.error('Terjemahan gagal:', e);
+        throw e;
+      }
+    }
+
     function startTranslateStatus() {
       const statusEl = document.getElementById('translate-status');
       statusEl.textContent = 'Sedang menerjemahkan';
