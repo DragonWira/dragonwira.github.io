@@ -7,6 +7,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
+    @media (max-width: 768px) {
+      #banner {
+        background-position: center top; /* Fokus atas biar di HP kelihatan bagus */
+        height: 50vh; /* Jangan terlalu tinggi di HP, biar proporsional */
+      }
+    }
+    
+    @media (max-width: 480px) {
+      #banner {
+        background-position: center 20%; /* Lebih spesifik untuk layar HP kecil */
+      }
+    }
+    
     @media (max-width: 480px) {
       .banner-content h1 {
         font-size: 1.8rem;
