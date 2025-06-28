@@ -15,31 +15,28 @@
         background-repeat: no-repeat;
         height: 100vh;
       }
-      
+
       .banner-content {
-        padding: 20px 16px;
-        background: rgba(0, 0, 0, 0.4);
-        border-radius: 12px;
+        background: none; /* ❌ hapus efek transparan hitam */
+        padding: 20px;
+        border-radius: 0;
       }
 
       .banner-content h1 {
         font-size: 1.8rem;
         color: white;
-        -webkit-text-stroke: 0.8px black;
+        -webkit-text-stroke: 0.8px white;
       }
 
       .banner-content p {
         font-size: 1rem;
         color: white;
-        -webkit-text-stroke: 0.5px black;
+        -webkit-text-stroke: 0.5px white;
       }
 
       .scroll-indicator {
         bottom: 25px;
-      }
-    }
-    
-    @media (max-width: 480px) {
+        
       .banner-content h1 {
         font-size: 1.8rem;
       }
