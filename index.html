@@ -783,9 +783,28 @@
         padding: 80px 20px;
       }
     }
+    
+    .translate-status {
+      font-style: italic;
+    }
+    
+    .translate-status::after {
+      content: '...';
+      animation: blink 1s steps(4, end) infinite;
+      opacity: 1;
+    }
+    
+    @keyframes blink {
+      0% { opacity: 0; }
+      50% { opacity: 1; }
+      100% { opacity: 0; }
+    }
   </style>
 </head>
 <body>
+
+  <div id="translate-status" class="translate-status"></div>
+  
   <div class="language-switch">
     <button onclick="setLang('id')">🇮🇩</button>
     <button onclick="setLang('en')">🇬🇧</button>
@@ -1013,6 +1032,17 @@
   </footer>
 
   <script>
+    function startTranslateStatus() {
+      const statusEl = document.getElementById('translate-status');
+      statusEl.textContent = 'Sedang menerjemahkan';
+      statusEl.classList.add('translate-status');
+    }
+    
+    function stopTranslateStatus() {
+      const statusEl = document.getElementById('translate-status');
+      statusEl.textContent = 'Selesai menerjemahkan.';
+      statusEl.classList.remove('translate-status');
+    }
     async function translateLibre(text, targetLang) {
       const res = await fetch('https://de.libretranslate.com/translate', {
         method: 'POST',
