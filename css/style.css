@@ -784,13 +784,11 @@ footer {
     margin-bottom: 10px;
     color: #00bcd4 !important;
     -webkit-text-stroke: 0.5px white;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
   }
 
   .banner-content p {
     font-size: 1rem !important;
     -webkit-text-stroke: 0.3px black;
-    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.5);
   }
 
   .scroll-indicator {
