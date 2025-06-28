@@ -7,6 +7,60 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
+    @media (max-width: 480px) {
+      .banner-content h1 {
+        font-size: 1.8rem;
+      }
+
+      .banner-content p {
+        font-size: 1rem;
+      }
+
+      .intro-text {
+        font-size: 0.95rem;
+        padding: 0 10px;
+      }
+
+      .skill-card p,
+      .portfolio-card p,
+      .certificate-card p {
+        font-size: 0.9rem;
+      }
+
+      nav a {
+        padding: 4px 10px;
+        font-size: 0.8rem;
+        touch-action: manipulation;
+      }
+
+      .video-container {
+        padding-bottom: 70%;
+      }
+
+      .scroll-text {
+        font-size: 0.85rem;
+      }
+
+      .stat h3 {
+        font-size: 2rem;
+      }
+
+      .stat p {
+        font-size: 1rem;
+      }
+    }
+    section {
+      padding: 60px 15px;
+    }
+
+    .timeline-entry {
+      margin-bottom: 30px;
+      padding: 20px;
+    }
+
+    .main-content, .banner-content {
+      transition: all 0.5s ease;
+    }
     * {
       margin: 0;
       padding: 0;
@@ -1026,6 +1080,15 @@
         });
       });
       
+      window.addEventListener('scroll', function () {
+        const btn = document.getElementById('backToTop');
+        if (window.scrollY > 300) {
+          btn.style.display = 'block';
+        } else {
+          btn.style.display = 'none';
+        }
+      });
+      
       // Animasi awal
       setTimeout(() => {
         bannerContent.style.opacity = '1';
@@ -1276,5 +1339,11 @@
     // Inisialisasi bahasa default
     setLang('id');
   </script>
+  
+  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+        style="position:fixed; bottom:20px; right:20px; padding:10px 15px; border:none; border-radius:50%; background:#00bcd4; color:white; font-size:20px; z-index:1001; display:none;"
+        id="backToTop">
+  ↑
+  </button>
 </body>
 </html>
