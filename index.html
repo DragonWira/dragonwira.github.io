@@ -8,6 +8,38 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     @media (max-width: 480px) {
+      .banner-image {
+        background-image: url('images/banner_mobile.jpg');
+        background-size: cover;              /* ✅ Zoom biar nutup layar */
+        background-position: center 15%;     /* ✅ Fokus ke bagian isi (skip putih atas) */
+        background-repeat: no-repeat;
+        height: 100vh;
+      }
+      
+      .banner-content {
+        padding: 20px 16px;
+        background: rgba(0, 0, 0, 0.4);
+        border-radius: 12px;
+      }
+
+      .banner-content h1 {
+        font-size: 1.8rem;
+        color: white;
+        -webkit-text-stroke: 0.8px black;
+      }
+
+      .banner-content p {
+        font-size: 1rem;
+        color: white;
+        -webkit-text-stroke: 0.5px black;
+      }
+
+      .scroll-indicator {
+        bottom: 25px;
+      }
+    }
+    
+    @media (max-width: 480px) {
       .banner-content h1 {
         font-size: 1.8rem;
       }
