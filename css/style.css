@@ -733,6 +733,75 @@ footer {
     padding: 80px 20px;
   }
 }
+
+/* =============== BANNER MOBILE SOLUTION =============== */
+@media (max-width: 480px) {
+  .banner-section {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* SOLUSI UTAMA - Pendekatan Baru */
+  .banner-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/banner_mobile.jpg');
+    background-size: cover;
+    background-position: center top; /* Fokus ke bagian atas gambar */
+    background-repeat: no-repeat;
+    z-index: -1;
+    
+    /* Crop Otomatis Bagian Putih */
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  /* Overlay untuk Meningkatkan Keterbacaan Teks */
+  .banner-overlay {
+    background: linear-gradient(
+      to bottom, 
+      rgba(30, 30, 47, 0.7) 0%, 
+      rgba(30, 30, 47, 0.9) 60%,
+      rgba(30, 30, 47, 0.95) 100%
+    );
+  }
+
+  .banner-content {
+    padding: 20px 15px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    margin: 0 auto;
+    background: rgba(21, 21, 37, 0.6);
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  }
+
+  .banner-content h1 {
+    font-size: 2.2rem !important;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    -webkit-text-stroke: 0.5px white;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  }
+
+  .banner-content p {
+    font-size: 1.1rem !important;
+    line-height: 1.5;
+    margin-bottom: 25px;
+    -webkit-text-stroke: 0.3px black;
+    text-shadow: 0 1px 4px rgba(255, 255, 255, 0.3);
+  }
+
+  .scroll-indicator {
+    bottom: 30px;
+  }
+}
  
 .translate-status {
   font-style: italic;
