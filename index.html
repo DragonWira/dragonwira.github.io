@@ -135,12 +135,14 @@
       color: var(--accent);
       margin-bottom: 15px;
       text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      -webkit-text-stroke: 0.8px white;
     }
 
     .banner-content p {
       font-size: 1.8rem;
       color: var(--text-light);
       margin-bottom: 40px;
+      -webkit-text-stroke: 0.5px black;
     }
 
     .scroll-indicator {
@@ -190,12 +192,17 @@
 
     /*================Banner Mobile===============*/
     @media (max-width: 480px) {
+      .banner-section {
+        height: 100vh;
+      }
+      
       .banner-image {
         background-image: url('images/banner_mobile.jpg');
         background-size: cover;              /* ✅ Zoom biar nutup layar */
         background-position: center 20%;     /* ✅ Fokus ke bagian isi (skip putih atas) */
         background-repeat: no-repeat;
-        height: 100vh;
+        height: 100%;
+        width: 100%;
       }
 
       .banner-content {
@@ -206,13 +213,13 @@
 
       .banner-content h1 {
         font-size: 1.8rem;
-        color: white;
+        color: var(--accent);
         -webkit-text-stroke: 0.8px white;
       }
 
       .banner-content p {
         font-size: 1rem;
-        color: white;
+        color: var(--text-light);
         -webkit-text-stroke: 0.5px black;
       }
 
