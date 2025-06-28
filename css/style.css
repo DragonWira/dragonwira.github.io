@@ -736,7 +736,6 @@ footer {
   }
 }
 
-/* =============== BANNER MOBILE SOLUTION =============== */
 @media (max-width: 480px) {
   .banner-section {
     height: 100vh;
@@ -744,56 +743,54 @@ footer {
     overflow: hidden;
   }
   
-  /* SOLUSI UTAMA - Pendekatan Baru */
   .banner-image {
+    background-image: url('../images/banner_mobile.jpg');
+    background-size: cover;
+    /* FOKUS KE BAGIAN PENTING (25% DARI ATAS) */
+    background-position: center 25%;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('../images/banner_mobile.jpg');
-    background-size: cover;
-    background-position: center top; /* Fokus ke bagian atas gambar */
-    background-repeat: no-repeat;
     z-index: -1;
+    
+    /* PERBAIKAN UTAMA: PAKSA CROP BAGIAN PUTIH */
+    object-fit: cover;
+    object-position: center top;
+    /* PERBESAR GAMBAR UNTUK MEMASTIKAN TIDAK ADA WHITESPACE */
+    transform: scale(1.2);
+    /* JIKA MASIH ADA PUTIH, GUNAKAN CLIP-PATH */
+    clip-path: polygon(0 15%, 100% 15%, 100% 85%, 0 85%);
+    -webkit-clip-path: polygon(0 15%, 100% 15%, 100% 85%, 0 85%);
   }
 
-  /* Overlay untuk Meningkatkan Keterbacaan Teks */
   .banner-overlay {
-    background: linear-gradient(
-      to bottom, 
-      rgba(30, 30, 47, 0.7) 0%, 
-      rgba(30, 30, 47, 0.9) 60%,
-      rgba(30, 30, 47, 0.95) 100%
-    );
+    /* PERBESAR OVERLAY UNTUK MENUTUPI PUTIH */
+    background: rgba(30, 30, 47, 0.9);
   }
 
   .banner-content {
-    padding: 20px 15px;
-    text-align: center;
-    width: 90%;
-    max-width: 400px;
-    margin: 0 auto;
-    background: rgba(21, 21, 37, 0.6);
-    border-radius: 15px;
+    background: rgba(21, 21, 37, 0.8); /* TAMBAH BACKGROUND AGAR TEKS JELAS */
+    padding: 20px;
+    border-radius: 10px;
     backdrop-filter: blur(5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    margin-top: -30px; /* GESER KE ATAS SEDIKIT */
   }
 
   .banner-content h1 {
-    font-size: 2.2rem !important;
-    line-height: 1.2;
+    font-size: 1.8rem !important;
     margin-bottom: 10px;
+    color: #00bcd4 !important;
     -webkit-text-stroke: 0.5px white;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
   }
 
   .banner-content p {
-    font-size: 1.1rem !important;
-    line-height: 1.5;
-    margin-bottom: 25px;
+    font-size: 1rem !important;
     -webkit-text-stroke: 0.3px black;
-    text-shadow: 0 1px 4px rgba(255, 255, 255, 0.3);
+    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.5);
   }
 
   .scroll-indicator {
