@@ -194,16 +194,20 @@
     @media (max-width: 480px) {
       .banner-section {
         height: 100vh;
+        position: relative;
       }
       
       .banner-image {
         background-image: url('images/banner_mobile.jpg');
         background-size: cover;              /* ✅ Zoom biar nutup layar */
-        background-position: center 20%;     /* ✅ Fokus ke bagian isi (skip putih atas) */
+        background-position: center 25%;     /* ✅ Fokus ke bagian isi (skip putih atas) */
         background-repeat: no-repeat;
         height: 100%;
         width: 100%;
-      }
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
 
       .banner-content {
         background: none; /* ❌ hapus efek transparan hitam */
