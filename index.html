@@ -787,9 +787,9 @@
 </head>
 <body>
   <div class="language-switch">
-    <button onclick="setLang('id')" class="active">🇮🇩</button>
-    <button onclick="setLang('en')">🇬🇧</button>
-    <button onclick="setLang('jp')">🇯🇵</button>
+    <button onclick="setLang('id')">Bahasa Indonesia</button>
+    <button onclick="setLang('en')">English</button>
+    <button onclick="setLang('jp')">日本語</button>
   </div>
 
   <!-- Banner Section -->
@@ -1012,7 +1012,42 @@
     <p class="copyright">&copy; 2025 DragonWira Studio. All rights reserved.</p>
   </footer>
 
+  // Auto Translate
   <script>
+    async function translateLibre(text, targetLang) {
+      const res = await fetch('https://libretranslate.de/translate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          q: text,
+          source: 'id',
+          target: targetLang,
+          format: 'text'
+        })
+      });
+      const data = await res.json();
+      return data.translatedText;
+    }
+
+    async function autoTranslatePage(targetLang) {
+      const elements = document.querySelectorAll('[data-id]');
+      for (const el of elements) {
+        const original = el.getAttribute('data-original') || el.textContent;
+        el.setAttribute('data-original', original);
+        if (targetLang === 'id') {
+          el.textContent = original;
+        } else {
+          el.textContent = '...';
+          const translated = await translateLibre(original, targetLang);
+          el.textContent = translated;
+        }
+      }
+    }
+
+    function setLang(lang) {
+      autoTranslatePage(lang);
+    }
+    
     // Inisialisasi scroll dan transisi
     document.addEventListener('DOMContentLoaded', function() {
       const bannerSection = document.getElementById('banner');
@@ -1112,244 +1147,6 @@
         });
       });
     });
-
-    // Multi-language support
-    const translations = {
-      id: {
-        title: "Hendra Cipta",
-        subtitle: "Editor Komik, Typesetter",
-        scroll_text: "Scroll untuk melanjutkan",
-        nav_intro: "Tentang",
-        nav_skill: "Skill",
-        nav_certificate: "Sertifikat",
-        nav_gallery: "Portofolio",
-        nav_video: "Video",
-        nav_timeline: "Riwayat",
-        nav_stats: "Statistik",
-        nav_contact: "Kontak",
-        intro_title: "Tentang Saya",
-        intro_desc: "Saya Hendra Cipta. Saya lulus dari SMA Negeri 92. Saya memiliki hobi mengedit gambar. Saya terampil dalam kerja tim, menjadi pemimpin, berbicara dengan banyak orang dan berkomunikasi dengan pelanggan, saya dapat mempertahankan hasil yang sangat baik, dan menunjukkan profesionalisme. Selain itu, saya suka belajar hal-hal baru dan olahraga ringan.",
-        title_skill: "Skill yang Dikuasai",
-        title_skill1: "Adobe Photoshop",
-        skill_desc1: "Menguasai penggunaan Adobe Photoshop untuk pengeditan teks, pengeditan gambar, dan pembuatan elemen grafis.",
-        title_skill2: "Adobe Premiere Pro",
-        skill_desc2: "Mahir menggunakan Adobe Premiere Pro untuk pengeditan video, color grading, dan produksi konten visual berkualitas tinggi.",
-        title_skill3: "Tata Letak Teks",
-        skill_desc3: "Pengaturan teks dialog dan efek suara dengan font yang tepat dan layout yang seimbang.",
-        title_skill4: "Komunikasi Tim",
-        skill_desc4: "Kemampuan bekerja sama dalam tim produksi dan koordinasi antar divisi.",
-        title_skill5: "Kepemimpinan",
-        skill_desc5: "Berpengalaman dalam memimpin tim dan mengambil keputusan strategis untuk mencapai tujuan proyek dengan efektif.",
-        title_skill6: "Point Of Sale (POS) System",
-        skill_desc6: "Memahami tentang sistem ini sedikit, seperti pencatatan pesanan, perhitungan total harga, hingga pembayaran dan pencetakan struk.",
-        certificate_title: "Sertifikat",
-        title_certificate1: "Sertifikat",
-        certificate_desc1: "Sertifikat dari JAL atas kehadirannya dalam kegiatan kunjungan perusahaan yang berkolaborasi dengan LP4Y dan memberikan pengetahuan tentang kerja dibandara.",
-        certificate_desc2: "Sertifikat dari Concentrix dalam mengikuti Training Course tentang 'Emotional Intelligence At The Work Place'.",
-        certificate_desc3: "Berpartisipasi dalam mengikutin pelatihan tentang Procurement dari Artelia Indonesia.",
-        title_certificate2: "Sertifikat Pelatihan di LP4Y",
-        certificate_desc4: "Sertifikat pelatihan profesional dari LP4Y untuk pengembangan karir.",
-        certificate_desc5: "Sertifikat tambahan dari program pelatihan LP4Y.",
-        certificate_desc6: "Sertifikat penyelesaian program LP4Y.",
-        gallery_title: "Portofolio Karya",
-        title_comic1: "Komik Aksi",
-        comic_desc1: "Disini saya melakukan mengatur ukuran teks di luar balon dialog atau disebut balon dalam pikiran.",
-        comic_desc2: "Disini saya melakukan mengatur ukuran teks di luar balon dialog atau disebut balon dalam pikiran.",
-        comic_desc3: "Disini saya melakukan mengatur ukuran teks di luar balon dialog atau disebut balon dalam pikiran.",
-        title_comic2: "Komik Santai",
-        comic_desc4: "Disini saya melakukan mengatur ukuran teks di luar balon dialog, mengatur ukuran teks pada balon dialog, mengatur SFX pada gambar.",
-        comic_desc5: "Disini saya melakukan mengatur ukuran teks di luar balon dialog, mengatur ukuran teks pada balon dialog.",
-        comic_desc6: "Disini saya melakukan mengatur ukuran teks di luar balon dialog, mengatur ukuran teks pada balon dialog, mengatur teks dibelakang balon, mengatur font agar nyaman dibaca.",
-        title_comic3: "Komik Berwarna atau Webtoon",
-        comic_desc7: "Saya melakukan redrawing, mengatur ukuran teks, mengatur font yang sesuai standar, membuat sfx, membuat balon teks dan mengatur balon teks.",
-        comic_desc8: "Saya mengatur ukuran teks, mengatur font yang sesuai standar, membuat sfx, membuat balon teks, mengatur balon teks, dan tipografi.",
-        comic_desc9: "Saya mengatur ukuran teks, mengatur font yang sesuai standar, membuat sfx, membuat balon teks, mengatur balon teks, dan tipografi.",
-        title_video: "Video Portofolio",
-        video_title1: "Timelapse Komik Hitam Putih",
-        video_desc1: "Proses pengeditan komik hitam putih dari atur font, hingga sfx.",
-        video_title2: "Timelapse Komik Berwarna",
-        video_desc2: "Proses pengeditan komik berwarna dari atur font, hingga sfx.",
-        timeline_title: "Pengalaman",
-        timeline1: "April 2021 - Maret 2022: Freelance sebagai Typesetter di Komunitas.",
-        timeline2: "Desember 2023 - 2025: Freelance sebagai Typesetter di Komunitas.",
-        timeline3: "22 April - 6 Mei 2025: Waiter di Restoran dan Bar After Five.",
-        timeline4: "Februari 2025 - Sekarang: Pendidikan dan Latihan di Life Project 4 Youth (LP4Y)",
-        stats_title: "Statistik",
-        stat1: "Episode Komik",
-        stat2: "Proyek Aktif",
-        stat3: "Aktif Selama",
-        stat4: "3+ Tahun",
-        title_contact: "Kontak",
-        linkedin_text: "LinkedIn",
-        whatsapp_text: "WhatsApp",
-        email_text: "Email",
-        github_text: "GitHub",
-        footer_text: "Menciptakan karya visual yang memukau dengan sentuhan profesional dan kreativitas tanpa batas"
-      },
-      en: {
-        title: "Hendra Cipta",
-        subtitle: "Comic Editor, Typesetter",
-        scroll_text: "Scroll to continue",
-        nav_intro: "About",
-        nav_skill: "Skills",
-        nav_certificate: "Certificates",
-        nav_gallery: "Portfolio",
-        nav_video: "Videos",
-        nav_timeline: "Timeline",
-        nav_stats: "Statistics",
-        nav_contact: "Contact",
-        intro_title: "About Me",
-        intro_desc: "I am Hendra Cipta. I graduated from SMA Negeri 92. I enjoy editing images. I am skilled at teamwork, leadership, public speaking, and customer communication. I strive for excellent results and act professionally. I also love learning new things and doing light exercise.",
-        title_skill: "Mastered Skills",
-        title_skill1: "Adobe Photoshop",
-        skill_desc1: "Skilled in using Adobe Photoshop for text editing, image retouching, and graphic element creation.",
-        title_skill2: "Adobe Premiere Pro",
-        skill_desc2: "Experienced in Adobe Premiere Pro for video editing, color grading, and high-quality content production.",
-        title_skill3: "Text Layout",
-        skill_desc3: "Arranging dialogue text and sound effects with appropriate font and balanced layout.",
-        title_skill4: "Team Communication",
-        skill_desc4: "Able to work collaboratively in production teams and coordinate between departments.",
-        title_skill5: "Leadership",
-        skill_desc5: "Experienced in leading teams and making strategic decisions to meet project goals.",
-        title_skill6: "Point Of Sale (POS) System",
-        skill_desc6: "Understand a little about the system, such as recording orders, calculating the total price, to payment and printing receipts.",
-        certificate_title: "Certificate",
-        title_certificate1: "Certificate",
-        certificate_desc1: "Certificate from JAL for participating in a company visit in collaboration with LP4Y, providing insights into airport operations.",
-        certificate_desc2: "Certificate from Concentrix for completing a training course on \"Emotional Intelligence at the Workplace\".",
-        certificate_desc3: "Participated in procurement training from Artelia Indonesia.",
-        title_certificate2: "Training Certificate at LP4Y",
-        certificate_desc4: "Professional training certificate from LP4Y for career development.",
-        certificate_desc5: "Additional certificate from LP4Y training program.",
-        certificate_desc6: "LP4Y program completion certificate.",
-        gallery_title: "Portfolio Works",
-        title_comic1: "Action Comic",
-        comic_desc1: "Adjusted text size outside the dialogue balloon, also known as thought balloon.",
-        comic_desc2: "Adjusted text size outside the dialogue balloon, also known as thought balloon.",
-        comic_desc3: "Adjusted text size outside the dialogue balloon, also known as thought balloon.",
-        title_comic2: "Relaxed Comic",
-        comic_desc4: "Adjusted text outside dialogue balloon, within the balloon, and added SFX.",
-        comic_desc5: "Adjusted text size inside and outside the dialogue balloon.",
-        comic_desc6: "Adjusted overlapping texts, arranged fonts for better readability.",
-        title_comic3: "Colored Comic or Webtoon",
-        comic_desc7: "Redrawing, adjusting font sizes, adding standard-compliant text and speech bubbles, and designing SFX.",
-        comic_desc8: "Text and font adjustments, SFX creation, bubble layout and typography setup.",
-        comic_desc9: "Text and font adjustments, SFX creation, bubble layout and typography setup.",
-        title_video: "Portfolio Videos",
-        video_title1: "Black & White Comic Timelapse",
-        video_desc1: "Editing process of black-and-white comic from font setup to SFX.",
-        video_title2: "Colored Comic Timelapse",
-        video_desc2: "Editing process of colored comic from font setup to SFX.",
-        timeline_title: "Experience",
-        timeline1: "April 2021 - March 2022: Freelance Typesetter in Community.",
-        timeline2: "December 2023 - 2025: Freelance Typesetter in Community.",
-        timeline3: "April 22 - May 6, 2025: Waiter at After Five Restaurant and Bar.",
-        timeline4: "February 2025 - Present: Education Training at Life Project 4 Youth (LP4Y)",
-        stats_title: "Statistics",
-        stat1: "Comic Episodes",
-        stat2: "Active Projects",
-        stat3: "Years Active",
-        stat4: "3+ Years",
-        title_contact: "Contact",
-        linkedin_text: "LinkedIn",
-        whatsapp_text: "WhatsApp",
-        email_text: "Email",
-        github_text: "GitHub",
-        footer_text: "Creating stunning visual works with professional touch and boundless creativity"
-      },
-      jp: {
-        title: "Hendra Cipta",
-        subtitle: "コミック編集者・タイプセッター",
-        scroll_text: "スクロールして続行",
-        nav_intro: "紹介",
-        nav_skill: "スキル",
-        nav_certificate: "証明書",
-        nav_gallery: "ポートフォリオ",
-        nav_video: "動画",
-        nav_timeline: "経歴",
-        nav_stats: "統計",
-        nav_contact: "連絡先",
-        intro_title: "自己紹介",
-        intro_desc: "私はヘンドラ・チプタです。SMA Negeri 92を卒業しました。画像編集が趣味で、チームワーク、リーダーシップ、話すこと、顧客とのやり取りが得意です。常に高い成果を維持し、プロとしての姿勢を保っています。新しいことを学ぶことと軽い運動が好きです。",
-        title_skill: "習得したスキル",
-        title_skill1: "Adobe Photoshop",
-        skill_desc1: "Adobe Photoshopでのテキスト編集、画像加工、グラフィック作成に熟練。",
-        title_skill2: "Adobe Premiere Pro",
-        skill_desc2: "Adobe Premiere Proを使用した映像編集、カラーグレーディング、映像制作に熟練。",
-        title_skill3: "テキストレイアウト",
-        skill_desc3: "適切なフォントとバランスで吹き出しのテキストや効果音を配置。",
-        title_skill4: "チームコミュニケーション",
-        skill_desc4: "制作チームでの協力と部門間調整に長けている。",
-        title_skill5: "リーダーシップ",
-        skill_desc5: "チームを率いて戦略的な判断を行う経験がある。",
-        title_skill6: "販売時点情報管理システム",
-        skill_desc6: "注文の記録、合計金額の計算、支払い、領収書の印刷など、システムについて少し理解する。",
-        certificate_title: "証明書",
-        title_certificate1: "証明書",
-        certificate_desc1: "LP4Yと協力した企業訪問に参加し、空港業務に関する知見を得たことに対するJALからの証明書。",
-        certificate_desc2: "職場における感情知能（Emotional Intelligence at the Workplace）に関する研修コースを修了したことに対するConcentrixからの証明書。",
-        certificate_desc3: "Artelia Indonesiaによる調達トレーニングに参加。",
-        title_certificate2: "LP4Yでの研修証明書",
-        certificate_desc4: "キャリア開発のためのLP4Yからのプロフェッショナルトレーニング証明書。",
-        certificate_desc5: "LP4Yトレーニングプログラムからの追加証明書。",
-        certificate_desc6: "LP4Yプログラム修了証明書。",
-        gallery_title: "作品ポートフォリオ",
-        title_comic1: "アクション漫画",
-        comic_desc1: "吹き出し外のテキスト（思考バルーン）のサイズを調整しました。",
-        comic_desc2: "吹き出し外のテキスト（思考バルーン）のサイズを調整しました。",
-        comic_desc3: "吹き出し外のテキスト（思考バルーン）のサイズを調整しました。",
-        title_comic2: "リラックス漫画",
-        comic_desc4: "吹き出しの内外のテキストを調整し、SFXを挿入しました。",
-        comic_desc5: "吹き出しの内外のテキストサイズを調整しました。",
-        comic_desc6: "吹き出しの後ろのテキストを調整し、読みやすいフォントに整えました。",
-        title_comic3: "カラー漫画・ウェブトゥーン",
-        comic_desc7: "リドロー、テキストサイズ調整、標準フォントの適用、SFX作成、吹き出しデザインを行いました。",
-        comic_desc8: "テキスト・フォント調整、SFX作成、吹き出しレイアウトとタイポグラフィの構成。",
-        comic_desc9: "テキスト・フォント調整、SFX作成、吹き出しレイアウトとタイポグラフィの構成。",
-        title_video: "ポートフォリオ動画",
-        video_title1: "モノクロ漫画のタイムラプス",
-        video_desc1: "フォント設定から効果音までの編集プロセス。",
-        video_title2: "カラーマンガのタイムラプス",
-        video_desc2: "フォント設定から効果音までの編集プロセス。",
-        timeline_title: "経歴",
-        timeline1: "2021年4月〜2022年3月：コミュニティでフリーランスのタイプセッター。",
-        timeline2: "2023年12月〜2025年：コミュニティでフリーランスのタイプセッター。",
-        timeline3: "2025年4月22日〜5月6日：After Five レストラン・バーのウェイター。",
-        timeline4: "2025年2月〜現在：Life Project 4 Youth (LP4Y)での教育訓練。",
-        stats_title: "統計",
-        stat1: "コミックエピソード",
-        stat2: "進行中のプロジェクト",
-        stat3: "活動年数",
-        stat4: "3+年",
-        title_contact: "連絡先",
-        linkedin_text: "リンクトイン",
-        whatsapp_text: "ワッツアップ",
-        email_text: "メール",
-        github_text: "ギットハブ",
-        footer_text: "プロフェッショナルなタッチと無限の創造力で魅力的なビジュアル作品を創り出す"
-      }
-    };
-
-    function setLang(lang) {
-      const keys = Object.keys(translations[lang]);
-      keys.forEach(id => {
-        const elements = document.querySelectorAll(`[data-id="${id}"]`);
-        if (elements.length) {
-          elements.forEach(el => {
-            el.textContent = translations[lang][id];
-          });
-        }
-      });
-      
-      // Update active language button
-      document.querySelectorAll('.language-switch button').forEach(btn => {
-        btn.classList.remove('active');
-      });
-      event.target.classList.add('active');
-    }
-
-    // Inisialisasi bahasa default
-    setLang('id');
   </script>
   
   <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
