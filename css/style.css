@@ -576,6 +576,13 @@ h2::after {
   overflow: hidden;
 }
 
+.photo-card video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0; /* atau tambahkan jika perlu */
+}
+
 .video-wrapper video {
   position: absolute;
   top: 0;
