@@ -250,43 +250,66 @@ h2::after {
   transform: scale(1.02);
 }
 
-/* =============== SKILL SECTION =============== */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 25px;
+/* =============== TIMELINE SECTION =============== */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
 }
-
-.skill-card {
+  
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--accent);
+  left: 50%;
+  margin-left: -2px;
+}
+  
+.timeline-entry {
+  position: relative;
+  margin-bottom: 40px;
   background: var(--gray);
   padding: 25px;
   border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  width: 45%; /* Lebar diperkecil */
   transition: all 0.3s ease;
 }
-
-.skill-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+  
+.timeline-entry:hover {
+  transform: translateX(5px);
 }
-
-.skill-card h3 {
-  color: var(--accent);
-  font-size: 1.4rem;
-  margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
+  
+.timeline-entry:nth-child(odd) {
+  left: 0;
+  clear: both;
 }
-
-.skill-card h3 i {
-  font-size: 1.6rem;
+  
+.timeline-entry:nth-child(even) {
+  left: 55%; /* Memberi jarak 10% */
+  clear: both;
 }
-
-.skill-card p {
-  color: var(--text-light);
-  font-size: 1rem;
-  line-height: 1.7;
+  
+.timeline-entry::after {
+  content: '';
+  position: absolute;
+  top: 25px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 5px rgba(0, 188, 212, 0.2);
+}
+  
+.timeline-entry:nth-child(odd)::after {
+  right: -50px;
+}
+  
+.timeline-entry:nth-child(even)::after {
+  left: -50px;
 }
 
 /* =============== SERTIFIKAT SECTION =============== */
@@ -421,66 +444,43 @@ h2::after {
   font-size: 1rem;
 }
 
-/* =============== TIMELINE SECTION =============== */
-.timeline {
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
+/* =============== SKILL SECTION =============== */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
 }
-  
-.timeline::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  background: var(--accent);
-  left: 50%;
-  margin-left: -2px;
-}
-  
-.timeline-entry {
-  position: relative;
-  margin-bottom: 40px;
+
+.skill-card {
   background: var(--gray);
   padding: 25px;
   border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  width: 45%; /* Lebar diperkecil */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
 }
-  
-.timeline-entry:hover {
-  transform: translateX(5px);
+
+.skill-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
 }
-  
-.timeline-entry:nth-child(odd) {
-  left: 0;
-  clear: both;
+
+.skill-card h3 {
+  color: var(--accent);
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
-  
-.timeline-entry:nth-child(even) {
-  left: 55%; /* Memberi jarak 10% */
-  clear: both;
+
+.skill-card h3 i {
+  font-size: 1.6rem;
 }
-  
-.timeline-entry::after {
-  content: '';
-  position: absolute;
-  top: 25px;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 0 5px rgba(0, 188, 212, 0.2);
-}
-  
-.timeline-entry:nth-child(odd)::after {
-  right: -50px;
-}
-  
-.timeline-entry:nth-child(even)::after {
-  left: -50px;
+
+.skill-card p {
+  color: var(--text-light);
+  font-size: 1rem;
+  line-height: 1.7;
 }
 
 /* =============== STATISTIK SECTION =============== */
