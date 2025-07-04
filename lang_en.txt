@@ -27,6 +27,8 @@ Customer Service
 Experienced in providing fast, friendly, and professional customer service in the F&B industry. Skilled in taking accurate orders, handling complaints politely, and ensuring customer satisfaction. Able to work well in a team and stay responsive during busy hours.
 Canva
 Skilled in using Canva to create visually appealing and professional designs for social media, presentations, posters, and other marketing materials. Proficient in layout, typography, and visual consistency to match brand identity and audience needs.
+Microsoft Excel
+Skilled in using logical and lookup functions such as IF, VLOOKUP, and HLOOKUP. Capable of combining these formulas to build extended logic for accurate data retrieval and analysis. Experienced in organizing reports, automating tasks, and working with structured data efficiently.
 Team Communication
 Able to work collaboratively in production teams and coordinate between departments.
 Leadership
