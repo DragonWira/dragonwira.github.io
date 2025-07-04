@@ -518,6 +518,57 @@ h2::after {
   font-size: 1.2rem;
 }
 
+/* ======== SECTION FOTO BUKTI ======== */
+.photo-proof-section {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.photo-proof-section h2 {
+  font-size: 2.5rem;
+  color: var(--accent);
+  margin-bottom: 40px;
+  border-left: 4px solid var(--accent);
+  padding-left: 20px;
+  position: relative;
+  text-align: left;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.photo-card {
+  background: var(--gray);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.photo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+}
+
+.photo-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.photo-card p {
+  color: var(--text-light);
+  font-size: 1rem;
+  padding: 15px;
+  text-align: center;
+  line-height: 1.5;
+}
+
 /* =============== KONTAK SECTION =============== */
 .contact-card {
   background: var(--gray);
