@@ -85,6 +85,10 @@ document.addEventListener('DOMContentLoaded', function() {
       e.preventDefault();
       const targetId = this.getAttribute('href');
       const targetElement = document.querySelector(targetId);
+      if (!targetElement) {
+        console.warn(`Elemen target ${targetId} tidak ditemukan.`);
+        isManualScroll = false;
+        return;
       
       // Set flag untuk mencegah event scroll mengganggu
       isManualScroll = true;
