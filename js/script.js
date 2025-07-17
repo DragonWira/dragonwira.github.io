@@ -8,9 +8,12 @@ document.addEventListener('DOMContentLoaded', function() {
   const navLinks = document.querySelectorAll('nav a');
   
   let lastScrollTop = 0;
-  
+  let isManualScroll = false; // Flag untuk mendeteksi scroll manual dari klik
+
   // Gabungkan semua logika scroll
   window.addEventListener('scroll', function() {
+    if (isManualScroll) return; // Abaikan pembaruan saat scroll dari klik
+
     const scrollPosition = window.scrollY;
     const bannerHeight = bannerSection.offsetHeight;
     const btn = document.getElementById('backToTop');
@@ -83,6 +86,10 @@ document.addEventListener('DOMContentLoaded', function() {
       const targetId = this.getAttribute('href');
       const targetElement = document.querySelector(targetId);
       
+      // Set flag untuk mencegah event scroll mengganggu
+      isManualScroll = true;
+      
+      // Update tautan aktif
       navLinks.forEach(link => {
         link.classList.remove('active');
         link.removeAttribute('aria-current');
@@ -90,10 +97,17 @@ document.addEventListener('DOMContentLoaded', function() {
       this.classList.add('active');
       this.setAttribute('aria-current', 'page');
       
+      // Gulir ke posisi yang benar
+      const navHeight = mainNav.offsetHeight || 80; // Gunakan tinggi nav atau default 80px
       window.scrollTo({
-        top: targetElement.offsetTop - 80,
+        top: targetElement.offsetTop - navHeight,
         behavior: 'smooth'
       });
+
+      // Reset flag setelah animasi selesai (1 detik)
+      setTimeout(() => {
+        isManualScroll = false;
+      }, 1000);
     });
   });
 });
