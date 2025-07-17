@@ -3,22 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portofolio Hendra Cipta, editor komik dan typesetter berpengalaman dalam Adobe Photoshop, Premiere Pro, dan desain grafis.">
+  <meta name="keywords" content="Hendra Cipta, editor komik, typesetter, Adobe Photoshop, Adobe Premiere Pro, portofolio">
+  <meta name="author" content="Hendra Cipta">
+  <meta property="og:title" content="Hendra Cipta - Portfolio">
+  <meta property="og:description" content="Lihat karya dan pengalaman Hendra Cipta sebagai editor komik dan typesetter.">
+  <meta property="og:image" content="https://res.cloudinary.com/dd6ytqdim/image/upload/q_auto,w_800/WhatsApp_Image_2025-05-28_at_2.58.17_PM_gkkois">
+  <meta property="og:url" content="https://dragonwira.github.io">
   <title>Hendra Cipta - Portfolio</title>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  
   <div class="language-switch">
-    <button onclick="setLang('id')">🇮🇩</button>
-    <button onclick="setLang('en')">🇬🇧</button>
-    <button onclick="setLang('jp')">🇯🇵</button>
+    <button onclick="setLang('id')" aria-label="Ubah ke bahasa Indonesia">🇮🇩</button>
+    <button onclick="setLang('en')" aria-label="Switch to English">🇬🇧</button>
+    <button onclick="setLang('jp')" aria-label="日本語に切り替え">🇯🇵</button>
   </div>
 
   <!-- Banner Section -->
   <section class="banner-section" id="home">
-    <div class="banner-image" ></div>
+    <div class="banner-image"></div>
     <div class="banner-overlay"></div>
     <div class="banner-content">
       <h1 data-id="title">Hendra Cipta</h1>
@@ -32,7 +40,7 @@
 
   <!-- Navigation -->
   <nav id="mainNav">
-    <a href="#tentang" data-id="nav_intro" class="active">Tentang</a>
+    <a href="#tentang" data-id="nav_intro" class="active" aria-current="page">Tentang</a>
     <a href="#riwayat" data-id="nav_timeline">Riwayat</a>
     <a href="#skill" data-id="nav_skill">Skill</a>
     <a href="#sertifikat" data-id="nav_certificate">Sertifikat</a>
@@ -49,8 +57,7 @@
       <h2 data-id="intro_title">Tentang Saya</h2>
       <div class="intro-content">
         <p class="intro-text" data-id="intro_desc">Saya Hendra Cipta. Saya lulus dari SMA Negeri 92. Saya memiliki hobi mengedit gambar. Saya terampil dalam kerja tim, menjadi pemimpin, berbicara dengan banyak orang dan berkomunikasi dengan pelanggan, saya dapat mempertahankan hasil yang sangat baik, dan menunjukkan profesionalisme. Selain itu, saya suka belajar hal-hal baru dan olahraga ringan.</p>
-        <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/WhatsApp_Image_2025-05-28_at_2.58.17_PM_gkkois" 
-             alt="Hendra Cipta" class="hero-image">
+        <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/q_auto,w_800/WhatsApp_Image_2025-05-28_at_2.58.17_PM_gkkois" alt="Foto profil Hendra Cipta" class="hero-image" loading="lazy">
       </div>
     </section>
 
@@ -82,28 +89,28 @@
           <p data-id="skill_desc3">Pengaturan teks dialog dan efek suara dengan font yang tepat dan layout yang seimbang.</p>
         </div>
         <div class="skill-card">
-          <h3><i class="fas fa-headset"></i> <span data-id>Customer Service</span></h3>
-          <p data-id>Berpengalaman melayani pelanggan di industri F&B dengan cepat, ramah, dan profesional. Terbiasa mencatat pesanan dengan akurat, menangani keluhan secara sopan, serta menjaga kepuasan dan kenyamanan pelanggan. Mampu bekerja dalam tim dan tetap sigap di situasi sibuk.</p>
+          <h3><i class="fas fa-headset"></i> <span data-id="title_skill4">Customer Service</span></h3>
+          <p data-id="skill_desc4">Berpengalaman melayani pelanggan di industri F&B dengan cepat, ramah, dan profesional...</p>
         </div>
         <div class="skill-card">
-          <h3><i class="fas fa-paint-brush"></i> <span data-id>Canva</span></h3>
-          <p data-id>Terampil menggunakan Canva untuk membuat desain visual yang menarik dan profesional, seperti poster, presentasi, konten media sosial, kartu nama, dan materi promosi lainnya. Menguasai penggunaan elemen desain, tipografi, dan tata letak agar hasil desain konsisten dan sesuai kebutuhan brand. Mampu bekerja cepat dengan berbagai template serta menyesuaikan desain sesuai permintaan atau identitas visual klien.</p>
+          <h3><i class="fas fa-paint-brush"></i> <span data-id="title_skill5">Canva</span></h3>
+          <p data-id="skill_desc5">Terampil menggunakan Canva untuk membuat desain visual yang menarik dan profesional...</p>
         </div>
         <div class="skill-card">
-          <h3><i class="fas fa-file-excel"></i> <span data-id>Microsoft Excel</span></h3>
-          <p data-id>Terampil menggunakan rumus-rumus dasar dan menengah di Microsoft Excel, termasuk IF, VLOOKUP, dan HLOOKUP untuk mengelola dan menganalisis data. Mampu menggabungkan fungsi-fungsi tersebut (nested/extended functions) untuk menghasilkan logika pencarian data yang lebih kompleks dan efisien. Cocok untuk kebutuhan laporan, rekap data, dan automasi sederhana.</p>
+          <h3><i class="fas fa-file-excel"></i> <span data-id="title_skill6">Microsoft Excel</span></h3>
+          <p data-id="skill_desc6">Terampil menggunakan rumus-rumus dasar dan menengah di Microsoft Excel...</p>
         </div>
         <div class="skill-card">
-          <h3><i class="fas fa-people-group"></i> <span data-id="title_skill4">Komunikasi Tim</span></h3>
-          <p data-id="skill_desc4">Kemampuan bekerja sama dalam tim produksi dan koordinasi antar divisi.</p>
+          <h3><i class="fas fa-people-group"></i> <span data-id="title_skill7">Komunikasi Tim</span></h3>
+          <p data-id="skill_desc7">Kemampuan bekerja sama dalam tim produksi dan koordinasi antar divisi.</p>
         </div>
         <div class="skill-card">
-          <h3><i class="fas fa-lightbulb"></i> <span data-id="title_skill5">Kepemimpinan</span></h3>
-          <p data-id="skill_desc5">Berpengalaman dalam memimpin tim dan mengambil keputusan strategis untuk mencapai tujuan proyek dengan efektif.</p>
+          <h3><i class="fas fa-lightbulb"></i> <span data-id="title_skill8">Kepemimpinan</span></h3>
+          <p data-id="skill_desc8">Berpengalaman dalam memimpin tim dan mengambil keputusan strategis...</p>
         </div>
         <div class="skill-card">
-          <h3><i class="fas fa-cash-register"></i> <span data-id="title_skill6">Point Of Sale (POS) System</span></h3>
-          <p data-id="skill_desc6">Memahami tentang sistem ini sedikit, seperti pencatatan pesanan, perhitungan total harga, hingga pembayaran dan pencetakan struk.</p>
+          <h3><i class="fas fa-cash-register"></i> <span data-id="title_skill9">Point Of Sale (POS) System</span></h3>
+          <p data-id="skill_desc9">Memahami tentang sistem ini sedikit, seperti pencatatan pesanan...</p>
         </div>
       </div>
     </section>
@@ -113,22 +120,34 @@
       <h2 data-id="certificate_title">Sertifikat</h2>
       <div class="certificate-grid">
         <div class="certificate-card">
-          <h3 data-id="title_certificate1">Sertifikat</h3>
-          <p data-id="certificate_desc1">Sertifikat dari JAL atas kehadirannya dalam kegiatan kunjungan perusahaan yang berkolaborasi dengan LP4Y dan memberikan pengetahuan tentang kerja dibandara.</p>
-          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/Serifijat_JAL_ozt8xm" alt="Sertifikat JAL">
-          <p data-id="certificate_desc2">Sertifikat dari Concentrix dalam mengikuti Training Course tentang 'Emotional Intelligence At The Work Place'.</p>
-          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/Sertifikat_Concentrix_ijtdzc" alt="Sertifikat Concentrix">
-          <p data-id="certificate_desc3">Berpartisipasi dalam mengikutin pelatihan tentang Procurement dari Artelia Indonesia.</p>
-          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/Sertifikat_Artelia_ywcluw" alt="Sertifikat Artelia">
+          <h3 data-id="title_certificate1">Sertifikat JAL</h3>
+          <p data-id="certificate_desc1">Sertifikat dari JAL atas kehadiran dalam kegiatan kunjungan perusahaan yang berkolaborasi dengan LP4Y...</p>
+          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/q_auto,w_800/Serifijat_JAL_ozt8xm" alt="Sertifikat JAL" loading="lazy">
         </div>
         <div class="certificate-card">
-          <h3 data-id="title_certificate2">Sertifikat Pelatihan di LP4Y</h3>
+          <h3 data-id="title_certificate2">Sertifikat Concentrix</h3>
+          <p data-id="certificate_desc2">Sertifikat dari Concentrix dalam mengikuti Training Course tentang 'Emotional Intelligence At The Work Place'.</p>
+          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/q_auto,w_800/Sertifikat_Concentrix_ijtdzc" alt="Sertifikat Concentrix" loading="lazy">
+        </div>
+        <div class="certificate-card">
+          <h3 data-id="title_certificate3">Sertifikat Artelia</h3>
+          <p data-id="certificate_desc3">Berpartisipasi dalam pelatihan tentang Procurement dari Artelia Indonesia.</p>
+          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/q_auto,w_800/Sertifikat_Artelia_ywcluw" alt="Sertifikat Artelia" loading="lazy">
+        </div>
+        <div class="certificate-card">
+          <h3 data-id="title_certificate4">Sertifikat Pelatihan LP4Y</h3>
           <p data-id="certificate_desc4">Sertifikat pelatihan profesional dari LP4Y untuk pengembangan karir.</p>
-          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/Sertifikat_Autonomy_dqfpii" alt="Sertifikat LP4Y">
+          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/q_auto,w_800/Sertifikat_Autonomy_dqfpii" alt="Sertifikat LP4Y" loading="lazy">
+        </div>
+        <div class="certificate-card">
+          <h3 data-id="title_certificate5">Sertifikat LP4Y Tambahan</h3>
           <p data-id="certificate_desc5">Sertifikat tambahan dari program pelatihan LP4Y.</p>
-          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/Sertifikat_Respon_gzx6kt" alt="Sertifikat LP4Y 2">
+          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/q_auto,w_800/Sertifikat_Respon_gzx6kt" alt="Sertifikat LP4Y 2" loading="lazy">
+        </div>
+        <div class="certificate-card">
+          <h3 data-id="title_certificate6">Sertifikat Penyelesaian LP4Y</h3>
           <p data-id="certificate_desc6">Sertifikat penyelesaian program LP4Y.</p>
-          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/Scanned_20250704-0854_wog5ml" alt="Sertifikat LP4Y 3">
+          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/q_auto,w_800/Scanned_20250704-0854_wog5ml" alt="Sertifikat LP4Y 3" loading="lazy">
         </div>
       </div>
     </section>
@@ -139,30 +158,30 @@
       <div class="portfolio-grid">
         <div class="portfolio-card">
           <h3 data-id="title_comic1">Komik Aksi</h3>
-          <p data-id="comic_desc1">Disini saya melakukan mengatur ukuran teks di luar balon dialog atau disebut balon dalam pikiran.</p>
-          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/016_bai12u" alt="Komik Aksi">
-          <p data-id="comic_desc2">Disini saya melakukan mengatur ukuran teks di luar balon dialog atau disebut balon dalam pikiran.</p>
-          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/007_mn2ot2" alt="Komik Aksi 2">
-          <p data-id="comic_desc3">Disini saya melakukan mengatur ukuran teks di luar balon dialog atau disebut balon dalam pikiran.</p>
-          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/005_yb2wgi" alt="Komik Aksi 3">
+          <p data-id="comic_desc1">Mengatur ukuran teks di luar balon dialog atau disebut balon dalam pikiran.</p>
+          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/q_auto,w_800/016_bai12u" alt="Komik Aksi" loading="lazy">
+          <p data-id="comic_desc2">Mengatur ukuran teks di luar balon dialog atau disebut balon dalam pikiran.</p>
+          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/q_auto,w_800/007_mn2ot2" alt="Komik Aksi 2" loading="lazy">
+          <p data-id="comic_desc3">Mengatur ukuran teks di luar balon dialog atau disebut balon dalam pikiran.</p>
+          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/q_auto,w_800/005_yb2wgi" alt="Komik Aksi 3" loading="lazy">
         </div>
         <div class="portfolio-card">
           <h3 data-id="title_comic2">Komik Santai</h3>
-          <p data-id="comic_desc4">Disini saya melakukan mengatur ukuran teks di luar balon dialog, mengatur ukuran teks pada balon dialog, mengatur SFX pada gambar.</p>
-          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/012_llj2oi" alt="Komik Santai">
-          <p data-id="comic_desc5">Disini saya melakukan mengatur ukuran teks di luar balon dialog, mengatur ukuran teks pada balon dialog.</p>
-          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/024_zrsroh" alt="Komik Santai 2">
-          <p data-id="comic_desc6">Disini saya melakukan mengatur ukuran teks di luar balon dialog, mengatur ukuran teks pada balon dialog, mengatur teks dibelakang balon, mengatur font agar nyaman dibaca.</p>
-          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/12_eyfmes" alt="Komik Santai 3">
+          <p data-id="comic_desc4">Mengatur ukuran teks di luar balon dialog, mengatur ukuran teks pada balon dialog, mengatur SFX pada gambar.</p>
+          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/q_auto,w_800/012_llj2oi" alt="Komik Santai" loading="lazy">
+          <p data-id="comic_desc5">Mengatur ukuran teks di luar balon dialog, mengatur ukuran teks pada balon dialog.</p>
+          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/q_auto,w_800/024_zrsroh" alt="Komik Santai 2" loading="lazy">
+          <p data-id="comic_desc6">Mengatur ukuran teks di luar balon dialog, mengatur ukuran teks pada balon dialog, mengatur teks di belakang balon, mengatur font agar nyaman dibaca.</p>
+          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/q_auto,w_800/12_eyfmes" alt="Komik Santai 3" loading="lazy">
         </div>
         <div class="portfolio-card">
           <h3 data-id="title_comic3">Komik Berwarna atau Webtoon</h3>
-          <p data-id="comic_desc7">Saya melakukan redrawing, mengatur ukuran teks, mengatur font yang sesuai standar, membuat sfx, membuat balon teks dan mengatur balon teks.</p>
-          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/Totus_%EC%8B%9D%EC%9E%90-%ED%8F%AC%ED%86%A0%EC%83%B5_EN__%ED%85%8C%EC%8A%A4%ED%8A%B8_002_lxyifd" alt="Webtoon">
-          <p data-id="comic_desc8">Saya mengatur ukuran teks, mengatur font yang sesuai standar, membuat sfx, membuat balon teks, mengatur balon teks, dan tipografi.</p>
-          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/Totus_%EC%8B%9D%EC%9E%90-%ED%8F%AC%ED%86%A0%EC%83%B5_EN__%ED%85%8C%EC%8A%A4%ED%8A%B8_003_ijijes" alt="Webtoon 2">
-          <p data-id="comic_desc9">Saya mengatur ukuran teks, mengatur font yang sesuai standar, membuat sfx, membuat balon teks, mengatur balon teks, dan tipografi.</p>
-          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/Totus_%EC%8B%9D%EC%9E%90-%ED%8F%AC%ED%86%A0%EC%83%B5_EN__%ED%85%8C%EC%8A%A4%ED%8A%B8_004_ksaiip.jpg" alt="Webtoon 3">
+          <p data-id="comic_desc7">Melakukan redrawing, mengatur ukuran teks, mengatur font yang sesuai standar, membuat SFX, membuat balon teks dan mengatur balon teks.</p>
+          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/q_auto,w_800/Totus_%EC%8B%9D%EC%9E%90-%ED%8F%AC%ED%86%A0%EC%83%B5_EN__%ED%85%8C%EC%8A%A4%ED%8A%B8_002_lxyifd" alt="Webtoon" loading="lazy">
+          <p data-id="comic_desc8">Mengatur ukuran teks, mengatur font yang sesuai standar, membuat SFX, membuat balon teks, mengatur balon teks, dan tipografi.</p>
+          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/q_auto,w_800/Totus_%EC%8B%9D%EC%9E%90-%ED%8F%AC%ED%86%A0%EC%83%B5_EN__%ED%85%8C%EC%8A%A4%ED%8A%B8_003_ijijes" alt="Webtoon 2" loading="lazy">
+          <p data-id="comic_desc9">Mengatur ukuran teks, mengatur font yang sesuai standar, membuat SFX, membuat balon teks, mengatur balon teks, dan tipografi.</p>
+          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/q_auto,w_800/Totus_%EC%8B%9D%EC%9E%90-%ED%8F%AC%ED%86%A0%EC%83%B5_EN__%ED%85%8C%EC%8A%A4%ED%8A%B8_004_ksaiip.jpg" alt="Webtoon 3" loading="lazy">
         </div>
       </div>
     </section>
@@ -173,20 +192,20 @@
       <div class="videos-grid">
         <div class="video-card">
           <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/NkKLAHnLGaY" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/NkKLAHnLGaY" allowfullscreen loading="lazy"></iframe>
           </div>
           <h3 data-id="video_title1">Timelapse Komik Hitam Putih</h3>
-          <p data-id="video_desc1">Proses pengeditan komik hitam putih dari atur font, hingga sfx.</p>
+          <p data-id="video_desc1">Proses pengeditan komik hitam putih dari atur font, hingga SFX.</p>
         </div>
         <div class="video-card">
           <div class="video-container">
-            <video controls>
-              <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            <video controls preload="metadata" loading="lazy">
+              <source src="https://res.cloudinary.com/dd6ytqdim/video/upload/timelapse_comic_color.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
           <h3 data-id="video_title2">Timelapse Komik Berwarna</h3>
-          <p data-id="video_desc2">Proses pengeditan komik berwarna dari atur font, hingga sfx.</p>
+          <p data-id="video_desc2">Proses pengeditan komik berwarna dari atur font, hingga SFX.</p>
         </div>
       </div>
     </section>
@@ -200,7 +219,7 @@
           <p data-id="stat1">Episode Komik</p>
         </div>
         <div class="stat">
-          <h3>-</h3>
+          <h3>5</h3>
           <p data-id="stat2">Proyek Aktif</p>
         </div>
         <div class="stat">
@@ -212,26 +231,28 @@
 
     <!-- Gallery Section -->
     <section id="bukti-foto" class="photo-proof-section">
-      <h2 data-id>Galeri</h2>
+      <h2 data-id="photo_title">Galeri</h2>
       <div class="photo-grid">
         <div class="photo-card">
-          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/WhatsApp_Image_2025-04-29_at_15.23.27_codqwy" alt="Michelin Company" />
-          <p data-id>-</p>
+          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/q_auto,w_800/WhatsApp_Image_2025-04-29_at_15.23.27_codqwy" alt="Kunjungan ke Michelin Company" loading="lazy">
+          <p data-id="photo_desc1">Dokumentasi kunjungan ke Michelin Company untuk pelatihan.</p>
         </div>
         <div class="photo-card">
-          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/WhatsApp_Image_2025-02-15_at_09.38.29_rjuzum" alt="Thales Company" />
-          <p data-id>-</p>
+          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/q_auto,w_800/WhatsApp_Image_2025-02-15_at_09.38.29_rjuzum" alt="Kunjungan ke Thales Company" loading="lazy">
+          <p data-id="photo_desc2">Dokumentasi kunjungan ke Thales Company.</p>
         </div>
         <div class="photo-card">
-          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/52d8cd93-be9b-42a9-b289-0b7e18062392_v5koua" alt="IDL Logistik" />
-          <p data-id>-</p>
+          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/q_auto,w_800/52d8cd93-be9b-42a9-b289-0b7e18062392_v5koua" alt="Kunjungan ke IDL Logistik" loading="lazy">
+          <p data-id="photo_desc3">Dokumentasi kunjungan ke IDL Logistik.</p>
         </div>
-          <div class="photo-card">
-            <video controls preload="metadata">>
-              <source src="https://res.cloudinary.com/dd6ytqdim/video/upload/ac_aac,br_10000k,vc_h264/v1751617726/IMG_2425_bypgjw.mp4" type="video//mp4">
+        <div class="photo-card">
+          <div class="video-wrapper">
+            <video controls preload="metadata" loading="lazy">
+              <source src="https://res.cloudinary.com/dd6ytqdim/video/upload/ac_aac,br_10000k,vc_h264/v1751617726/IMG_2425_bypgjw.mp4" type="video/mp4">
+              Your browser does not support the video tag.
             </video>
-            <p data-id>-</p>
           </div>
+          <p data-id="photo_desc4">Video dokumentasi kegiatan.</p>
         </div>
       </div>
     </section>
@@ -266,13 +287,13 @@
       <i class="fas fa-dragon"></i>
     </div>
     <p class="footer-text" data-id="footer_text">Menciptakan karya visual yang memukau dengan sentuhan profesional dan kreativitas tanpa batas</p>
-    <p class="copyright">&copy; 2025 DragonWira Studio. All rights reserved.</p>
+    <p class="copyright">© 2025 DragonWira Studio. All rights reserved.</p>
   </footer>
   
   <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
-        style="position:fixed; bottom:20px; right:20px; padding:10px 15px; border:none; border-radius:50%; background:#00bcd4; color:white; font-size:20px; z-index:1001; display:none;"
-        id="backToTop">
-  ↑
+          style="position:fixed; bottom:20px; right:20px; padding:10px 15px; border:none; border-radius:50%; background:#00bcd4; color:white; font-size:20px; z-index:1001; display:none;"
+          id="backToTop" aria-label="Kembali ke atas">
+    ↑
   </button>
 
   <script src="js/script.js" defer></script>
