@@ -11,13 +11,13 @@
   --light: #ffffff;
   --dark: #151525;
   --gray: #2c2c3d;
-  --text-light: #ddd;
+  --text-light: #f5f5f5;
 }
 
 body {
   font-family: 'Poppins', sans-serif;
   background: var(--primary);
-  color: var(--light);
+  color: var(--text-light);
   line-height: 1.6;
   overflow-x: hidden;
 }
@@ -45,7 +45,7 @@ body {
   background-image: url('https://dl.dropboxusercontent.com/scl/fi/1j8mhwsrx2x8c01c0hkga/Salinan-dari-Banner-WA.png?rlkey=l834uhdm64w0mvaz1vutieds2');
   background-size: cover;
   background-position: center;
-  z-index: -2; /* Diperbaiki z-index */
+  z-index: -2;
   transition: transform 1.2s ease-out;
 }
 
@@ -56,7 +56,7 @@ body {
   width: 100%;
   height: 100%;
   background: rgba(30, 30, 47, 0.8);
-  z-index: -1; /* Di atas gambar */
+  z-index: -1;
 }
 
 .banner-content {
@@ -84,7 +84,7 @@ body {
 
 .scroll-indicator {
   position: absolute;
-  bottom: 5vh; /* Menggunakan unit vh */
+  bottom: 5vh;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -121,13 +121,6 @@ body {
   animation: scrollBounce 1.5s infinite;
 }
 
-/* Vendor prefix untuk animasi */
-@-webkit-keyframes scrollBounce {
-  0% { top: 8px; opacity: 1; }
-  50% { top: 15px; opacity: 0.7; }
-  100% { top: 8px; opacity: 1; }
-}
-
 @keyframes scrollBounce {
   0% { top: 8px; opacity: 1; }
   50% { top: 15px; opacity: 0.7; }
@@ -151,7 +144,7 @@ nav {
 }
 
 nav.visible {
-  transform: translateY(0) !important; /* Pastikan visible */
+  transform: translateY(0);
 }
 
 nav.scrolled {
@@ -256,7 +249,7 @@ h2::after {
   max-width: 800px;
   margin: 0 auto;
 }
-  
+
 .timeline::before {
   content: '';
   position: absolute;
@@ -267,7 +260,7 @@ h2::after {
   left: 50%;
   margin-left: -2px;
 }
-  
+
 .timeline-entry {
   position: relative;
   margin-bottom: 40px;
@@ -275,24 +268,24 @@ h2::after {
   padding: 25px;
   border-radius: 15px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  width: 45%; /* Lebar diperkecil */
+  width: 45%;
   transition: all 0.3s ease;
 }
-  
+
 .timeline-entry:hover {
   transform: translateX(5px);
 }
-  
+
 .timeline-entry:nth-child(odd) {
   left: 0;
   clear: both;
 }
-  
+
 .timeline-entry:nth-child(even) {
-  left: 55%; /* Memberi jarak 10% */
+  left: 55%;
   clear: both;
 }
-  
+
 .timeline-entry::after {
   content: '';
   position: absolute;
@@ -303,11 +296,11 @@ h2::after {
   background: var(--accent);
   box-shadow: 0 0 0 5px rgba(0, 188, 212, 0.2);
 }
-  
+
 .timeline-entry:nth-child(odd)::after {
   right: -50px;
 }
-  
+
 .timeline-entry:nth-child(even)::after {
   left: -50px;
 }
@@ -354,7 +347,7 @@ h2::after {
 /* =============== SERTIFIKAT SECTION =============== */
 .certificate-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
 }
 
@@ -384,7 +377,7 @@ h2::after {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
 }
-  
+
 .certificate-card img:hover {
   transform: scale(1.03);
 }
@@ -403,7 +396,7 @@ h2::after {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
 }
-  
+
 .portfolio-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
@@ -428,7 +421,7 @@ h2::after {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
 }
-  
+
 .portfolio-card img:hover {
   transform: scale(1.03);
 }
@@ -447,7 +440,7 @@ h2::after {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
 }
-  
+
 .video-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
@@ -490,7 +483,7 @@ h2::after {
   flex-wrap: wrap;
   justify-content: center;
 }
-  
+
 .stat {
   background: linear-gradient(135deg, var(--gray), var(--dark));
   padding: 30px;
@@ -501,24 +494,24 @@ h2::after {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
 }
-  
+
 .stat:hover {
   transform: scale(1.05);
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
 }
-  
+
 .stat h3 {
   font-size: 2.8rem;
   color: var(--accent);
   margin-bottom: 10px;
 }
-  
+
 .stat p {
   color: var(--text-light);
   font-size: 1.2rem;
 }
 
-/* ======== SECTION FOTO BUKTI ======== */
+/* =============== GALERI SECTION =============== */
 .photo-proof-section {
   padding: 80px 20px;
   max-width: 1200px;
@@ -555,10 +548,26 @@ h2::after {
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
 }
 
-.photo-card img {
+.photo-card img,
+.photo-card video {
   width: 100%;
   height: auto;
   display: block;
+}
+
+.photo-card .video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+
+.photo-card .video-wrapper video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .photo-card p {
@@ -567,28 +576,6 @@ h2::after {
   padding: 15px;
   text-align: center;
   line-height: 1.5;
-}
-
-.video-wrapper {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 ratio */
-  height: 0;
-  overflow: hidden;
-}
-
-.photo-card video {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 0; /* atau tambahkan jika perlu */
-}
-
-.video-wrapper video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
 }
 
 /* =============== KONTAK SECTION =============== */
@@ -695,14 +682,12 @@ footer {
   background: rgba(0, 188, 212, 0.2);
   transform: scale(1.1);
 }
-  
+
 .language-switch button.active {
   background: rgba(0, 188, 212, 0.3);
 }
 
 /* =============== RESPONSIVE DESIGN =============== */
-/* Di sini kita pindahkan semua media query ke bagian bawah */
-
 @media (max-width: 992px) {
   .banner-content h1 {
     font-size: 3.5rem;
@@ -817,70 +802,33 @@ footer {
   }
   
   .banner-image {
-    background-image: url('../images/banner_mobile.jpg');
+    background-image: url('https://dl.dropboxusercontent.com/scl/fi/1j8mhwsrx2x8c01c0hkga/Salinan-dari-Banner-WA.png?rlkey=l834uhdm64w0mvaz1vutieds2');
     background-size: cover;
-    /* FOKUS KE BAGIAN PENTING (25% DARI ATAS) */
-    background-position: center 25%;
-    background-repeat: no-repeat;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    
-    /* PERBAIKAN UTAMA: PAKSA CROP BAGIAN PUTIH */
+    background-position: center top;
     object-fit: cover;
-    object-position: center top;
-    /* PERBESAR GAMBAR UNTUK MEMASTIKAN TIDAK ADA WHITESPACE */
-    transform: scale(1.2);
-    /* JIKA MASIH ADA PUTIH, GUNAKAN CLIP-PATH */
-    clip-path: polygon(0 15%, 100% 15%, 100% 85%, 0 85%);
-    -webkit-clip-path: polygon(0 15%, 100% 15%, 100% 85%, 0 85%);
+    height: 100%;
   }
 
   .banner-overlay {
-    /* PERBESAR OVERLAY UNTUK MENUTUPI PUTIH */
-    background: rgba(30, 30, 47, 0.9);
+    background: rgba(30, 30, 47, 0.85);
   }
 
   .banner-content {
-    background: rgba(21, 21, 37, 0.8); /* TAMBAH BACKGROUND AGAR TEKS JELAS */
-    padding: 20px;
-    border-radius: 10px;
+    background: rgba(21, 21, 37, 0.8);
+    padding: 15px;
+    border-radius: 8px;
     backdrop-filter: blur(5px);
-    margin-top: -30px; /* GESER KE ATAS SEDIKIT */
   }
 
   .banner-content h1 {
-    font-size: 1.8rem !important;
-    margin-bottom: 10px;
-    color: #00bcd4 !important;
-    -webkit-text-stroke: 0.5px white;
+    font-size: 1.6rem !important;
   }
 
   .banner-content p {
-    font-size: 1rem !important;
-    -webkit-text-stroke: 0.3px black;
+    font-size: 0.9rem !important;
   }
 
   .scroll-indicator {
     bottom: 30px;
   }
-}
- 
-.translate-status {
-  font-style: italic;
-}
-    
-.translate-status::after {
-  content: '...';
-  animation: blink 1s steps(4, end) infinite;
-  opacity: 1;
-}
-    
-@keyframes blink {
-  0% { opacity: 0; }
-  50% { opacity: 1; }
-  100% { opacity: 0; }
 }
