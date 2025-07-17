@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentSection = '';
     sections.forEach(section => {
       const sectionTop = section.offsetTop;
-      if (scrollPosition >= (sectionTop - 100)) {
+      if (scrollPosition >= (sectionTop - 150)) { // Tingkatkan offset untuk deteksi
         currentSection = section.getAttribute('id');
       }
     });
@@ -98,16 +98,17 @@ document.addEventListener('DOMContentLoaded', function() {
       this.setAttribute('aria-current', 'page');
       
       // Gulir ke posisi yang benar
-      const navHeight = mainNav.offsetHeight || 80; // Gunakan tinggi nav atau default 80px
+      const navHeight = mainNav.offsetHeight || 100; // Gunakan tinggi nav atau default 100px
+      console.log(`Menggulir ke ${targetId}, offsetTop: ${targetElement.offsetTop}, navHeight: ${navHeight}`); // Debugging
       window.scrollTo({
-        top: targetElement.offsetTop - navHeight,
+        top: targetElement.offsetTop - navHeight - 20, // Tambah margin ekstra 20px
         behavior: 'smooth'
       });
 
-      // Reset flag setelah animasi selesai (1 detik)
+      // Reset flag setelah animasi selesai (1.5 detik)
       setTimeout(() => {
         isManualScroll = false;
-      }, 1000);
+      }, 1500);
     });
   });
 });
