@@ -1,4 +1,27 @@
-document.addEventListener('DOMContentLoaded', function () {
+// --- FUNGSI GLOBAL (bisa dipanggil dari HTML onclick) ---
+async function loadLangSimple(langCode) {
+  try {
+    const response = await fetch(`lang_${langCode}.txt`);
+    if (!response.ok) throw new Error(`Gagal memuat file bahasa: ${langCode}`);
+    const text = await response.text();
+    const lines = text.split('\n').map(l => l.trim()).filter(l => l);
+    document.querySelectorAll('[data-id]').forEach((el, i) => {
+      if (lines[i]) el.textContent = lines[i];
+    });
+    document.querySelectorAll('.language-switch button').forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('onclick').includes(langCode));
+    });
+  } catch {
+    console.error('Gagal memuat bahasa:', langCode);
+  }
+}
+
+function setLang(langCode) {
+  loadLangSimple(langCode);
+}
+
+// --- KODE DI DALAM DOMContentLoaded ---
+document.addEventListener('DOMContentLoaded', () => {
   const bannerSection = document.querySelector('.banner-section');
   const bannerImage = document.querySelector('.banner-image');
   const bannerContent = document.querySelector('.banner-content');
@@ -11,134 +34,68 @@ document.addEventListener('DOMContentLoaded', function () {
   let isManualScroll = false;
 
   // Scroll listener
-  window.addEventListener('scroll', function () {
+  window.addEventListener('scroll', () => {
     if (isManualScroll) return;
 
     const scrollPosition = window.scrollY;
     const bannerHeight = bannerSection.offsetHeight;
     const btn = document.getElementById('backToTop');
 
-    // Parallax effect
+    // Parallax
     bannerImage.style.transform = `translateY(${scrollPosition * 0.4}px)`;
 
-    // Fade out banner
+    // Fade banner
     if (scrollPosition > bannerHeight * 0.3) {
       const opacity = 1 - scrollPosition / (bannerHeight * 0.7);
       bannerContent.style.opacity = opacity < 0 ? '0' : opacity;
       scrollIndicator.style.opacity = opacity < 0 ? '0' : opacity;
     }
 
-    // Nav and back-to-top
+    // Nav & back-to-top
     if (scrollPosition > lastScrollTop && scrollPosition > 100) {
       mainNav.classList.add('visible');
-      if (scrollPosition > 200) {
-        mainNav.classList.add('scrolled');
-      }
+      if (scrollPosition > 200) mainNav.classList.add('scrolled');
     }
     lastScrollTop = scrollPosition;
-
-    if (scrollPosition > 300) {
-      btn.style.display = 'block';
-    } else {
-      btn.style.display = 'none';
-    }
+    btn.style.display = scrollPosition > 300 ? 'block' : 'none';
 
     // Show main content
-    if (scrollPosition > bannerHeight * 0.4) {
-      mainContent.classList.add('visible');
-    }
-
+    mainContent.classList.toggle('visible', scrollPosition > bannerHeight * 0.4);
     if (scrollPosition < 100) {
-      mainNav.classList.remove('visible');
-      mainNav.classList.remove('scrolled');
+      mainNav.classList.remove('visible', 'scrolled');
     }
 
-    // --- Scroll detection fix ---
-    const sections = document.querySelectorAll('section');
+    // Auto highlight nav
     let currentSection = '';
-    sections.forEach(section => {
-      const rect = section.getBoundingClientRect();
-      if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
-        currentSection = section.getAttribute('id');
+    document.querySelectorAll('section').forEach(sec => {
+      const rect = sec.getBoundingClientRect();
+      if (rect.top <= innerHeight / 2 && rect.bottom >= innerHeight / 2) {
+        currentSection = sec.id;
       }
     });
-
     navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === `#${currentSection}`) {
-        link.classList.add('active');
-        link.setAttribute('aria-current', 'page');
-      } else {
-        link.removeAttribute('aria-current');
-      }
+      link.classList.toggle('active', link.getAttribute('href') === `#${currentSection}`);
+      link.toggleAttribute('aria-current', link.classList.contains('active'));
     });
   });
 
   // Animasi awal
-  setTimeout(() => {
-    bannerContent.style.opacity = '1';
-  }, 500);
+  setTimeout(() => bannerContent.style.opacity = '1', 500);
 
-  // Smooth scrolling
-  navLinks.forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      const targetId = this.getAttribute('href');
-      if (!targetId.startsWith('#')) return;
-
+  // Smooth scroll
+  navLinks.forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
+      if (!id.startsWith('#')) return;
       e.preventDefault();
-      const targetElement = document.querySelector(targetId);
       isManualScroll = true;
-
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        link.removeAttribute('aria-current');
-      });
-      this.classList.add('active');
-      this.setAttribute('aria-current', 'page');
-
-      targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-      setTimeout(() => {
-        isManualScroll = false;
-      }, 1500);
+      navLinks.forEach(l => l.classList.remove('active'));
+      a.classList.add('active');
+      document.querySelector(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(() => (isManualScroll = false), 1500);
     });
   });
 
-  // Bahasa
-  async function loadLangSimple(langCode) {
-    try {
-      const response = await fetch(`lang_${langCode}.txt`);
-      if (!response.ok) throw new Error(`Gagal memuat file bahasa: ${langCode}`);
-      const text = await response.text();
-      const lines = text.split('\n').map(line => line.trim()).filter(line => line !== "");
-
-      const elements = document.querySelectorAll('[data-id]');
-      elements.forEach((el, index) => {
-        if (lines[index]) {
-          el.textContent = lines[index];
-        }
-      });
-
-      document.querySelectorAll('.language-switch button').forEach(btn => {
-        btn.classList.remove('active');
-        if (btn.getAttribute('onclick').includes(langCode)) {
-          btn.classList.add('active');
-        }
-      });
-    } catch (error) {
-      console.error('Error memuat bahasa:', error);
-      alert('Gagal memuat bahasa. Menggunakan teks default.');
-    }
-  }
-
-  function setLang(langCode) {
-    loadLangSimple(langCode);
-  }
-
-  window.addEventListener('DOMContentLoaded', () => setLang('id'));
+  // Bahasa default
+  setLang('id');
 });
-
-// pastikan fungsi sudah ada
-if (typeof setLang === 'function') {
-  window.setLang = setLang;
-}
