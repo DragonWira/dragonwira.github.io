@@ -82,8 +82,12 @@ document.addEventListener('DOMContentLoaded', function() {
   // Smooth scrolling untuk navigasi
   navLinks.forEach(anchor => {
     anchor.addEventListener('click', function(e) {
-      e.preventDefault();
       const targetId = this.getAttribute('href');
+      
+      // Jika target bukan anchor ke dalam halaman, biarkan browser menangani
+      if (!targetId.startsWith('#')) return;
+
+      e.preventDefault(); // Mencegah reload hanya untuk anchor dalam halaman yang sama
       const targetElement = document.querySelector(targetId);
       
       // Set flag untuk mencegah event scroll mengganggu
@@ -99,7 +103,6 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Gulir ke posisi yang benar
       const navHeight = mainNav.offsetHeight || 100; // Gunakan tinggi nav atau default 100px
-      console.log(`Menggulir ke ${targetId}, offsetTop: ${targetElement.offsetTop}, navHeight: ${navHeight}`); // Debugging
       window.scrollTo({
         top: targetElement.offsetTop - navHeight - 20, // Tambah margin ekstra 20px
         behavior: 'smooth'
@@ -111,36 +114,37 @@ document.addEventListener('DOMContentLoaded', function() {
       }, 1500);
     });
   });
-});
 
-async function loadLangSimple(langCode) {
-  try {
-    const response = await fetch(`lang_${langCode}.txt`);
-    if (!response.ok) throw new Error(`Gagal memuat file bahasa: ${langCode}`);
-    const text = await response.text();
-    const lines = text.split('\n').map(line => line.trim()).filter(line => line !== "");
-    
-    const elements = document.querySelectorAll('[data-id]');
-    elements.forEach((el, index) => {
-      if (lines[index]) {
-        el.textContent = lines[index];
-      }
-    });
-    
-    document.querySelectorAll('.language-switch button').forEach(btn => {
-      btn.classList.remove('active');
-      if (btn.getAttribute('onclick').includes(langCode)) {
-        btn.classList.add('active');
-      }
-    });
-  } catch (error) {
-    console.error('Error memuat bahasa:', error);
-    alert('Gagal memuat bahasa. Menggunakan teks default.');
+  // Fungsi untuk load bahasa
+  async function loadLangSimple(langCode) {
+    try {
+      const response = await fetch(`lang_${langCode}.txt`);
+      if (!response.ok) throw new Error(`Gagal memuat file bahasa: ${langCode}`);
+      const text = await response.text();
+      const lines = text.split('\n').map(line => line.trim()).filter(line => line !== "");
+      
+      const elements = document.querySelectorAll('[data-id]');
+      elements.forEach((el, index) => {
+        if (lines[index]) {
+          el.textContent = lines[index];
+        }
+      });
+      
+      document.querySelectorAll('.language-switch button').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.getAttribute('onclick').includes(langCode)) {
+          btn.classList.add('active');
+        }
+      });
+    } catch (error) {
+      console.error('Error memuat bahasa:', error);
+      alert('Gagal memuat bahasa. Menggunakan teks default.');
+    }
   }
-}
 
-function setLang(langCode) {
-  loadLangSimple(langCode);
-}
+  function setLang(langCode) {
+    loadLangSimple(langCode);
+  }
 
-window.addEventListener('DOMContentLoaded', () => setLang('id'));
+  window.addEventListener('DOMContentLoaded', () => setLang('id'));
+});
