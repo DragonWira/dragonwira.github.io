@@ -138,5 +138,7 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('DOMContentLoaded', () => setLang('id'));
 });
 
-// Ekspos fungsi ke global agar onclick="setLang(...)" di HTML berfungsi
-window.setLang = setLang;
+// pastikan fungsi sudah ada
+if (typeof setLang === 'function') {
+  window.setLang = setLang;
+}
