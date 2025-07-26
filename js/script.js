@@ -96,9 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
       this.classList.add('active');
       this.setAttribute('aria-current', 'page');
 
-      const navHeight = mainNav.offsetHeight || 100;
-      const targetTop = Math.max(0, targetElement.offsetTop - navHeight + 10);
-      window.scrollTo({ top: targetTop, behavior: 'smooth' });
+      targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
       setTimeout(() => {
         isManualScroll = false;
