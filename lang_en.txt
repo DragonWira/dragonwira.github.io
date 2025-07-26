@@ -1,6 +1,7 @@
 Hendra Cipta
 Comic Editor, Typesetter
 Scroll to continue
+Home
 About
 Career
 Skills
