@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Gulir ke posisi yang benar
       const navHeight = mainNav.offsetHeight || 100; // Gunakan tinggi nav atau default 100px
       window.scrollTo({
-        top: targetElement.offsetTop - navHeight - 20, // Tambah margin ekstra 20px
+        top: targetElement.offsetTop - navHeight + 10, // Tambah margin ekstra
         behavior: 'smooth'
       });
 
