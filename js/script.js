@@ -1,18 +1,22 @@
-// --- FUNGSI GLOBAL (bisa dipanggil dari HTML onclick) ---
+/* ========= FUNGSI GLOBAL ========= */
 async function loadLangSimple(langCode) {
+  const els = document.querySelectorAll('[data-id]');
+  // fade-out
+  els.forEach(el => el.style.opacity = 0);
+
   try {
-    const response = await fetch(`lang_${langCode}.txt`);
-    if (!response.ok) throw new Error(`Gagal memuat file bahasa: ${langCode}`);
-    const text = await response.text();
-    const lines = text.split('\n').map(l => l.trim()).filter(l => l);
-    document.querySelectorAll('[data-id]').forEach((el, i) => {
-      if (lines[i]) el.textContent = lines[i];
-    });
-    document.querySelectorAll('.language-switch button').forEach(btn => {
-      btn.classList.toggle('active', btn.getAttribute('onclick').includes(langCode));
-    });
+    const res = await fetch(`lang_${langCode}.txt`);
+    if (!res.ok) throw new Error();
+    const lines = (await res.text()).split('\n').map(l => l.trim()).filter(Boolean);
+
+    // ganti teks saat tersembunyi
+    els.forEach((el, i) => lines[i] && (el.textContent = lines[i]));
+
+    // fade-in
+    els.forEach(el => el.style.opacity = 1);
   } catch {
-    console.error('Gagal memuat bahasa:', langCode);
+    console.error('Gagal memuat bahasa');
+    els.forEach(el => el.style.opacity = 1); // kembalikan
   }
 }
 
@@ -20,7 +24,7 @@ function setLang(langCode) {
   loadLangSimple(langCode);
 }
 
-// --- KODE DI DALAM DOMContentLoaded ---
+/* ========= DOMContentLoaded ========= */
 document.addEventListener('DOMContentLoaded', () => {
   const bannerSection = document.querySelector('.banner-section');
   const bannerImage = document.querySelector('.banner-image');
@@ -33,60 +37,42 @@ document.addEventListener('DOMContentLoaded', () => {
   let lastScrollTop = 0;
   let isManualScroll = false;
 
-  // Scroll listener
   window.addEventListener('scroll', () => {
     if (isManualScroll) return;
-
-    const scrollPosition = window.scrollY;
-    const bannerHeight = bannerSection.offsetHeight;
+    const s = window.scrollY;
+    const bannerH = bannerSection.offsetHeight;
     const btn = document.getElementById('backToTop');
 
-    // Parallax
-    bannerImage.style.transform = `translateY(${scrollPosition * 0.4}px)`;
+    bannerImage.style.transform = `translateY(${s * 0.4}px)`;
 
-    // Fade banner
-    if (scrollPosition > bannerHeight * 0.3) {
-      const opacity = 1 - scrollPosition / (bannerHeight * 0.7);
-      bannerContent.style.opacity = opacity < 0 ? '0' : opacity;
-      scrollIndicator.style.opacity = opacity < 0 ? '0' : opacity;
+    if (s > bannerH * 0.3) {
+      const op = 1 - s / (bannerH * 0.7);
+      bannerContent.style.opacity = op < 0 ? '0' : op;
+      scrollIndicator.style.opacity = op < 0 ? '0' : op;
     }
 
-    // Nav & back-to-top
-    if (scrollPosition > lastScrollTop && scrollPosition > 100) {
-      mainNav.classList.add('visible');
-      if (scrollPosition > 200) mainNav.classList.add('scrolled');
-    }
-    lastScrollTop = scrollPosition;
-    btn.style.display = scrollPosition > 300 ? 'block' : 'none';
+    if (s > lastScrollTop && s > 100) mainNav.classList.add('visible');
+    if (s > 200) mainNav.classList.add('scrolled');
+    lastScrollTop = s;
+    btn.style.display = s > 300 ? 'block' : 'none';
 
-    // Show main content
-    mainContent.classList.toggle('visible', scrollPosition > bannerHeight * 0.4);
-    if (scrollPosition < 100) {
-      mainNav.classList.remove('visible', 'scrolled');
-    }
+    mainContent.classList.toggle('visible', s > bannerH * 0.4);
+    if (s < 100) mainNav.classList.remove('visible', 'scrolled');
 
-    // Auto highlight nav
-    let currentSection = '';
+    let cur = '';
     document.querySelectorAll('section').forEach(sec => {
-      const rect = sec.getBoundingClientRect();
-      if (rect.top <= innerHeight / 2 && rect.bottom >= innerHeight / 2) {
-        currentSection = sec.id;
-      }
+      const r = sec.getBoundingClientRect();
+      if (r.top <= innerHeight / 2 && r.bottom >= innerHeight / 2) cur = sec.id;
     });
-    navLinks.forEach(link => {
-      link.classList.toggle('active', link.getAttribute('href') === `#${currentSection}`);
-      link.toggleAttribute('aria-current', link.classList.contains('active'));
-    });
+    navLinks.forEach(l => l.classList.toggle('active', l.hash === `#${cur}`));
   });
 
-  // Animasi awal
-  setTimeout(() => bannerContent.style.opacity = '1', 500);
+  setTimeout(() => bannerContent.style.opacity = 1, 500);
 
-  // Smooth scroll
   navLinks.forEach(a => {
     a.addEventListener('click', e => {
-      const id = a.getAttribute('href');
-      if (!id.startsWith('#')) return;
+      const id = a.hash;
+      if (!id) return;
       e.preventDefault();
       isManualScroll = true;
       navLinks.forEach(l => l.classList.remove('active'));
@@ -96,6 +82,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Bahasa default
-  setLang('id');
+  setLang('id'); // bahasa awal
 });
