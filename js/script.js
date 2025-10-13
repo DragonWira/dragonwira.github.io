@@ -10,7 +10,8 @@ async function loadLangSimple(langCode) {
     const lines = (await res.text()).split('\n').map(l => l.trim()).filter(Boolean);
 
     // ganti teks saat tersembunyi
-    els.forEach((el, i) => lines[i] && (el.textContent = lines[i]));
+    // FIX: Menambahkan pengecekan 'el' untuk menghindari TypeError jika elemen menjadi null/dihapus secara tak terduga
+    els.forEach((el, i) => el && lines[i] && (el.textContent = lines[i]));
 
     // fade-in
     els.forEach(el => el.style.opacity = 1);
@@ -72,15 +73,29 @@ document.addEventListener('DOMContentLoaded', () => {
   navLinks.forEach(a => {
     a.addEventListener('click', e => {
       const id = a.hash;
-      if (!id) return;
-      e.preventDefault();
-      isManualScroll = true;
-      navLinks.forEach(l => l.classList.remove('active'));
-      a.classList.add('active');
-      document.querySelector(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setTimeout(() => (isManualScroll = false), 1500);
+      const target = document.querySelector(id);
+      if (target) {
+        e.preventDefault();
+        isManualScroll = true;
+        window.scrollTo({
+          top: target.offsetTop,
+          behavior: 'smooth'
+        });
+        setTimeout(() => isManualScroll = false, 1000); // Reset after animation
+      }
     });
   });
 
-  setLang('id'); // bahasa awal
+  // Load default language on startup (Indonesia)
+  setLang('id');
+
+  // Load scroll position if available
+  if (sessionStorage.getItem('scrollPos')) {
+    window.scrollTo(0, sessionStorage.getItem('scrollPos'));
+  }
+
+  // Save scroll position on beforeunload
+  window.addEventListener('beforeunload', () => {
+    sessionStorage.setItem('scrollPos', window.scrollY);
+  });
 });
