@@ -1,86 +1,76 @@
-/* ========= FUNGSI GLOBAL ========= */
+/* ========= FUNGSI TRANSLATE SEDERHANA (BARIS PER BARIS) ========= */
+
+function getLangPath(langCode) {
+  // 1. Cek posisi kita (di root atau di main)
+  const isSubPage = window.location.pathname.includes('/main/');
+  
+  // 2. Tentukan awalan folder (../lang/id/ atau lang/id/)
+  const prefix = isSubPage ? `../lang/${langCode}/` : `lang/${langCode}/`;
+
+  // 3. Ambil nama file halaman (misal: 'galeri')
+  let pageName = window.location.pathname.split('/').pop().replace('.html', '');
+  if (!pageName || pageName === '') pageName = 'index';
+
+  // 4. Return alamat lengkap: ../lang/id/lang_id_galeri.txt
+  return `${prefix}lang_${langCode}_${pageName}.txt`;
+}
+
 async function loadLangSimple(langCode) {
+  // Ambil SEMUA elemen yang punya atribut data-id
   const els = document.querySelectorAll('[data-id]');
-  // fade-out
-  els.forEach(el => el.style.opacity = 0);
+  
+  // Fade-out efek
+  els.forEach(el => el.style.opacity = 0.5);
 
   try {
-    const res = await fetch(`lang_${langCode}.txt`);
-    if (!res.ok) throw new Error();
-    const lines = (await res.text()).split('\n').map(l => l.trim()).filter(Boolean);
+    const res = await fetch(getLangPath(langCode));
+    if (!res.ok) throw new Error(`Gagal memuat ${langCode}`);
+    
+    const text = await res.text();
+    
+    // --- LOGIKA BARIS PER BARIS ---
+    // Pisahkan teks berdasarkan Enter (Baris baru) & Hapus baris kosong
+    const lines = text.split('\n').map(l => l.trim()).filter(line => line.length > 0);
 
-    // ganti teks saat tersembunyi
-    els.forEach((el, i) => lines[i] && (el.textContent = lines[i]));
+    // Tempelkan urut: Baris 1 ke Elemen 1, Baris 2 ke Elemen 2...
+    els.forEach((el, i) => {
+      if (lines[i]) {
+        el.textContent = lines[i];
+      }
+    });
+    // -----------------------------
 
-    // fade-in
+  } catch (err) {
+    console.error('Error bahasa:', err);
+  } finally {
     els.forEach(el => el.style.opacity = 1);
-  } catch {
-    console.error('Gagal memuat bahasa');
-    els.forEach(el => el.style.opacity = 1); // kembalikan
   }
 }
 
 function setLang(langCode) {
   loadLangSimple(langCode);
+  localStorage.setItem('selectedLang', langCode);
 }
 
-/* ========= DOMContentLoaded ========= */
+/* ========= INISIALISASI ========= */
 document.addEventListener('DOMContentLoaded', () => {
-  const bannerSection = document.querySelector('.banner-section');
-  const bannerImage = document.querySelector('.banner-image');
+  const savedLang = localStorage.getItem('selectedLang') || 'id';
+  setLang(savedLang);
+
+  // Animasi Banner & Back to Top
+  const btn = document.getElementById('backToTop');
+  if(btn) {
+    window.addEventListener('scroll', () => {
+        btn.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+  }
+  
   const bannerContent = document.querySelector('.banner-content');
-  const scrollIndicator = document.querySelector('.scroll-indicator');
-  const mainNav = document.getElementById('mainNav');
-  const mainContent = document.getElementById('mainContent');
-  const navLinks = document.querySelectorAll('nav a');
-
-  let lastScrollTop = 0;
-  let isManualScroll = false;
-
-  window.addEventListener('scroll', () => {
-    if (isManualScroll) return;
-    const s = window.scrollY;
-    const bannerH = bannerSection.offsetHeight;
-    const btn = document.getElementById('backToTop');
-
-    bannerImage.style.transform = `translateY(${s * 0.4}px)`;
-
-    if (s > bannerH * 0.3) {
-      const op = 1 - s / (bannerH * 0.7);
-      bannerContent.style.opacity = op < 0 ? '0' : op;
-      scrollIndicator.style.opacity = op < 0 ? '0' : op;
-    }
-
-    if (s > lastScrollTop && s > 100) mainNav.classList.add('visible');
-    if (s > 200) mainNav.classList.add('scrolled');
-    lastScrollTop = s;
-    btn.style.display = s > 300 ? 'block' : 'none';
-
-    mainContent.classList.toggle('visible', s > bannerH * 0.4);
-    if (s < 100) mainNav.classList.remove('visible', 'scrolled');
-
-    let cur = '';
-    document.querySelectorAll('section').forEach(sec => {
-      const r = sec.getBoundingClientRect();
-      if (r.top <= innerHeight / 2 && r.bottom >= innerHeight / 2) cur = sec.id;
+  if (bannerContent) {
+    setTimeout(() => bannerContent.style.opacity = 1, 500);
+    window.addEventListener('scroll', () => {
+      const bannerImg = document.querySelector('.banner-image');
+      if(bannerImg) bannerImg.style.transform = `translateY(${window.scrollY * 0.4}px)`;
     });
-    navLinks.forEach(l => l.classList.toggle('active', l.hash === `#${cur}`));
-  });
-
-  setTimeout(() => bannerContent.style.opacity = 1, 500);
-
-  navLinks.forEach(a => {
-    a.addEventListener('click', e => {
-      const id = a.hash;
-      if (!id) return;
-      e.preventDefault();
-      isManualScroll = true;
-      navLinks.forEach(l => l.classList.remove('active'));
-      a.classList.add('active');
-      document.querySelector(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setTimeout(() => (isManualScroll = false), 1500);
-    });
-  });
-
-  setLang('id'); // bahasa awal
+  }
 });

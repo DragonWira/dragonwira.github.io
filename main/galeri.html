@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hendra Cipta - Galeri</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+   <div class="language-switch">
+    <button onclick="setLang('id')">🇮🇩</button>
+    <button onclick="setLang('en')">🇬🇧</button>
+    <button onclick="setLang('jp')">🇯🇵</button>
+   </div>
+
+  <nav id="mainNav" style="background-color: #212529; position: fixed; top: 0; width: 100%; z-index: 1000; padding: 15px 0;">
+    <a href="../index.html" data-id>Beranda</a>
+    <a href="tentang.html" data-id>Tentang</a>
+    <a href="riwayat.html" data-id>Riwayat</a>
+    <a href="skill.html" data-id>Skill</a>
+    <a href="sertifikat.html" data-id>Sertifikat</a>
+    <a href="portofolio.html" data-id>Portofolio</a>
+    <a href="video.html" data-id>Video</a>
+    <a href="statistik.html" data-id>Statistik</a>
+    <a href="galeri.html" data-id class="active">Galeri</a>
+    <a href="kontak.html" data-id>Kontak</a>
+  </nav>
+
+  <div class="main-content" id="mainContent" style="padding-top: 120px; min-height: 80vh;">
+    <section id="bukti-foto" class="photo-proof-section">
+      <h2 data-id="photo_title">Galeri</h2>
+      <div class="photo-grid">
+        <div class="photo-card">
+          <h3 data-id>Kunjungan Industri ke PT Michelin Indonesia</h3>
+          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/q_auto,w_800/WhatsApp_Image_2025-04-29_at_15.23.27_codqwy" alt="Kunjungan ke Michelin Company" loading="lazy">
+          <p data-id="photo_desc1">Mengikuti kunjungan ke PT Michelin Indonesia untuk mempelajari proses produksi ban dari awal hingga siap digunakan.</p>
+        </div>
+        <div class="photo-card">
+          <h3 data-id>Kunjungan Industri ke Thales Indonesia</h3>
+          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/q_auto,w_800/WhatsApp_Image_2025-02-15_at_09.38.29_rjuzum" alt="Kunjungan ke Thales Company" loading="lazy">
+          <p data-id="photo_desc2">Mengikuti kunjungan ke Thales Indonesia untuk mempelajari latar belakang perusahaan global di bidang teknologi pertahanan, transportasi, dan keamanan.</p>
+        </div>
+        <div class="photo-card">
+          <h3 data-id>Kunjungan Industri ke ID Logistics Indonesia</h3>
+          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/q_auto,w_800/52d8cd93-be9b-42a9-b289-0b7e18062392_v5koua" alt="Kunjungan ke IDL Logistik" loading="lazy">
+          <p data-id="photo_desc3">Melakukan kunjungan ke ID Logistics Indonesia untuk mempelajari alur kerja dan sistem operasional di gudang logistik.</p>
+        </div>
+        <div class="photo-card">
+          <h3 data-id>Kunjungan Karyawan Decathlon ke LP4Y Jakarta</h3>
+          <div class="video-wrapper">
+            <video controls preload="metadata" loading="lazy">
+              <source src="https://res.cloudinary.com/dd6ytqdim/video/upload/ac_aac,br_10000k,vc_h264/v1751617726/IMG_2425_bypgjw.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <p data-id>Pada kesempatan ini, karyawan dari Decathlon datang ke LP4Y Jakarta untuk memberikan penjelasan lebih mendalam mengenai perusahaan Decathlon, salah satu merek ritel olahraga terbesar di dunia. Dalam sesi ini, kami mempelajari latar belakang perusahaan, budaya kerja, produk-produk unggulan, serta peluang karier yang tersedia. Selain itu, mereka juga menjelaskan proses kerja di toko dan gudang Decathlon, termasuk bagaimana mereka mengutamakan pelayanan pelanggan, efisiensi kerja tim, dan inovasi dalam dunia ritel olahraga. Kegiatan ini memberikan wawasan baru tentang dunia kerja di industri ritel modern.</p>
+          <p data-id>Pada kegiatan ini, saya juga bertanggung jawab dalam melakukan dokumentasi acara, baik melalui foto maupun video, untuk keperluan laporan dan arsip kegiatan LP4Y Jakarta.</p>
+        </div>
+        <div class="photo-card">
+          <h3 data-id>Kegiatan Community Day bersama Servier</h3>
+          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/c_crop,h_600,w_1040/WhatsApp_Image_2025-05-22_at_12.59.35_fmtc0i" alt="Kegiatan Servier Community Day" loading="lazy">
+          <p data-id="photo_desc3">Melakukan kegiatan dalam pengecekan kesehatan untuk warga sekitar yang dilakukan oleh Servier dan LP4Y.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="footer-logo"><i class="fas fa-dragon"></i></div>
+    <p class="copyright">&copy; 2025 DragonWira Studio. All rights reserved.</p>
+  </footer>
+  <script src="../js/script.js" defer></script>
+</body>
+</html>

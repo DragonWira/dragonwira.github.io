@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hendra Cipta - Portfolio</title>
+  <title>Hendra Cipta - Beranda</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="css/style.css" />
-    <!-- Google Analytics -->
+  
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZN660Z2FQL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-ZN660Z2FQL');
   </script>
 </head>
-<body>
+
+<body class="home-page">
   
    <div class="language-switch">
     <button onclick="setLang('id')" aria-label="Ubah ke bahasa Indonesia">🇮🇩</button>
@@ -25,272 +25,38 @@
     <button onclick="setLang('jp')" aria-label="日本語に切り替え">🇯🇵</button>
    </div>
 
-  <!-- Banner Section -->
+  <nav id="mainNav">
+    <a href="index.html" class="active">Beranda</a>
+    <a href="main/tentang.html">Tentang</a>
+    <a href="main/riwayat.html">Riwayat</a>
+    <a href="main/skill.html">Skill</a>
+    <a href="main/sertifikat.html">Sertifikat</a>
+    <a href="main/portofolio.html">Portofolio</a>
+    <a href="main/video.html">Video</a>
+    <a href="main/statistik.html">Statistik</a>
+    <a href="main/galeri.html">Galeri</a>
+    <a href="main/kontak.html">Kontak</a>
+  </nav>
+
   <section class="banner-section" id="home">
     <div class="banner-image" ></div>
     <div class="banner-overlay"></div>
     <div class="banner-content">
-      <h1 data-id="title">Hendra Cipta</h1>
-      <p data-id="subtitle">Editor komik, Typesetter</p>
+      <h1 data-id>Hendra Cipta</h1>
+      <p data-id>Editor komik, Typesetter</p>
     </div>
     <div class="scroll-indicator">
-      <div class="scroll-text" data-id="scroll_text">Scroll untuk melanjutkan</div>
-      <div class="scroll-arrow"></div>
+      <a href="main/tentang.html" style="text-decoration: none; color: inherit;">
+        <div class="scroll-text" data-id>Klik untuk melanjutkan</div>
+      </a>
     </div>
   </section>
 
-  <!-- Navigation -->
-  <nav id="mainNav">
-    <a href="#home" data-id class="active">Beranda</a>
-    <a href="#tentang" data-id="nav_intro">Tentang</a>
-    <a href="#riwayat" data-id="nav_timeline">Riwayat</a>
-    <a href="#skill" data-id="nav_skill">Skill</a>
-    <a href="#sertifikat" data-id="nav_certificate">Sertifikat</a>
-    <a href="#portofolio" data-id="nav_gallery">Portofolio</a>
-    <a href="#video" data-id="nav_video">Video</a>
-    <a href="#statistik" data-id="nav_stats">Statistik</a>
-    <a href="#bukti-foto" data-id>Galeri</a>
-    <a href="#kontak" data-id="nav_contact">Kontak</a>
-  </nav>
-
-  <!-- Main Content -->
-  <div class="main-content" id="mainContent">
-    <!-- Tentang Saya Section -->
-    <section id="tentang">
-      <h2 data-id="intro_title">Tentang Saya</h2>
-      <div class="intro-content">
-        <p class="intro-text" data-id="intro_desc">Saya Hendra Cipta. Saya lulus dari SMA Negeri 92. Saya memiliki hobi mengedit gambar. Saya terampil dalam kerja tim, menjadi pemimpin, berbicara dengan banyak orang dan berkomunikasi dengan pelanggan, saya dapat mempertahankan hasil yang sangat baik, dan menunjukkan profesionalisme. Selain itu, saya suka belajar hal-hal baru dan olahraga ringan.</p>
-        <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/c_crop,g_auto,h_889,w_864/Gemini_Generated_Image_zc4hkdzc4hkdzc4h_pp68fx" 
-             alt="Hendra Cipta" class="hero-image">
-      </div>
-    </section>
-
-    <!-- Riwayat Section -->
-    <section id="riwayat">
-      <h2 data-id="timeline_title">Pengalaman</h2>
-      <div class="timeline">
-        <div class="timeline-entry" data-id>September 2025: Marketing Communication di PT. Forvis Mazars.</div>
-        <div class="timeline-entry" data-id>Juli 2025: Kru Outlet di Yamatoya Takoyaki.</div>
-        <div class="timeline-entry" data-id="timeline4">Februari 2025 - Juli 2025: Pendidikan dan Latihan di Life Project 4 Youth (LP4Y)</div>
-        <div class="timeline-entry" data-id="timeline3">22 April - 6 Mei 2025: Waiter di Restoran dan Bar After Five.</div>
-        <div class="timeline-entry" data-id="timeline2">Desember 2023 - 2025: Freelance sebagai Typesetter di Komunitas.</div>
-        <div class="timeline-entry" data-id="timeline1">April 2021 - Maret 2022: Freelance sebagai Typesetter di Komunitas.</div>
-      </div>
-    </section>
-    
-    <!-- Skill Section -->
-    <section id="skill" class="skills">
-      <h2 data-id="title_skill">Skill yang Dikuasai</h2>
-      <div class="skills-grid">
-        <div class="skill-card">
-          <h3><i class="fas fa-pencil-ruler"></i> <span data-id="title_skill1">Adobe Photoshop</span></h3>
-          <p data-id="skill_desc1">Menguasai penggunaan Adobe Photoshop untuk pengeditan teks, pengeditan gambar, dan pembuatan elemen grafis.</p>
-        </div>
-        <div class="skill-card">
-          <h3><i class="fas fa-video"></i> <span data-id="title_skill2">Adobe Premiere Pro</span></h3>
-          <p data-id="skill_desc2">Mahir menggunakan Adobe Premiere Pro untuk pengeditan video, color grading, dan produksi konten visual berkualitas tinggi.</p>
-        </div>
-        <div class="skill-card">
-          <h3><i class="fas fa-font"></i> <span data-id="title_skill3">Tata Letak Teks</span></h3>
-          <p data-id="skill_desc3">Pengaturan teks dialog dan efek suara dengan font yang tepat dan layout yang seimbang.</p>
-        </div>
-        <div class="skill-card">
-          <h3><i class="fas fa-headset"></i> <span data-id>Customer Service</span></h3>
-          <p data-id>Berpengalaman melayani pelanggan di industri F&B dengan cepat, ramah, dan profesional. Terbiasa mencatat pesanan dengan akurat, menangani keluhan secara sopan, serta menjaga kepuasan dan kenyamanan pelanggan. Mampu bekerja dalam tim dan tetap sigap di situasi sibuk.</p>
-        </div>
-        <div class="skill-card">
-          <h3><i class="fas fa-paint-brush"></i> <span data-id>Canva</span></h3>
-          <p data-id>Terampil menggunakan Canva untuk membuat desain visual yang menarik dan profesional, seperti poster, presentasi, konten media sosial, kartu nama, dan materi promosi lainnya. Menguasai penggunaan elemen desain, tipografi, dan tata letak agar hasil desain konsisten dan sesuai kebutuhan brand. Mampu bekerja cepat dengan berbagai template serta menyesuaikan desain sesuai permintaan atau identitas visual klien.</p>
-        </div>
-        <div class="skill-card">
-          <h3><i class="fas fa-file-excel"></i> <span data-id>Microsoft Excel</span></h3>
-          <p data-id>Terampil menggunakan rumus-rumus dasar dan menengah di Microsoft Excel, termasuk IF, VLOOKUP, dan HLOOKUP untuk mengelola dan menganalisis data. Mampu menggabungkan fungsi-fungsi tersebut (nested/extended functions) untuk menghasilkan logika pencarian data yang lebih kompleks dan efisien. Cocok untuk kebutuhan laporan, rekap data, dan automasi sederhana.</p>
-        </div>
-        <div class="skill-card">
-          <h3><i class="fas fa-people-group"></i> <span data-id="title_skill4">Komunikasi Tim</span></h3>
-          <p data-id="skill_desc4">Kemampuan bekerja sama dalam tim produksi dan koordinasi antar divisi.</p>
-        </div>
-        <div class="skill-card">
-          <h3><i class="fas fa-lightbulb"></i> <span data-id="title_skill5">Kepemimpinan</span></h3>
-          <p data-id="skill_desc5">Berpengalaman dalam memimpin tim dan mengambil keputusan strategis untuk mencapai tujuan proyek dengan efektif.</p>
-        </div>
-        <div class="skill-card">
-          <h3><i class="fas fa-cash-register"></i> <span data-id="title_skill6">Point Of Sale (POS) System</span></h3>
-          <p data-id="skill_desc6">Memahami tentang sistem ini sedikit, seperti pencatatan pesanan, perhitungan total harga, hingga pembayaran dan pencetakan struk.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Sertifikat Section -->
-    <section id="sertifikat" class="certificate">
-      <h2 data-id="certificate_title">Sertifikat</h2>
-      <div class="certificate-grid">
-        <div class="certificate-card">
-          <h3 data-id="title_certificate1">Sertifikat</h3>
-          <p data-id="certificate_desc1">Sertifikat dari JAL atas kehadirannya dalam kegiatan kunjungan perusahaan yang berkolaborasi dengan LP4Y dan memberikan pengetahuan tentang kerja dibandara.</p>
-          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/Serifijat_JAL_ozt8xm" alt="Sertifikat JAL">
-          <p data-id="certificate_desc2">Sertifikat dari Concentrix dalam mengikuti Training Course tentang 'Emotional Intelligence At The Work Place'.</p>
-          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/Sertifikat_Concentrix_ijtdzc" alt="Sertifikat Concentrix">
-          <p data-id="certificate_desc3">Berpartisipasi dalam mengikutin pelatihan tentang Procurement dari Artelia Indonesia.</p>
-          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/Sertifikat_Artelia_ywcluw" alt="Sertifikat Artelia">
-        </div>
-        <div class="certificate-card">
-          <h3 data-id="title_certificate2">Sertifikat Pelatihan di LP4Y.</h3>
-          <p data-id="certificate_desc4">Sertifikat Bulan Pertama di LP4Y.</p>
-          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/Sertifikat_Autonomy_dqfpii" alt="Sertifikat LP4Y">
-          <p data-id="certificate_desc5">Sertifikat Bulan Kedua di LP4Y.</p>
-          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/Sertifikat_Respon_gzx6kt" alt="Sertifikat LP4Y 2">
-          <p data-id="certificate_desc6">Sertifikat Bulan Keempat di LP4Y.</p>
-          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/Scanned_20250704-0854_wog5ml" alt="Sertifikat LP4Y 3">
-        </div>
-      </div>
-    </section>
-
-    <!-- Portofolio Section -->
-    <section id="portofolio" class="gallery">
-      <h2 data-id="gallery_title">Portofolio Karya</h2>
-      <div class="portfolio-grid">
-        <div class="portfolio-card">
-          <h3 data-id="title_comic1">Komik Aksi</h3>
-          <p data-id="comic_desc1">Disini saya melakukan mengatur ukuran teks di luar balon dialog atau disebut balon dalam pikiran.</p>
-          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/016_bai12u" alt="Komik Aksi">
-          <p data-id="comic_desc2">Disini saya melakukan mengatur ukuran teks di luar balon dialog atau disebut balon dalam pikiran.</p>
-          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/007_mn2ot2" alt="Komik Aksi 2">
-          <p data-id="comic_desc3">Disini saya melakukan mengatur ukuran teks di luar balon dialog atau disebut balon dalam pikiran.</p>
-          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/005_yb2wgi" alt="Komik Aksi 3">
-        </div>
-        <div class="portfolio-card">
-          <h3 data-id="title_comic2">Komik Santai</h3>
-          <p data-id="comic_desc4">Disini saya melakukan mengatur ukuran teks di luar balon dialog, mengatur ukuran teks pada balon dialog, mengatur SFX pada gambar.</p>
-          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/012_llj2oi" alt="Komik Santai">
-          <p data-id="comic_desc5">Disini saya melakukan mengatur ukuran teks di luar balon dialog, mengatur ukuran teks pada balon dialog.</p>
-          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/024_zrsroh" alt="Komik Santai 2">
-          <p data-id="comic_desc6">Disini saya melakukan mengatur ukuran teks di luar balon dialog, mengatur ukuran teks pada balon dialog, mengatur teks dibelakang balon, mengatur font agar nyaman dibaca.</p>
-          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/12_eyfmes" alt="Komik Santai 3">
-        </div>
-        <div class="portfolio-card">
-          <h3 data-id="title_comic3">Komik Berwarna atau Webtoon</h3>
-          <p data-id="comic_desc7">Saya melakukan redrawing, mengatur ukuran teks, mengatur font yang sesuai standar, membuat sfx, membuat balon teks dan mengatur balon teks.</p>
-          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/Totus_%EC%8B%9D%EC%9E%90-%ED%8F%AC%ED%86%A0%EC%83%B5_EN__%ED%85%8C%EC%8A%A4%ED%8A%B8_002_lxyifd" alt="Webtoon">
-          <p data-id="comic_desc8">Saya mengatur ukuran teks, mengatur font yang sesuai standar, membuat sfx, membuat balon teks, mengatur balon teks, dan tipografi.</p>
-          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/Totus_%EC%8B%9D%EC%9E%90-%ED%8F%AC%ED%86%A0%EC%83%B5_EN__%ED%85%8C%EC%8A%A4%ED%8A%B8_003_ijijes" alt="Webtoon 2">
-          <p data-id="comic_desc9">Saya mengatur ukuran teks, mengatur font yang sesuai standar, membuat sfx, membuat balon teks, mengatur balon teks, dan tipografi.</p>
-          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/Totus_%EC%8B%9D%EC%9E%90-%ED%8F%AC%ED%86%A0%EC%83%B5_EN__%ED%85%8C%EC%8A%A4%ED%8A%B8_004_ksaiip.jpg" alt="Webtoon 3">
-        </div>
-      </div>
-    </section>
-
-    <!-- Video Section -->
-    <section id="video" class="videos">
-      <h2 data-id="title_video">Video Portofolio</h2>
-      <div class="videos-grid">
-        <div class="video-card">
-          <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/NkKLAHnLGaY" allowfullscreen loading="lazy"></iframe>
-          </div>
-          <h3 data-id="video_title1">Timelapse Komik Hitam Putih</h3>
-          <p data-id="video_desc1">Proses pengeditan komik hitam putih dari atur font, hingga SFX.</p>
-        </div>
-        <div class="video-card">
-          <div class="video-container">
-            <video controls preload="metadata" loading="lazy">
-              <source src="https://res.cloudinary.com/dd6ytqdim/video/upload/timelapse_comic_color.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-          <h3 data-id="video_title2">Timelapse Komik Berwarna</h3>
-          <p data-id="video_desc2">Proses pengeditan komik berwarna dari atur font, hingga SFX.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Statistik Section -->
-    <section id="statistik">
-      <h2 data-id="stats_title">Statistik</h2>
-      <div class="stats">
-        <div class="stat">
-          <h3>1000+</h3>
-          <p data-id="stat1">Episode Komik</p>
-        </div>
-        <div class="stat">
-          <h3>0</h3>
-          <p data-id="stat2">Proyek Aktif</p>
-        </div>
-        <div class="stat">
-          <h3 data-id="stat4">3+ Tahun</h3>
-          <p data-id="stat3">Aktif Selama</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="bukti-foto" class="photo-proof-section">
-      <h2 data-id="photo_title">Galeri</h2>
-      <div class="photo-grid">
-        <div class="photo-card">
-          <h3 data-id>Kunjungan Industri ke PT Michelin Indonesia</h3>
-          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/q_auto,w_800/WhatsApp_Image_2025-04-29_at_15.23.27_codqwy" alt="Kunjungan ke Michelin Company" loading="lazy">
-          <p data-id="photo_desc1">Mengikuti kunjungan ke PT Michelin Indonesia untuk mempelajari proses produksi ban dari awal hingga siap digunakan. Memahami tahapan kerja sebagai operator produksi, mulai dari pencampuran bahan baku, pembentukan komponen, perakitan ban, proses vulkanisasi, hingga quality control. Kunjungan ini memberikan wawasan langsung tentang standar kerja, keselamatan, dan kualitas di industri manufaktur ban.</p>
-        </div>
-        <div class="photo-card">
-          <h3 data-id>Kunjungan Industri ke Thales Indonesia</h3>
-          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/q_auto,w_800/WhatsApp_Image_2025-02-15_at_09.38.29_rjuzum" alt="Kunjungan ke Thales Company" loading="lazy">
-          <p data-id="photo_desc2">Mengikuti kunjungan ke Thales Indonesia untuk mempelajari latar belakang perusahaan global di bidang teknologi pertahanan, transportasi, dan keamanan. Dalam kunjungan ini, saya memahami berbagai job description di Thales, terutama di bidang teknik dan teknologi. Selain itu, saya juga mendapatkan pelatihan tentang cara membuat akun LinkedIn yang profesional serta tips dan teknik dalam menghadapi interview kerja. Kegiatan ini sangat bermanfaat dalam mempersiapkan diri menghadapi dunia kerja secara lebih matang dan profesional.</p>
-        </div>
-        <div class="photo-card">
-          <h3 data-id>Kunjungan Industri ke ID Logistics Indonesia</h3>
-          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/q_auto,w_800/52d8cd93-be9b-42a9-b289-0b7e18062392_v5koua" alt="Kunjungan ke IDL Logistik" loading="lazy">
-          <p data-id="photo_desc3">Melakukan kunjungan ke ID Logistics Indonesia untuk mempelajari alur kerja dan sistem operasional di gudang logistik. Dalam kunjungan ini, saya mempelajari tugas dan tanggung jawab pekerja gudang, mulai dari proses penerimaan barang, penyimpanan barang sesuai kategori, penempatan barang di rak, hingga pengelolaan area khusus untuk barang yang memerlukan suhu dingin (cold storage). Kunjungan ini memberikan wawasan praktis tentang pentingnya ketelitian, efisiensi, dan pengelolaan ruang dalam sistem logistik modern.</p>
-        </div>
-        <div class="photo-card">
-          <h3 data-id>Kunjungan Karyawan Decathlon ke LP4Y Jakarta</h3>
-          <div class="video-wrapper">
-            <video controls preload="metadata" loading="lazy">
-              <source src="https://res.cloudinary.com/dd6ytqdim/video/upload/ac_aac,br_10000k,vc_h264/v1751617726/IMG_2425_bypgjw.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-          <p data-id>Pada kesempatan ini, karyawan dari Decathlon datang ke LP4Y Jakarta untuk memberikan penjelasan lebih mendalam mengenai perusahaan Decathlon, salah satu merek ritel olahraga terbesar di dunia. Dalam sesi ini, kami mempelajari latar belakang perusahaan, budaya kerja, produk-produk unggulan, serta peluang karier yang tersedia. Selain itu, mereka juga menjelaskan proses kerja di toko dan gudang Decathlon, termasuk bagaimana mereka mengutamakan pelayanan pelanggan, efisiensi kerja tim, dan inovasi dalam dunia ritel olahraga. Kegiatan ini memberikan wawasan baru tentang dunia kerja di industri ritel modern.</p>
-          <p data-id>Pada kegiatan ini, saya juga bertanggung jawab dalam melakukan dokumentasi acara, baik melalui foto maupun video, untuk keperluan laporan dan arsip kegiatan LP4Y Jakarta.</p>
-        </div>
-        <div class="photo-card">
-          <h3 data-id>Kegiatan Community Day bersama Servier</h3>
-          <img src="https://res.cloudinary.com/dd6ytqdim/image/upload/c_crop,h_600,w_1040/WhatsApp_Image_2025-05-22_at_12.59.35_fmtc0i" alt="Kegiatan Servier Community Day" loading="lazy">
-          <p data-id="photo_desc3">Melakukan kegiatan dalam pengecekan kesehatan untuk warga sekitar yang dilakukan oleh Servier dan LP4Y. Saya bertanggung jawab dalam melakukan pengecekan data yang hadir dan tidak hadir serta berkoordinasi dengan RT sekitar untuk memberitahukan kepada warga kegiatan tersebut.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Kontak Section -->
-    <section id="kontak" class="contact">
-      <h2 data-id="title_contact">Kontak</h2>
-      <div class="contact-card">
-        <div class="contact-info">
-          <i class="fab fa-linkedin"></i>
-          <a href="https://www.linkedin.com/in/hendra-cipta/" target="_blank" data-id="linkedin_text">LinkedIn</a>
-        </div>
-        <div class="contact-info">
-          <i class="fab fa-whatsapp"></i>
-          <a href="https://wa.me/6289501261058" target="_blank" data-id="whatsapp_text">WhatsApp</a>
-        </div>
-        <div class="contact-info">
-          <i class="fas fa-envelope"></i>
-          <a href="mailto:hendra.cipta@lp4y.org" data-id="email_text">Email</a>
-        </div>
-        <div class="contact-info">
-          <i class="fab fa-github"></i>
-          <a href="https://github.com/dragonwira" target="_blank" data-id="github_text">GitHub</a>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- Footer -->
   <footer>
     <div class="footer-logo">
       <i class="fas fa-dragon"></i>
     </div>
-    <p class="footer-text" data-id="footer_text">Menciptakan karya visual yang memukau dengan sentuhan profesional dan kreativitas tanpa batas</p>
+
     <p class="copyright">&copy; 2025 DragonWira Studio. All rights reserved.</p>
   </footer>
   
