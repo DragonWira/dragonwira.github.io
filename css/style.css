@@ -166,7 +166,7 @@ body {
 /* =============== MAIN CONTENT =============== */
 .main-content {
   background: var(--primary);
-  padding-top: 0px !important;
+  padding-top: 0px;
   opacity: 1;
   display: block;
 }
@@ -177,7 +177,7 @@ body {
 }
 
 section {
-  padding: 40px 16px !important;
+  padding: 40px 16px;
   max-width: 1200px;
   margin: 0 auto;
   min-height: 100vh;
