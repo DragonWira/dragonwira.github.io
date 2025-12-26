@@ -907,3 +907,13 @@ body {
 body.page-exit {
   opacity: 0;
 }
+
+@media (max-width: 768px) {
+  :root {
+    --mobile-menu-offset: 72px;
+  }
+
+  main {
+    padding-top: var(--mobile-menu-offset);
+  }
+}
