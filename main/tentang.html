@@ -9,6 +9,9 @@
   <link rel="stylesheet" href="../css/style.css" />
   </head> 
 <body>
+  <button id="menuToggle" class="menu-toggle">
+    <i class="fas fa-bars"></i>
+  </button>
   
    <div class="language-switch">
     <button onclick="setLang('id')">🇮🇩</button>
@@ -16,7 +19,7 @@
     <button onclick="setLang('jp')">🇯🇵</button>
    </div>
 
-  <nav id="mainNav" style="background: #151525; transform: translateY(0);"> <a href="../index.html" data-id>Beranda</a>
+  <nav id="floatingMenu" style="background: #151525; transform: translateY(0);"> <a href="../index.html" data-id>Beranda</a>
     <a href="tentang.html" data-id="nav_intro" class="active">Tentang</a> 
     <a href="riwayat.html" data-id="nav_timeline">Riwayat</a>
     <a href="skill.html" data-id="nav_skill">Skill</a>
@@ -28,8 +31,7 @@
     <a href="kontak.html" data-id="nav_contact">Kontak</a>
   </nav>
 
-  <div class="main-content" id="mainContent" style="padding-top: 100px; opacity: 1; transform: none;">
-    
+  <div class="main-content" id="mainContent">
     <section id="tentang">
       <h2 data-id="intro_title">Tentang Saya</h2>
       <div class="intro-content">

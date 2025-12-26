@@ -127,60 +127,48 @@ body {
   100% { top: 8px; opacity: 1; }
 }
 
-/* =============== NAVIGATION =============== */
-nav {
+/* === FLOATING MENU ONLY === */
+#floatingMenu {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+  top: 20px;
+  left: 72px;
+  width: 260px;
+  background: #181c27;
+  border-radius: 16px;
+  padding: 16px; 
   display: flex;
-  justify-content: center;
-  background: rgba(21, 21, 37, 0.95);
-  padding: 15px 0;
-  z-index: 1000;
-  transform: translateY(-100%);
-  transition: transform 0.5s ease, background 0.3s ease;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  flex-direction: column;
+  gap: 10px;
+
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+
+  opacity: 0;
+  transform: translateX(-12px) scale(0.96);
+  pointer-events: none;
+
+  transition: all 0.25s ease;
+  z-index: 3000;
 }
 
-nav.visible {
-  transform: translateY(0);
+#floatingMenu.active {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  pointer-events: auto;
 }
 
-nav.scrolled {
-  background: rgba(30, 30, 47, 0.98);
-}
-
-nav a {
-  color: var(--light);
+#floatingMenu a {
+  padding: 12px;
+  border-radius: 10px;
+  color: #ffffff;
   text-decoration: none;
-  font-weight: 500;
-  padding: 8px 20px;
-  margin: 0 5px;
-  border-radius: 30px;
-  transition: all 0.3s ease;
-  font-size: 1rem;
-}
-
-nav a:hover {
-  color: var(--accent);
-  background: rgba(255, 255, 255, 0.1);
-}
-
-nav a.active {
-  background: rgba(0, 188, 212, 0.2);
-  color: var(--accent);
 }
 
 /* =============== MAIN CONTENT =============== */
 .main-content {
   background: var(--primary);
-  padding-top: 100px;
+  padding-top: 0px !important;
   opacity: 1;
   display: block;
-  visibility: visible;
-  transform: translateY(50px);
-  transition: all 1.2s ease;
 }
 
 .main-content.visible {
@@ -189,7 +177,7 @@ nav a.active {
 }
 
 section {
-  padding: 100px 20px;
+  padding: 40px 16px !important;
   max-width: 1200px;
   margin: 0 auto;
   min-height: 100vh;
@@ -843,51 +831,79 @@ section {
   transition: opacity 0.3s ease;
 }
 
-/* 1. Perbaikan Tampilan Navigasi di Halaman Sub-Menu */
-/* Jika di dalam folder main, kita paksa navbar jadi solid */
-body:not(.home-page) nav {
-  background-color: #212529 !important; /* Warna Gelap Solid */
-  transform: translateY(0) !important;  /* Paksa Muncul */
-  opacity: 1 !important;
-  visibility: visible !important;
+/* ================= FLOATING MENU ================= */
+
+.menu-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  z-index: 4000;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  color: rgb(255, 255, 255);
+  background: #151525;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* 2. Menurunkan Konten agar tidak tertutup Navigasi */
-body:not(.home-page) .main-content {
-  padding-top: 140px !important; /* Jarak aman dari atas */
-  min-height: 100vh; /* Agar footer tetap di bawah meski konten sedikit */
-  opacity: 1 !important;
-  transform: none !important;
+/* posisi awal menu (SEBELAH KANAN tombol) */
+.floating-menu {
+  position: fixed;
+  top: 20px;
+  left: 70px;
+  background: rgba(30, 30, 47, 0.98);
+  border-radius: 14px;
+  padding: 15px 20px;
+  min-width: 200px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+  z-index: 1099;
+
+  /* animasi */
+  opacity: 0;
+  transform: translateX(-10px) scale(0.96);
+  pointer-events: none;
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* 3. Sembunyikan elemen yang tidak perlu di sub-halaman */
-body:not(.home-page) .scroll-indicator {
-  display: none;
+/* kondisi aktif */
+.floating-menu.active {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  pointer-events: auto;
 }
 
-/* =========================================
-   FIX POSISI JUDUL (RESET PADDING)
-   Paste di baris paling akhir style.css
-========================================= */
-
-/* 1. Hapus jarak atas bawaan section di halaman sub-menu */
-body:not(.home-page) section {
-  padding-top: 0 !important; /* Paksa jadi 0 */
-  padding-bottom: 40px !important; /* Jarak bawah secukupnya */
-  min-height: auto !important; /* Hapus paksaan tinggi layar penuh */
+/* link menu */
+.floating-menu a {
+  display: block;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  padding: 10px 0;
+  font-weight: 500;
+  transition: color 0.25s ease, transform 0.25s ease;
 }
 
-/* 2. Pastikan container utama yang mengatur jaraknya */
-body:not(.home-page) .main-content {
-  /* Jarak ini saja yang dipakai (jarak aman dari navbar) */
-  /* Coba sesuaikan angka ini: 100px, 110px, atau 120px sampai pas */
-  padding-top: 110px !important; 
+.floating-menu {
+  backdrop-filter: blur(10px);
 }
 
-/* 3. Pastikan Judul H2 Rata Kiri & Rapi */
-body:not(.home-page) h2 {
-  text-align: left; /* Paksa rata kiri */
-  margin-top: 0 !important; /* Hapus margin atas jika ada */
-  margin-left: 0;
-  width: 100%;
+.floating-menu a:hover {
+  color: var(--accent);
+  transform: translateX(5px);
+}
+
+/* ================= PAGE TRANSITION ================= */
+body {
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+body.page-exit {
+  opacity: 0;
 }

@@ -9,13 +9,17 @@
   <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
+  <button id="menuToggle" class="menu-toggle">
+    <i class="fas fa-bars"></i>
+  </button>
+
    <div class="language-switch">
     <button onclick="setLang('id')">🇮🇩</button>
     <button onclick="setLang('en')">🇬🇧</button>
     <button onclick="setLang('jp')">🇯🇵</button>
    </div>
 
-  <nav id="mainNav" style="background-color: #212529; position: fixed; top: 0; width: 100%; z-index: 1000; padding: 15px 0;">
+  <nav id="floatingMenu">
     <a href="../index.html" data-id>Beranda</a>
     <a href="tentang.html" data-id>Tentang</a>
     <a href="riwayat.html" data-id>Riwayat</a>
@@ -28,7 +32,7 @@
     <a href="kontak.html" data-id>Kontak</a>
   </nav>
 
-  <div class="main-content" id="mainContent" style="padding-top: 120px; min-height: 80vh;">
+  <div class="main-content" id="mainContent">
     <section id="skill" class="skills">
       <h2 data-id="title_skill">Skill yang Dikuasai</h2>
       <div class="skills-grid">

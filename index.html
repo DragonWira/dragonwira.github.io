@@ -18,14 +18,17 @@
 </head>
 
 <body class="home-page">
-  
+  <button id="menuToggle" class="menu-toggle">
+    <i class="fas fa-bars"></i>
+  </button>
+
    <div class="language-switch">
     <button onclick="setLang('id')" aria-label="Ubah ke bahasa Indonesia">🇮🇩</button>
     <button onclick="setLang('en')" aria-label="Switch to English">🇬🇧</button>
     <button onclick="setLang('jp')" aria-label="日本語に切り替え">🇯🇵</button>
    </div>
 
-  <nav id="mainNav">
+  <nav id="floatingMenu">
     <a href="index.html" class="active">Beranda</a>
     <a href="main/tentang.html">Tentang</a>
     <a href="main/riwayat.html">Riwayat</a>
