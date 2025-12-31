@@ -18,9 +18,9 @@ Designed a logo for a charity event held at an orphanage.
 Educational Carousel
 A personal initiative project featuring editorial visuals on Instagram to address recurring issues.
 Action Comic
-Adjusted text size outside the dialogue balloon, also known as thought balloon.
-Adjusted text size outside the dialogue balloon, also known as thought balloon.
-Adjusted text size outside the dialogue balloon, also known as thought balloon.
+Adjusted text size outside the dialogue balloon, also known as the thought bubble.
+Adjusted text size outside the dialogue balloon.
+Adjusted text size outside the dialogue balloon.
 Relaxed Comic
 Adjusted text outside dialogue balloon, within the balloon, and added SFX.
 Adjusted text size inside and outside the dialogue balloon.
@@ -28,6 +28,6 @@ Adjusted overlapping texts, arranged fonts for better readability.
 Colored Comic or Webtoon
 Redrawing, adjusting font sizes, adding standard-compliant text and speech bubbles, and designing SFX.
 Text and font adjustments, SFX creation, bubble layout and typography setup.
-
 Text and font adjustments, SFX creation, bubble layout and typography setup.
+
 
